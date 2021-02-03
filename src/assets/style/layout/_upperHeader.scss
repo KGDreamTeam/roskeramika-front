@@ -1,3 +1,36 @@
 .upper-header{
+	padding: 0 128px;
+	height: 48px;
+	background-color: #393939;
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.design{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $btn-yello;
+		border-radius: 2px;
+		height: 32px;
+		width: 230px;
+		padding: 0 7px;
+	}
+	.basket{
+		color: white;
+		display: flex;
+		align-items: center;
+	}
+	.search{
+		.search-input{
+			border-radius: 2px 0 0 2px;
+			padding: 8px 23px;
+			border: none;
+		}
+		.btn-search{
+			background-color: $btn-yello;
+			border: none;
+			padding: 8px 23px;
+			border-radius: 0 2px 2px 0;
+		}
+	}
 }
