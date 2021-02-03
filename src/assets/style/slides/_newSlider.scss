@@ -1,10 +1,29 @@
-.container{
-	width: 86%;
-	margin: 0 auto;
-	.new-slider{
-		.slick-arrow{
-			background-color: black;
-			border-radius: 2px;
+.news-slider-main{
+	background-color: #F6F6FB;
+	.container{
+		width: 86%;
+		margin: 0 auto;
+		.title{
+			color: $nav-color;
+			font-size: 28px;
+			font-weight: 700;
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 16px;
+			text-align: center;
+		}
+		.sub-title{
+			color: $nav-color;
+			font-size: 20px;
+			text-align: center;
+			margin-bottom: 34px;
+			margin-top: 0;
+		}
+		.new-slider{
+			.slick-arrow{
+				background-color: black;
+				border-radius: 2px;
+			}
 		}
 	}
 }

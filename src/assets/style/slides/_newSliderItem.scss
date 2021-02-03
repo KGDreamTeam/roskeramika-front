@@ -1,0 +1,46 @@
+@import '../templates';
+
+.new-slider-item{
+	width: 315px;
+	position: relative;
+	.burn-price{
+		position: absolute;
+		border-radius: 50%;
+	}
+	.content{
+		.image-wrapper{
+			margin-bottom: 11px;
+		}
+		.name-wrapper{
+			@include spaceBetween;
+			margin-bottom: 16px;
+			.name{
+				font-size: 20px;
+				font-weight: 700;
+				color: $nav-color;
+			}
+			.to-basket{
+				background-color: $btn-yello;
+				padding: 7px 10px;
+				@include alignCenter;
+				border-radius: 2px;
+				.basket-mini{
+					margin-right: 7px;
+				}
+			}
+		}
+		.price-wrapper{
+			@include spaceBetween;
+			.price-pr{
+				color: $grey-color;
+				font-size: 15px;
+			}
+			.price{
+				font-size: 15px;
+				color: $nav-color;
+				line-height: 24px;
+				font-weight: 700;
+			}
+		}
+	}
+}
