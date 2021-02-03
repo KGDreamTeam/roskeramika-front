@@ -11,12 +11,13 @@ const reducer = (state = initialState, action) => {
 				...state,
 				items: [
 					...state.items,
-					payload
+					action.payload
 				]
 			}
 
 		default:
 			return state
-			
 	}
 }
+
+export default reducer

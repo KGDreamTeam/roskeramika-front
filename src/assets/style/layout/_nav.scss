@@ -19,11 +19,25 @@
 				position: relative;
 				display: inline-block;
 				width: max-content;
+				&:hover{
+					cursor: pointer;
+				}
+				.item{
+					.arr{
+						margin-left: 10px;
+					}
+				}
 				.sub-item{
 					position: absolute;
-					background-color: green;
+					font-weight: normal;
 					padding: 7px 20px;
 					width: max-content;
+					border: 1px solid #E3E4EE;
+					background-color: white;
+					&:hover{
+						text-decoration: underline;
+						text-decoration-color: $btn-yello;
+					}
 				}
 			}
 		}
@@ -33,6 +47,9 @@
 				@include alignCenter;
 				padding: 10px 23px;
 				border-radius: 2px;
+				.wats-icon{
+					margin-right: 7px;
+				}
 			}
 		}
 	}

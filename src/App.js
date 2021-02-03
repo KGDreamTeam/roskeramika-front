@@ -6,8 +6,8 @@ import Home from './components/pages/Home'
 function App() {
   return (
     <div className="App">
-			<Header />
 			<BrowserRouter>
+				<Header />
 				<Switch>
 					<Route path='/' component={Home} exact />
 				</Switch>
