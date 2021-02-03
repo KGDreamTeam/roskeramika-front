@@ -14,7 +14,7 @@ const NewSliderItem = (props) => {
 			}
 			<div className='content'>
 				<div className='image-wrapper'>
-					<img src={props.img} />
+					<img src={props.img} alt='imageFrom props' />
 				</div>
 				<div className='name-wrapper'>
 					<div className='name'>{props.name}</div>

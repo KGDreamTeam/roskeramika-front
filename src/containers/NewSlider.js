@@ -5,12 +5,12 @@ import NewSliderItem from '../components/slide/NewSliderItem'
 import slideImg from '../assets/img/slideItem.svg'
 
 const NewSlider = () => {
-	const [items, setItems] = useState([
-		{name: 'Solar', price: 300.90}, 
-		{name: 'Solar', price: 30.90}, 
-		{name: 'Solar', price: 730.90}, 
-		{name: 'Solar', price: 100.90}, 
-		{name: 'Solar', price: 400.90}
+	const [items] = useState([
+		{id: 1, name: 'Solar', price: 300.90}, 
+		{id: 2, name: 'Solar', price: 30.90}, 
+		{id: 3, name: 'Solar', price: 730.90}, 
+		{id: 4, name: 'Solar', price: 100.90}, 
+		{id: 5, name: 'Solar', price: 400.90}
 	])
 
 	var settings = {
@@ -31,6 +31,7 @@ const NewSlider = () => {
 					{
 						items.map(item => (
 							<NewSliderItem 
+								key={item.id}
 								img={slideImg}
 								name={item.name}
 								price={item.price}
