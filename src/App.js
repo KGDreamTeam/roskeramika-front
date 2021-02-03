@@ -1,11 +1,12 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import UpperHeader from "./components/layout/UpperHeader"
+
+import Header from "./components/layout/Header"
 import Home from './components/pages/Home'
 
 function App() {
   return (
     <div className="App">
-			<UpperHeader />
+			<Header />
 			<BrowserRouter>
 				<Switch>
 					<Route path='/' component={Home} exact />
