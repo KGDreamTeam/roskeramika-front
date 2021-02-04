@@ -10,7 +10,7 @@ const SalesSliderItem = (props) => {
 		const doublePrice = props.price - ((props.price / 100) * props.sales)
 
 		setPrice(Math.round(doublePrice))
-	}, [])
+	}, [props.price, props.sales])
 
 	return(
 		<div className='sales-slider-item'>
