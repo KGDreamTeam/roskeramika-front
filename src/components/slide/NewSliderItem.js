@@ -25,7 +25,7 @@ const NewSliderItem = (props) => {
 				</div>
 				<div className='price-wrapper'>
 					<div className='price-pr'>Цена:</div>
-					<div className='price'>{props.price}</div>
+					<div className='price'>{props.price} C</div>
 				</div>
 			</div>
 		</div>

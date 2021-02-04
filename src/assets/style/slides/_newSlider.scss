@@ -1,23 +1,16 @@
+@import '../templates';
+
 .news-slider-main{
 	background-color: #F6F6FB;
 	.container{
 		width: 86%;
 		margin: 0 auto;
+		padding: 44px 0;
 		.title{
-			color: $nav-color;
-			font-size: 28px;
-			font-weight: 700;
-			padding: 0;
-			margin-top: 0;
-			margin-bottom: 16px;
-			text-align: center;
+			@include titleTemplate;
 		}
 		.sub-title{
-			color: $nav-color;
-			font-size: 20px;
-			text-align: center;
-			margin-bottom: 34px;
-			margin-top: 0;
+			@include subTitleTemplate;
 		}
 		.new-slider{
 			.slick-arrow{

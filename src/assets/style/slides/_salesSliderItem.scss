@@ -1,0 +1,118 @@
+@import '../templates';
+
+.sales-slider-item {
+  width: 315px;
+  position: relative;
+  margin: 0 auto;
+  .sales-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72px;
+    height: 72px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: $sales-back;
+    .sales-procent {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .p {
+      color: white;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  .content {
+    .image-wrapper {
+      margin-bottom: 11px;
+      position: relative;
+      .sales-image {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .name-wrapper {
+        margin-bottom: 16px;
+        .name {
+          z-index: 10;
+          color: white;
+          position: absolute;
+          left: 16px;
+          bottom: 16px;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        .to-basket {
+          position: absolute;
+          z-index: 10;
+          right: 16px;
+          bottom: 16px;
+          background-color: $btn-yello;
+          padding: 7px 10px;
+          @include alignCenter;
+          border-radius: 2px;
+          .basket-mini {
+            margin-right: 7px;
+          }
+        }
+      }
+      .fade {
+        z-index: 8;
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        transform: rotate(-180deg);
+      }
+    }
+    .price-wrapper {
+      .before-sales{
+        width: 100%;
+        @include spaceBetween;
+				position: relative;
+        .price-pr {
+          color: $grey-color;
+          font-size: 15px;
+        }
+        .price {
+          font-size: 15px;
+					color: #86879A;
+          line-height: 24px;
+          font-weight: 700;
+        }
+				.red-line{
+					position: absolute;
+					width: 100px;
+					height: 1px;
+					background-color: red;
+					top: 14px;
+					right: 0;
+					transform: rotate(-8deg);
+				}
+      }
+      .after-sales {
+				width: 100%;
+				@include spaceBetween;
+        .price-p {
+          color: $grey-color;
+          font-size: 15px;
+        }
+        .price-with-sales {
+          font-size: 15px;
+          color: $nav-color;
+          line-height: 24px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
