@@ -9,3 +9,10 @@ export const handleGetAllKategori = () => dispatch => {
 			console.log(err)
 		})
 }
+
+export const pushCategoi = (payload) => {
+	return{
+		type: PUSH_KATEGORI,
+		payload
+	}
+}
