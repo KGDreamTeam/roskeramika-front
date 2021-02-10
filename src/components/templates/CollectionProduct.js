@@ -58,7 +58,7 @@ const CollectionProduct = (props) => {
 					<div className='price-text'>Цена:</div>
 					<div className='price'>{price}<span className='som'>Сом</span></div>
 				</div>
-				<button className='btn-offer' onClick={offerHandler}>оформить заказ</button>
+				<button className='btn-offer' onClick={offerHandler} disabled={quantity <= 0 ? true : false}>оформить заказ</button>
 			</div>
 		</div>
 	)

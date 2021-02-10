@@ -207,8 +207,13 @@
 						top: 1009px;
 						background: #393939;
 						border-radius: 2px;
+						border: none;
 						color: white;
 						margin-top: 18px;
+						&:disabled{
+							background-color: #EEEFF0;
+							color: #86879A;
+						}
 					}
 				}
 			}
