@@ -66,6 +66,7 @@
 		}
 	}
 	.search{
+		position: relative;
 		.search-input{
 			border-radius: 2px 0 0 2px;
 			padding: 8px 23px;
@@ -76,6 +77,12 @@
 			border: none;
 			padding: 8px 23px;
 			border-radius: 0 2px 2px 0;
+		}
+		.searched-items{
+			position: absolute;
+			top: 40px;
+			width: 100%;
+			height: 20px;
 		}
 	}
 }
