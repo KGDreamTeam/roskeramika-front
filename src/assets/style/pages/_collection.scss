@@ -1,3 +1,40 @@
+@import '../templates';
+
 .collection{
-	
+	background-color: #E5E5E5;
+	.collection-info{
+		width: 86%;
+		margin: 0 auto;
+		.collection-name{
+			color: $nav-color;
+		}
+		.content{
+			@include spaceBetween;
+			.photo-wrapper{
+				width: 47%;
+				.photo{
+					width: 100%;
+				}
+			}
+			.all-info-wrapper{
+				width: 47%;
+				.price-wrapper{
+					@include spaceBetween;
+					.price-text{
+						font-size: 15px;
+					}
+					.price{
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+	.collection-products{
+		width: 86%;
+		margin: 0 auto;
+		.collection-product{
+
+		}
+	}
 }
