@@ -1,10 +1,12 @@
 @import '../templates';
 
 .collection{
-	background-color: #E5E5E5;
+	background-color: #F9F9F9;
 	.collection-info{
 		width: 86%;
 		margin: 0 auto;
+		padding-bottom: 63px;
+		border-bottom: 1px solid #EEEEF4;
 		.collection-name{
 			color: $nav-color;
 		}
@@ -18,8 +20,10 @@
 			}
 			.all-info-wrapper{
 				width: 47%;
+				font-size: 15px;
 				.price-wrapper{
 					@include spaceBetween;
+					margin-bottom: 26px;
 					.price-text{
 						font-size: 15px;
 					}
@@ -27,14 +31,78 @@
 						font-weight: bold;
 					}
 				}
+				.monufacturer-wrapper{
+					@include spaceBetween;
+					margin-bottom: 16px;
+					.manufacturer-text{
+						color: $grey-color;
+					}
+					.manufacturer{
+						color: $nav-color;
+					}
+				}
+				.size-wrapper{
+					@include spaceBetween;
+					margin-bottom: 16px;
+					.size-text{
+						color: $grey-color;
+					}
+					.size{
+						color: $nav-color;
+					}
+				}
+				.surface-wrapper{
+					@include spaceBetween;
+					margin-bottom: 16px;
+					.surface-text{
+						color: $grey-color;
+					}
+					.surface{
+						color: $nav-color;
+					}
+				}
+				.style-wrapper{
+					@include spaceBetween;
+					margin-bottom: 16px;
+					.style-text{
+						color: $grey-color;
+					}
+					.style{
+						color: $nav-color;
+					}
+				}
+				.dots{
+					margin-top: 16px;
+					margin-bottom: 24px;
+					border: 1px dashed #B8B8C4;
+				}
+				.post-wrapper{
+					@include spaceBetween;
+					.post{
+						color: $nav-color;
+						@include alignCenter;
+					}
+					.collection-is-true{
+						@include alignCenter;
+						.green-circle{
+							width: 19px;
+							height: 19px;
+							margin-right: 5px;
+						}
+						.dostupno{
+							font-weight: bold;
+							font-size: 15px;
+						}
+					}
+				}
 			}
 		}
 	}
 	.collection-products{
 		width: 86%;
-		margin: 0 auto;
+		margin: 40px auto 0 auto;
 		.collection-product{
-
+			
 		}
 	}
 }

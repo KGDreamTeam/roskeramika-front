@@ -1,5 +1,7 @@
 import React from 'react'
 
+import GreenCircle from '../../assets/img/iconfinder_circle.svg'
+
 const CollectionInfo = (props) => {
 	return(
 		<div className='collection-info'>
@@ -35,7 +37,7 @@ const CollectionInfo = (props) => {
 							Поделиться: 
 						</div>
 						<div className='collection-is-true'>
-							<div className='green-sircle'></div>
+							<img src={GreenCircle} alt='green-circle' className='green-circle' />
 							<span className='dostupno'>Коллекция доступна для заказа</span>
 						</div>
 					</div>
