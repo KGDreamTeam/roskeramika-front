@@ -29,7 +29,7 @@ const Collection = (props) => {
 				surface={collection[0].surface}
 				style={collection[0].style}
 			/>
-			<CollectionProducts collection={collection[0].name} items={[{id: 1, view: 'h', size: '2', type: 'hello'}]} />
+			<CollectionProducts collection={collection[0].name} items={[{id: 1, view: 'h', size: '2', type: 'hello'}, {id: 2, view: 'h', size: '2', type: 'hello'}]} />
 		</div>
 	)
 }

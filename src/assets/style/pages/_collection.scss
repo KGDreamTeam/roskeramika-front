@@ -95,13 +95,13 @@
 	}
 	.collection-products-wrapper{
 		width: 86%;
-		margin: 40px auto 0 auto;
+		margin: 40px auto 53px auto;
 		.collection-products{
 			display: flex;
-			flex: wrap;
+			flex-wrap: wrap;
 			.collection-product{
 				width: 47%;
-				margin-left: 26px;
+				margin-right: 26px;
 				display: flex;
 				background-color: white;
 				box-shadow: 0px 0px 10px rgba(163, 161, 161, 0.35);
