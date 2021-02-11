@@ -1,4 +1,6 @@
+import React, {useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from "react-router-dom"
+import {useDispatch} from 'react-redux'
 
 import Header from "./components/layout/Header"
 import Home from './components/pages/Home'
@@ -7,7 +9,17 @@ import Product from './components/pages/Product'
 import Basket from "./components/pages/Basket"
 import Collection from "./components/pages/Collection"
 
+import {handleGetAllKategoriActionCreator, handleGetAllSubCategoriesActionCreator} from './store/actions/kategori'
+
 function App() {
+
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(handleGetAllKategoriActionCreator())
+		dispatch(handleGetAllSubCategoriesActionCreator())
+	},[])
+
   return (
     <div className="App">
 			<BrowserRouter>

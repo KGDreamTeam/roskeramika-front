@@ -1,9 +1,21 @@
 import axios from "../../axios/axios"
+import {PUSH_CATEGORY, PUSH_SUB_CATEGORY} from "../actionTypes"
 
-export const handleGetAllKategori = () => dispatch => {
-	axios.get('/')
+
+export const handleGetAllKategoriActionCreator = () => dispatch => {
+	axios.get('/apiv1/categories/')
 		.then(res => {
-			console.log(res)
+			dispatch(pushCategoi(res.data))
+		})
+		.catch(err => {
+			console.log(err)
+		})
+}
+
+export const handleGetAllSubCategoriesActionCreator = () => dispatch => {
+	axios.get('/apiv1/subcategories/')
+		.then(res => {
+			dispatch(pushSubCategories(res.data))
 		})
 		.catch(err => {
 			console.log(err)
@@ -12,7 +24,14 @@ export const handleGetAllKategori = () => dispatch => {
 
 export const pushCategoi = (payload) => {
 	return{
-		type: PUSH_KATEGORI,
+		type: PUSH_CATEGORY,
+		payload
+	}
+}
+
+export const pushSubCategories = (payload) => {
+	return{
+		type: PUSH_SUB_CATEGORY,
 		payload
 	}
 }
