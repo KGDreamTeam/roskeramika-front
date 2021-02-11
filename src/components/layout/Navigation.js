@@ -1,71 +1,43 @@
-import React, {useState} from 'react'
+import React from 'react'
+import {useSelector} from 'react-redux'
 
 import wats from '../../assets/img/wats.svg'
-import downArr from '../../assets/img/downArr.svg'
 import upArr from '../../assets/img/upArr.svg'
+import {NavLink} from 'react-router-dom'
 
 const Navigation = () => {
-	const [kerSubMenu, setKerSubMenu] = useState(false)
-	const [proizSubMenu, setProizSubMenu] = useState(false)
-	const [teplSubMenu, setTeplSubMenu] = useState(false)
+
+	const {subCategories, categories} = useSelector(state => ({
+		subCategories: state.kategori.subCategories,
+		categories: state.kategori.categories
+	}))
 
 	return(
 		<div className='nav'>
 			<div className='container'>
 				<div className='left'>
-					<div className='nav-wrapper'>
-						<div 
-							className='item' 
-							onClick={() => setKerSubMenu(!kerSubMenu)}
-						>
-							Керамическая плитка
-						{
-							kerSubMenu ? <img src={upArr} alt='arr' className='arr' /> : <img src={downArr} alt='arr' className='arr' />
-						}
-						</div>
-
-						{
-							kerSubMenu ? (
-							<div className='sub-item'>hello world</div>
-						) : null}
-					</div>
-
-					<div className='nav-wrapper'>
-						<div 
-							className='item' 
-							onClick={() => setProizSubMenu(!proizSubMenu)}
-						>
-							Производители
-						{
-							proizSubMenu ? <img src={upArr} alt='arr' className='arr' /> : <img src={downArr} alt='arr' className='arr' />
-						}
-						</div>
-
-						{
-							proizSubMenu ? (
-							<div className='sub-item'>hello world</div>
-						) : null}
-					</div>
-
-					<div className='nav-wrapper'>
-						<div 
-							className='item' 
-							onClick={() => setTeplSubMenu(!teplSubMenu)}
-						>
-							Теплый пол и ламинат
-						{
-							teplSubMenu ? <img src={upArr} alt='arr' className='arr' /> : <img src={downArr} alt='arr' className='arr' />
-						}
-						</div>
-
-						{
-							teplSubMenu ? (
-							<div className='sub-item'>hello world</div>
-						) : null}
-					</div>
-					<div className='nav-wrapper'>
-						<div className='item'>Оплата и доставка</div>
-					</div>
+					{
+						categories && categories.map(item => (
+							<div className='item'>
+								{item.name}
+								<div className='sub-item-wrapper'>
+									{
+										subCategories && subCategories.map(sub => {
+											if(sub.category === item.id){
+												return(
+													<div className='sub-item'>
+														{sub.name}
+													</div>
+												)
+											}
+										})
+									}
+								</div>
+								<img src={upArr} alt='arr' className='arr' />
+							</div>
+						))
+					}
+					<NavLink to='/about' className='item-link'>О нас</NavLink>
 				</div>
 				<div className='right'>
 					<div className='watsapp'>
