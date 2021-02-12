@@ -16,8 +16,11 @@
 			width: 65%;
 			.item{
 				position: relative;
+				color: $nav-color;
+				text-decoration: none;
 				&:hover .sub-item-wrapper{
-					display: block;
+					display: flex;
+					flex-direction: column;
 				}
 				&:hover .arr{
 					transform: rotate(180deg);
@@ -35,6 +38,8 @@
 				width: max-content;
 				.sub-item{
 					font-weight: normal;
+					text-decoration: none;
+					color: $nav-color;
 					padding: 7px 20px;
 					height: 100%;
 					border: 1px solid #E3E4EE;

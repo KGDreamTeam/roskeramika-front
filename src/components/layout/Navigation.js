@@ -18,23 +18,23 @@ const Navigation = () => {
 				<div className='left'>
 					{
 						categories && categories.map(item => (
-							<div className='item'>
+							<NavLink to={`/category/${item.id}`} className='item'>
 								{item.name}
 								<div className='sub-item-wrapper'>
 									{
 										subCategories && subCategories.map(sub => {
 											if(sub.category === item.id){
 												return(
-													<div className='sub-item'>
+													<NavLink to={`/sub/${sub.id}`} className='sub-item'>
 														{sub.name}
-													</div>
+													</NavLink>
 												)
 											}
 										})
 									}
 								</div>
 								<img src={upArr} alt='arr' className='arr' />
-							</div>
+							</NavLink>
 						))
 					}
 					<NavLink to='/about' className='item-link'>О нас</NavLink>

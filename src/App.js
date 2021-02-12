@@ -8,6 +8,8 @@ import Footer from "./components/layout/Footer"
 import Product from './components/pages/Product'
 import Basket from "./components/pages/Basket"
 import Collection from "./components/pages/Collection"
+import SubCategory from './components/pages/SubCategory'
+import Category from './components/pages/Category'
 
 import {handleGetAllKategoriActionCreator, handleGetAllSubCategoriesActionCreator} from './store/actions/kategori'
 
@@ -29,6 +31,8 @@ function App() {
 					<Route path='/product/:id' component={Product} />
 					<Route path='/basket' component={Basket} />
 					<Route path='/collection/:id' component={Collection} />
+					<Route path='/sub/:id' component={SubCategory} />
+					<Route path='/category/:id' component={Category} />
 				</Switch>
 				<Footer />
 			</BrowserRouter>
