@@ -1,0 +1,23 @@
+.sub-category-page{
+	&-wrapper{
+		width: 86%;
+		margin: 0 auto;
+		.sub-title{
+			margin: 100px auto 16px auto;
+			width: max-content;
+			color: $nav-color;
+		}
+
+	}
+}
+
+.coll-mini-title{
+	width: max-content;
+	height: max-content;
+	margin: 0 auto 34px auto;
+	padding-bottom: 0;
+	font-size: 20px;
+	color: #151F37;
+	font-weight: normal;
+	border-bottom: 4px solid #FFDD00;
+}

@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 
 import wats from '../../assets/img/wats.svg'
 import upArr from '../../assets/img/upArr.svg'
-import {NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 const Navigation = () => {
 
@@ -18,23 +18,23 @@ const Navigation = () => {
 				<div className='left'>
 					{
 						categories && categories.map(item => (
-							<NavLink to={`/category/${item.id}`} className='item'>
+							<Link to={`/category/${item.id}`} key={item.id} className='item'>
 								{item.name}
 								<div className='sub-item-wrapper'>
 									{
 										subCategories && subCategories.map(sub => {
 											if(sub.category === item.id){
 												return(
-													<NavLink to={`/sub/${sub.id}`} className='sub-item'>
+													<Link to={`/sub/${sub.id}`} key={sub.id} className='sub-item'>
 														{sub.name}
-													</NavLink>
+													</Link>
 												)
 											}
 										})
 									}
 								</div>
 								<img src={upArr} alt='arr' className='arr' />
-							</NavLink>
+							</Link>
 						))
 					}
 					<NavLink to='/about' className='item-link'>О нас</NavLink>
