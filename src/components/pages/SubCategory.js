@@ -16,7 +16,7 @@ const SubCategory = (props) => {
 				setTitle(sub[i].name)
 			}
 		}
-	}, [sub])
+	}, [sub, props.match.params.id])
 
 	return(
 		<div className='sub-category-page'>
