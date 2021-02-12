@@ -10,6 +10,7 @@ import Basket from "./components/pages/Basket"
 import Collection from "./components/pages/Collection"
 import SubCategory from './components/pages/SubCategory'
 import Category from './components/pages/Category'
+import About from './components/pages/About'
 
 import {handleGetAllKategoriActionCreator, handleGetAllSubCategoriesActionCreator} from './store/actions/kategori'
 
@@ -33,6 +34,7 @@ function App() {
 					<Route path='/collection/:id' component={Collection} />
 					<Route path='/sub/:id' component={SubCategory} />
 					<Route path='/category/:id' component={Category} />
+					<Route path='/about' component={About} />
 				</Switch>
 				<Footer />
 			</BrowserRouter>
