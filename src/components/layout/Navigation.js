@@ -18,14 +18,14 @@ const Navigation = () => {
 				<div className='left'>
 					{
 						categories && categories.map(item => (
-							<Link to={`/category/${item.id}`} key={item.id} className='item'>
+							<Link to={`/category/${item.id}`} className='item'>
 								{item.name}
 								<div className='sub-item-wrapper'>
 									{
 										subCategories && subCategories.map(sub => {
 											if(sub.category === item.id){
 												return(
-													<Link to={`/sub/${sub.id}`} key={sub.id} className='sub-item'>
+													<Link to={`/sub/${sub.id}`} className='sub-item'>
 														{sub.name}
 													</Link>
 												)

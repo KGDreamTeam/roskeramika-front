@@ -1,3 +1,23 @@
 .basket-page{
-	
+	.tabs{
+		display: flex;
+		.tab-item{
+			display: flex;
+			&:hover{
+				cursor: pointer;
+			}
+			&.active{
+				background-color: yellow;
+			}
+			.basket-page-icon-tab{
+				width: 24px;
+				height: 24px;
+			}
+		}
+
+	}
+}
+
+.react-tabs__tab--selected{
+	background-color: yellow;
 }
