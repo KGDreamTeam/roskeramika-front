@@ -33,18 +33,19 @@
 }
 
 @mixin search() {
-	position: relative;
 	display: flex;
 	.search-input{
 		border-radius: 2px 0 0 2px;
 		padding: 8px 23px;
 		border: none;
+		box-sizing: border-box;
 	}
 	.btn-search{
 		background-color: $btn-yello;
 		border: none;
 		padding: 8px 23px;
 		border-radius: 0 2px 2px 0;
+		box-sizing: border-box;
 	}
 	.searched-items{
 		position: absolute;

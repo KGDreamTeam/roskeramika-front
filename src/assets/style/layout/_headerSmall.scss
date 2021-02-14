@@ -28,8 +28,10 @@
 		background-color: #393939;
 		padding: 5px 8px;
 		.search{
-			width: 100%;
 			@include search;
+			.search-input{
+				width: 210px;
+			}
 		}
 		.logos{
 			@include alignCenter;
