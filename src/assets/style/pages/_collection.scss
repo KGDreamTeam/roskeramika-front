@@ -11,7 +11,7 @@
 			color: $nav-color;
 		}
 		.content{
-			@include spaceBetween;
+			@include spaceBetween();
 			.photo-wrapper{
 				width: 47%;
 				.photo{
@@ -22,7 +22,7 @@
 				width: 47%;
 				font-size: 15px;
 				.price-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					margin-bottom: 26px;
 					.price-text{
 						font-size: 15px;
@@ -32,7 +32,7 @@
 					}
 				}
 				.monufacturer-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					margin-bottom: 16px;
 					.manufacturer-text{
 						color: $grey-color;
@@ -42,7 +42,7 @@
 					}
 				}
 				.size-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					margin-bottom: 16px;
 					.size-text{
 						color: $grey-color;
@@ -52,7 +52,7 @@
 					}
 				}
 				.surface-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					margin-bottom: 16px;
 					.surface-text{
 						color: $grey-color;
@@ -62,7 +62,7 @@
 					}
 				}
 				.style-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					margin-bottom: 16px;
 					.style-text{
 						color: $grey-color;
@@ -72,7 +72,7 @@
 					}
 				}
 				.post-wrapper{
-					@include spaceBetween;
+					@include spaceBetween();
 					.post{
 						color: $nav-color;
 						@include alignCenter;
@@ -96,30 +96,46 @@
 	.collection-products-wrapper{
 		width: 86%;
 		margin: 40px auto 53px auto;
+		@include _1045(){
+			width: 100%;
+		}
 		.collection-products{
 			display: flex;
 			flex-wrap: wrap;
+			width: 100%;
 			.collection-product{
 				width: 47%;
+				max-width: 600px;
 				margin-right: 26px;
 				display: flex;
 				background-color: white;
 				box-shadow: 0px 0px 10px rgba(163, 161, 161, 0.35);
 				border-radius: 2px;
-				max-height: 360px;
+				@include _870(){
+					flex-direction: column;
+				}
 				.image-wrapper{
-					flex: 0.3;
+					width: 30%;
+					@include _870(){
+						width: 100%;
+					}
 					.image-product{
 						width: 100%;
 						height: 100%;
 						object-fit: cover;
+						@include _870(){
+							height: 100px;
+						}
 					}
 				}
 				.product-wrapper{
-					flex: 0.7;
+					width: 70%;
 					padding: 18px 26px;
+					@include _870(){
+
+					}
 					.type-wrapper{
-						@include spaceBetween;
+						@include spaceBetween();
 						margin-bottom: 16px;
 						.type-text{
 							color: $grey-color;
@@ -129,7 +145,7 @@
 						}
 					}
 					.view-wrapper{
-						@include spaceBetween;
+						@include spaceBetween();
 						margin-bottom: 16px;
 						.view-text{
 							color: $grey-color;
@@ -139,7 +155,7 @@
 						}
 					}
 					.size-wrapper{
-						@include spaceBetween;
+						@include spaceBetween();
 						margin-bottom: 16px;
 						.size-text{
 							color: $grey-color;
@@ -149,13 +165,13 @@
 						}
 					}
 					.quantity-wrapper{
-						@include spaceBetween;
+						@include spaceBetween();
 						align-items: center;
 						.quantity{
 							margin-right: 11px;
 						}
 						.minus{
-							@include flexCenter;
+							@include flexCenter();
 							background-color: $btn-yello;
 							border-radius: 50%;
 							width: 24px;
@@ -169,7 +185,7 @@
 						}
 						.plus{
 							background-color: $btn-yello;
-							@include flexCenter;
+							@include flexCenter();
 							border-radius: 50%;
 							width: 24px;
 							height: 24px;
@@ -186,7 +202,7 @@
 						}
 					}
 					.price-wrapper{
-						@include spaceBetween;
+						@include spaceBetween();
 						margin-bottom: 16px;
 						.price-text{
 							color: $nav-color;

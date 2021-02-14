@@ -29,12 +29,12 @@ const Collection = (props) => {
 			<CollectionInfo
 				id={props.match.params}
 				img={CollectionMain}
-				name={collection[0].name ? 'hello' : 'hello'}
-				price={collection[0].price ? 'hello' : 'hello'}
-				manufacturer={collection[0].manufacturer ? 'hello' : 'hello'}
-				size={collection[0].size ? 'hello' : 'hello'}
-				surface={collection[0].surface ? 'hello' : 'hello'}
-				style={collection[0].style ? 'hello' : 'hello'}
+				name={'hello'}
+				price={'hello'}
+				manufacturer={'hello'}
+				size={'hello'}
+				surface={'hello'}
+				style={'hello'}
 			/>
 			<CollectionProducts items={[{id: 1, view: 'h', size: '2', type: 'hello'}, {id: 2, view: 'h', size: '2', type: 'hello'}]} />
 		</div>
