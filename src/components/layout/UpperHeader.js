@@ -1,5 +1,6 @@
 import React from 'react'
 import useWindowDimension from '../../helpers/useWindowDimension'
+import {NavLink} from 'react-router-dom'
 
 import rosGrand from '../../assets/img/ros-grand.svg'
 import icDesign from '../../assets/img/ic_design.svg'
@@ -16,7 +17,9 @@ const UpperHeader = () => {
 		<div className='upper-header'>
 			<div className='wrapper'>
 				<div className='grand-comfort'>
-					<img alt='rosGrand' className='ros-grand' src={rosGrand} />
+					<NavLink to='/'>
+						<img alt='rosGrand' className='ros-grand' src={rosGrand} />
+					</NavLink>
 				</div>
 				<Search />
 				{

@@ -19,12 +19,16 @@ const BigLink = props => {
 				<Link to={`/category/${props.id}`} className="to-navlink">
 					{props.name}
 				</Link>
-				<img 
-					src={upArr} 
-					alt="arr-small" 
-					className={show ? 'arr down' : 'arr'} 
+				<div 
 					onClick={handleClick} 
-				/>
+					className='arr-wrapper'
+				>
+					<img 
+						src={upArr} 
+						alt="arr-small" 
+						className={show ? 'arr down' : 'arr'} 
+					/>
+				</div>
 			</div>
       <div className={show ? 'sub-items show': 'sub-items'}>
         {subCategories &&

@@ -20,6 +20,7 @@
 			.item{
 				position: relative;
 				.link-wrapper{
+					display: flex;
 					.to-navlink{
 						color: $nav-color;
 						text-decoration: none;
@@ -27,11 +28,15 @@
 							cursor: pointer;
 						}
 					}
-					.arr{
-						margin-left: 10px;
-						width: 10px;
-						&.down{
-							transform: rotate(180deg);
+					.arr-wrapper{
+						width: 20px;
+						margin-left: 3px;
+						@include flexCenter();
+						.arr{
+							width: 10px;
+							&.down{
+								transform: rotate(180deg);
+							}
 						}
 					}
 				}
