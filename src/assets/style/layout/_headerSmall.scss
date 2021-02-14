@@ -46,25 +46,25 @@
 		}
 	}
 	.navigation-small{
-		.to{
+		.to-small{
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: 16px;
 			border-bottom: 1px solid #E9E9E9;
-			.arr:click .sub-to{
+			.arr-small:click .sub-to-small{
 				display: inline-block;
 			}
-			.to-navlink{
+			.to-navlink-small{
 				@include flexCenter;
 				color: $nav-color;
 				text-decoration: none;
 			}
-			.sub-to{
+			.sub-to-small{
 				display: none;
 			}
 		}
-		.item-link{
+		.item-link-small{
 			display: flex;
 			align-items: center;
 			justify-content: space-between;

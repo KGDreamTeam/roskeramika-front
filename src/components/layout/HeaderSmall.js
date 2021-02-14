@@ -73,15 +73,15 @@ const HeaderSmall = (props) => {
 						categories && categories.map(item => {
 							dropdowns.push({id: item.id, show: false})
 							return(
-								<div className='to' key={item.id}>
-									<Link to={`/category/${item.id}`} className='to-navlink'>{item.name}</Link>
-									<img src={upArr} alt='arr' className='arr' />
-									<div className='sub-to'>
+								<div className='to-small' key={item.id}>
+									<Link to={`/category/${item.id}`} className='to-navlink-small'>{item.name}</Link>
+									<img src={upArr} alt='arr-small' className='arr' />
+									<div className='sub-to-small'>
 										{
 											subCategories && subCategories.map(sub => {
 												if(sub.category === item.id){
 													return(
-														<Link to={`/sub/${sub.id}`} key={sub.id} className='sub-item'>
+														<Link to={`/sub/${sub.id}`} key={sub.id} className='sub-item-small'>
 															{sub.name}
 														</Link>
 													)
@@ -93,7 +93,7 @@ const HeaderSmall = (props) => {
 							)
 						})
 					}
-					<NavLink to='/about' className='item-link'>О нас</NavLink>
+					<NavLink to='/about' className='item-link-small'>О нас</NavLink>
 				</div>
 			</div>
 		</Menu>
