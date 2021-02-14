@@ -9,15 +9,17 @@ import Basket from '../../containers/Basket'
 const UpperHeader = () => {
 	return(
 		<div className='upper-header'>
-			<div className='grand-comfort'>
-				<img alt='rosGrand' className='ros-grand' src={rosGrand} />
+			<div className='wrapper'>
+				<div className='grand-comfort'>
+					<img alt='rosGrand' className='ros-grand' src={rosGrand} />
+				</div>
+				<Search />
+				<div className='design'>
+					<img alt='design' src={icDesign} className='ic-design' />
+					Заказать бесплатный дизайн
+				</div>
+				<Basket />
 			</div>
-			<Search />
-			<div className='design'>
-				<img alt='design' src={icDesign} className='ic-design' />
-				Заказать бесплатный дизайн
-			</div>
-			<Basket />
 		</div>
 	)
 }

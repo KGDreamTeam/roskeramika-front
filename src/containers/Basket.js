@@ -3,10 +3,12 @@ import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import icBasket from '../assets/img/ic_bascket.svg'
+import useWindowDimensions from '../helpers/useWindowDimension'
  
 const Basket = () => {
 	const [show, setShow] = useState(false)
 	const basket = useSelector(state => state.basket)
+	const {width} = useWindowDimensions()
 
 	return(
 		<div className='basket' onClick={() => setShow(!show)}>
@@ -16,7 +18,9 @@ const Basket = () => {
 					<div className='ic-basket-count'>{basket.items.length}</div> 
 				) : null
 			}
-			Корзина
+			{
+				width < 600 ? null : 'Корзина'
+			}
 			{			
 				show ? (
 					<div className='basket-dropdown'>

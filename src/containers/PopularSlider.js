@@ -6,7 +6,9 @@ import NewSliderItem from '../components/slide/NewSliderItem'
 import slideImg from '../assets/img/slideItem.svg'
 
 const PopularSlider = () => {
-	const {width, height} = useWindowDimension()
+
+	const {width} = useWindowDimension()
+
 	const [items] = useState([
 		{id: 1, name: 'Solar', price: 300.90}, 
 		{id: 2, name: 'Solar', price: 30.90}, 

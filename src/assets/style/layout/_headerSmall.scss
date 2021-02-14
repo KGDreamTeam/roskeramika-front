@@ -1,0 +1,75 @@
+@import '../templates';
+
+.header-small{
+	background-color: #393939;
+	width: 100%;
+	.head{
+		@include alignCenter;
+		justify-content: space-between;
+		height: 46px;
+		.burger-wrapper{
+			padding: 16px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			.burger-line{
+				width: 22px;
+				height: 2px;
+				background-color: white;
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
+
+.inside-side-menu{
+	width: 100%;
+	.searches{
+		background-color: #393939;
+		padding: 5px 8px;
+		.search{
+			width: 100%;
+			@include search;
+		}
+		.logos{
+			@include alignCenter;
+			margin-top: 10px;
+			width: 100%;
+			.logo-main{
+				width: 100%;
+			}
+			.logo-sec{
+				width: 100%;
+			}
+		}
+	}
+	.navigation-small{
+		.to{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px;
+			border-bottom: 1px solid #E9E9E9;
+			.arr:click .sub-to{
+				display: inline-block;
+			}
+			.to-navlink{
+				@include flexCenter;
+				color: $nav-color;
+				text-decoration: none;
+			}
+			.sub-to{
+				display: none;
+			}
+		}
+		.item-link{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px;
+			color: $nav-color;
+			text-decoration: none;
+			border-bottom: 1px solid #E9E9E9;
+		}
+	}
+}

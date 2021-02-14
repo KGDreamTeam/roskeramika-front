@@ -7,6 +7,7 @@ const Search = () => {
 
 	const [input, setInput] = useState('')
 	const [items, setItems] = useState('')
+	const [show, setShow] = useState(false)
 
 	const handleChangeInput = (e) => {
 		setInput(e.target.value)
@@ -25,7 +26,7 @@ const Search = () => {
 			/>
 			<button className='btn-search'>Найти</button>
 			{
-				input && items ? (
+				input && items && show ? (
 					<div className='searched-items' >
 						{
 							items.lenght !== 0 ? items.map(items => (

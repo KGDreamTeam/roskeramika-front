@@ -7,7 +7,7 @@ import slideImg from '../assets/img/slideItem.svg'
 
 const NewSlider = () => {
 
-	const {width, height} = useWindowDimension()
+	const {width} = useWindowDimension()
 
 	const [items] = useState([
 		{id: 1, name: 'Solar', price: 300.90}, 
