@@ -1,12 +1,12 @@
 import React from 'react'
-import useWindowDimention from '../../helpers/useWindowDimention'
+import useWindowDimension from '../../helpers/useWindowDimension'
 
 import Navigation from './Navigation'
 import HeaderSmall from './HeaderSmall'
 import UpperHeader from './UpperHeader'
 
 const Header = () => {
-	const {width, height} = useWindowDimention()
+	const {width, height} = useWindowDimension()
 
 	return(
 		<div className='header'>
