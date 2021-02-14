@@ -4,7 +4,7 @@
 	background-color: #393939;
 	width: 100%;
 	.head{
-		@include alignCenter;
+		@include alignCenter();
 		justify-content: space-between;
 		height: 46px;
 		.burger-wrapper{
@@ -30,11 +30,11 @@
 		.search{
 			@include search;
 			.search-input{
-				width: 210px;
+				width: 190px;
 			}
 		}
 		.logos{
-			@include alignCenter;
+			@include alignCenter();
 			margin-top: 10px;
 			width: 100%;
 			.logo-main{
@@ -47,21 +47,37 @@
 	}
 	.navigation-small{
 		.to-small{
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			padding: 16px;
-			border-bottom: 1px solid #E9E9E9;
-			.arr-small:click .sub-to-small{
-				display: inline-block;
-			}
-			.to-navlink-small{
-				@include flexCenter;
-				color: $nav-color;
-				text-decoration: none;
+			.link-wrapper{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 16px;
+				border-bottom: 1px solid #E9E9E9;
+				.arr{
+					width: 15px;
+					&.down{
+						transform: rotate(180deg);
+					}
+				}
+				.to-navlink-small{
+					@include flexCenter();
+					color: $nav-color;
+					text-decoration: none;
+					font-weight: bold;
+				}
 			}
 			.sub-to-small{
 				display: none;
+				&.show{
+					display: flex;
+					flex-direction: column;
+				}
+				.sub-item-small{
+					color: $nav-color;
+					text-decoration: none;
+					padding: 16px;
+					border-bottom: 1px solid #E9E9E9;
+				}
 			}
 		}
 		.item-link-small{
@@ -72,6 +88,7 @@
 			color: $nav-color;
 			text-decoration: none;
 			border-bottom: 1px solid #E9E9E9;
+			font-weight: bold;
 		}
 	}
 }
