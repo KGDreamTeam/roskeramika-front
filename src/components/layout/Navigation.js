@@ -42,7 +42,9 @@ const Navigation = () => {
 				<div className='right'>
 					<div className='watsapp'>
 						<img src={wats} alt='watsapp' className='wats-icon' />
-						Напишите нам
+						<div className='text'>
+							Напишите нам
+						</div>
 					</div>
 				</div>
 			</div>
