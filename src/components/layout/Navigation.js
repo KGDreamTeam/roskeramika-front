@@ -1,9 +1,9 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import {Link, NavLink} from 'react-router-dom'
 
 import wats from '../../assets/img/wats.svg'
 import upArr from '../../assets/img/upArr.svg'
-import {Link, NavLink} from 'react-router-dom'
 
 const Navigation = () => {
 

@@ -30,9 +30,6 @@ const Basket = () => {
 					<TabPanel>third 3</TabPanel>
 				</Tabs>
 			</div>
-			plitki v vide flex-wrap
-			obwaya stoimost bez ucheta dostavki
-			oformit zakaz
 		</div>
 	)
 }
