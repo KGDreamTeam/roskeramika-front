@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import Slider from 'react-slick'
+import useWindowDimension from '../helpers/useWindowDimension'
 
 import NewSliderItem from '../components/slide/NewSliderItem'
 import slideImg from '../assets/img/slideItem.svg'
 
 const PopularSlider = () => {
+	const {width, height} = useWindowDimension()
 	const [items] = useState([
 		{id: 1, name: 'Solar', price: 300.90}, 
 		{id: 2, name: 'Solar', price: 30.90}, 
@@ -18,7 +20,7 @@ const PopularSlider = () => {
 		arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+		slidesToShow: width < 600 ? 1 : width < 700 ? 2 : 3,
 		slidesToScroll: 1,
 		className: 'new-slider'
   }

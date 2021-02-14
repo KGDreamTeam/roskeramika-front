@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Slider from 'react-slick'
+import useWindowDimension from '../helpers/useWindowDimension'
 
 import SalesSliderItem from '../components/slide/SalesSliderItem'
 
@@ -7,9 +8,11 @@ import slideImg from '../assets/img/sales-mini.svg'
 
 const SalesSlider = () => {
 
+	const {width, height} = useWindowDimension()
+
 	const [items] = useState([
 		{id: 1, name: 'Solar', price: 300.90, sales: 80}, 
-		{id: 2, name: 'Solar', price: 30.90, sales: 20}, 
+		{id: 2, name: 'Solar', price: 200.90, sales: 20}, 
 		{id: 3, name: 'Solar', price: 730.90, sales: 15}, 
 		{id: 4, name: 'Solar', price: 100.90, sales: 16}, 
 		{id: 5, name: 'Solar', price: 400.90, sales: 40}
@@ -20,7 +23,7 @@ const SalesSlider = () => {
 		arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+		slidesToShow: width < 600 ? 1 : width < 700 ? 2 : 3,
 		slidesToScroll: 1,
 		className: 'sales-slider'
   }

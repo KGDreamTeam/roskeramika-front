@@ -6,6 +6,7 @@ import HeaderSmall from './HeaderSmall'
 import UpperHeader from './UpperHeader'
 
 const Header = () => {
+
 	const {width, height} = useWindowDimension()
 
 	return(
