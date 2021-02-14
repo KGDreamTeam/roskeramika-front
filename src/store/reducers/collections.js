@@ -1,6 +1,11 @@
 import {PUSH_COLLECTIONS} from '../actionTypes'
 
-const initialState = []
+const initialState = [
+	{
+		id: 1,
+		name: 'hello'
+	}
+]
 
 const reducer = (state = initialState, action) => {
 	switch(action.type){

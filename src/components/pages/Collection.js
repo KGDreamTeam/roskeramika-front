@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 
 import CollectionInfo from '../templates/CollectionInfo'
@@ -10,11 +10,18 @@ import CollectionMain from '../../assets/img/collection-main.svg'
 
 const Collection = (props) => {
 
-	const kategori = useSelector(state => state.kategori)
+	const collections = useSelector(state => state.collections)
 
-	const [collection] = useState({
-		...kategori.filter(item => parseInt(item.id) === parseInt(props.match.params.id))
-	})
+	const [collection, setCollection] = useState({})
+
+	useEffect(() => {
+		if(collections){
+			setCollection({
+				...collections.filter(item => parseInt(item.id) === parseInt(props.match.params.id))
+			})
+		}
+		console.log(collection)
+	}, [collections])
 
 	return(
 		<div className='collection'>
@@ -22,14 +29,14 @@ const Collection = (props) => {
 			<CollectionInfo
 				id={props.match.params}
 				img={CollectionMain}
-				name={collection[0].name}
-				price={collection[0].price}
-				manufacturer={collection[0].manufacturer}
-				size={collection[0].size}
-				surface={collection[0].surface}
-				style={collection[0].style}
+				name={collection[0].name ? 'hello' : 'hello'}
+				price={collection[0].price ? 'hello' : 'hello'}
+				manufacturer={collection[0].manufacturer ? 'hello' : 'hello'}
+				size={collection[0].size ? 'hello' : 'hello'}
+				surface={collection[0].surface ? 'hello' : 'hello'}
+				style={collection[0].style ? 'hello' : 'hello'}
 			/>
-			<CollectionProducts collection={collection[0].name} items={[{id: 1, view: 'h', size: '2', type: 'hello'}, {id: 2, view: 'h', size: '2', type: 'hello'}]} />
+			<CollectionProducts items={[{id: 1, view: 'h', size: '2', type: 'hello'}, {id: 2, view: 'h', size: '2', type: 'hello'}]} />
 		</div>
 	)
 }

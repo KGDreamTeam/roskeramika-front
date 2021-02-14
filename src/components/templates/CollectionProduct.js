@@ -49,6 +49,7 @@ const CollectionProduct = (props) => {
 						min='0'
 						className='input-quantity'
 						onChange={e => changeHandler(e)}
+						step='0.01'
 					/>
 					<button className='plus' onClick={plusHandler}>+</button>
 					<span className='m'>m<sup className='sup'>2</sup></span>
