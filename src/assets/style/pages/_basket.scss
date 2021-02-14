@@ -1,23 +1,32 @@
+@import '../templates';
+
 .basket-page{
 	.tabs{
 		display: flex;
 		.tab-item{
-			display: flex;
+			@include alignCenter;
+			justify-content: space-around;
+			position: relative;
+			width: 330px;
+			box-sizing: border-box;
 			&:hover{
 				cursor: pointer;
-			}
-			&.active{
-				background-color: yellow;
 			}
 			.basket-page-icon-tab{
 				width: 24px;
 				height: 24px;
+				z-index: 2;
+			}
+			.text{
+				z-index: 2;
+				margin-right: 80px;
+			}
+			.bg-img{
+				position: absolute;
+				z-index: 1;
 			}
 		}
 
 	}
 }
 
-.react-tabs__tab--selected{
-	background-color: yellow;
-}
