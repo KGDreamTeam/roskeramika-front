@@ -6,9 +6,21 @@
 		width: 86%;
 		margin: 0 auto;
 		@include spaceBetween;
+		@include _480{
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+		}
 		.info{
 			width: 25%;
 			max-width: 210px;
+			@include _480{
+				width: 100%;
+				margin: 0 auto;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
 			.soc-icons{
 				margin-top: 45px;
 				.white-inst{
