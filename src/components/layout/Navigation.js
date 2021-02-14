@@ -1,14 +1,13 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 import wats from '../../assets/img/wats.svg'
-import upArr from '../../assets/img/upArr.svg'
+import BigLink from '../reusable/BigLink'
 
 const Navigation = () => {
 
-	const {subCategories, categories} = useSelector(state => ({
-		subCategories: state.kategori.subCategories,
+	const {categories} = useSelector(state => ({
 		categories: state.kategori.categories
 	}))
 
@@ -18,23 +17,11 @@ const Navigation = () => {
 				<div className='left'>
 					{
 						categories && categories.map(item => (
-							<Link to={`/category/${item.id}`} className='item'>
-								{item.name}
-								<div className='sub-item-wrapper'>
-									{
-										subCategories && subCategories.map(sub => {
-											if(sub.category === item.id){
-												return(
-													<Link to={`/sub/${sub.id}`} className='sub-item'>
-														{sub.name}
-													</Link>
-												)
-											}
-										})
-									}
-								</div>
-								<img src={upArr} alt='arr' className='arr' />
-							</Link>
+							<BigLink 
+								name={item.name}
+								id={item.id}
+								key={item.id}
+							/>
 						))
 					}
 					<NavLink to='/about' className='item-link'>О нас</NavLink>
