@@ -19,7 +19,7 @@ const Basket = () => {
 				) : null
 			}
 			{
-				width < 600 ? null : 'Корзина'
+				width < 820 ? null : 'Корзина'
 			}
 			{			
 				show ? (

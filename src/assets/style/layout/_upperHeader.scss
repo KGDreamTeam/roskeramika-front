@@ -9,6 +9,9 @@
 		margin: 0 auto;
 		@include alignCenter;
 		justify-content: space-between;
+		@include _1045(){
+			width: 100%;
+		}
 		.grand-comfort{
 			@include flexCenter;
 			.ros-grand{
@@ -22,11 +25,23 @@
 			background-color: $btn-yello;
 			border-radius: 2px;
 			height: 32px;
-			width: 230px;
+			width: max-content;
 			padding: 0 7px;
+			@include _1150(){
+				font-size: 12px;
+			}
+			@include _1150(){
+				font-size: 12px;
+			}
 		}
 		.search{
 			@include search;
+			.search-input{
+				@include _1045(){
+					max-width: 160px;
+					padding: 6px 14px;
+				}
+			}
 		}
 	}
 }
@@ -64,7 +79,7 @@
 		background-color: white;
 		color: black;
 		box-shadow: 0px 0px 7px rgba(128, 128, 128, 0.35);
-		@include _768{
+		@include _768(){
 			position: fixed;
 			bottom: 0;
 			left: 0;
