@@ -22,10 +22,11 @@ const NewSlider = () => {
 		arrows: true,
     infinite: false,
     speed: 500,
-		slidesToShow: width < 600 ? 1 : width < 700 ? 2 : 3,
+		slidesToShow: width < 720 ? 1 : width < 1000 ? 2 : 3,
 		slidesToScroll: 1,
 		className: 'new-slider'
   }
+
   return (
 		<div className='news-slider-main'>
 			<div className='container'>

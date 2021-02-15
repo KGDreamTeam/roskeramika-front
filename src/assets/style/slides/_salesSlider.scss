@@ -6,6 +6,15 @@
 		width: 86%;
 		margin: 0 auto;
 		padding: 44px 0;
+		@include _1150(){
+			width: 95%;
+		}
+		@include _980(){
+			width: 90%;
+		}
+		@include _480(){
+			width: 86%;
+		}
 		.title{
 			@include titleTemplate;
 		}
