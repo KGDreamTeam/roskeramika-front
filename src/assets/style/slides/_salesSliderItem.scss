@@ -30,6 +30,7 @@
     }
   }
   .content {
+		padding: 10px;
     .image-wrapper {
       margin-bottom: 11px;
       position: relative;
@@ -37,6 +38,8 @@
         position: relative;
         top: 0;
         left: 0;
+				@include flexCenter();
+				width: 100%;
       }
       .name-wrapper {
         margin-bottom: 16px;
