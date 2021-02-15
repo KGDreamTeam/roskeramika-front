@@ -1,10 +1,11 @@
 @import '../templates';
 
 .new-slider-item{
-	width: 315px;
-	max-width: 320px;
+	width: 300px;
+	max-width: 310px;
 	position: relative;
 	margin: 0 auto;
+	padding: 3px;
 	.burn-price{
 		position: absolute;
 		border-radius: 50%;
@@ -12,9 +13,13 @@
 	.content{
 		.image-wrapper{
 			margin-bottom: 11px;
+			@include flexCenter();
+			img{
+				width: 98%;
+			}
 		}
 		.name-wrapper{
-			@include spaceBetween;
+			@include spaceBetween();
 			margin-bottom: 16px;
 			.name{
 				font-size: 20px;
@@ -24,7 +29,7 @@
 			.to-basket{
 				background-color: $btn-yello;
 				padding: 7px 10px;
-				@include alignCenter;
+				@include alignCenter();
 				border-radius: 2px;
 				.basket-mini{
 					margin-right: 7px;
@@ -32,7 +37,7 @@
 			}
 		}
 		.price-wrapper{
-			@include spaceBetween;
+			@include spaceBetween();
 			.price-pr{
 				color: $grey-color;
 				font-size: 15px;
