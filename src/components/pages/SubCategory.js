@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {handleGetSubCollectionsActionCreator} from '../../store/actions/collections'
 
 import BannerHeader from '../templates/BannerHeader'
+import Collection from '../templates/Collection'
 
 import banner from '../../assets/img/banner-header.svg'
 
 const SubCategory = (props) => {
-	const sub = useSelector(state => state.kategori.subCategories)
+	const {sub, newCollections, hitCollections, otherCollections} = useSelector(state => ({
+		sub: state.kategori.subCategories,
+		newCollections: state.collections.newCollections,
+		hitCollections: state.collections.hitCollections,
+		otherCollections: state.collections.otherCollections
+	}))
+	const dispatch = useDispatch()
 
 	const [title, setTitle] = useState('')
 
@@ -16,7 +24,8 @@ const SubCategory = (props) => {
 				setTitle(sub[i].name)
 			}
 		}
-	}, [sub, props.match.params.id])
+		dispatch(handleGetSubCollectionsActionCreator(props.match.params.id))
+	}, [sub])
 
 	return(
 		<div className='sub-category-page'>
@@ -27,6 +36,9 @@ const SubCategory = (props) => {
 					<h4 className='coll-mini-title'>Новинки:</h4>
 					<div className='sub-collections'>
 						{
+							newCollections ? newCollections.map(item => (
+								<Collection img={item.image1} />
+							)) : <div className='no-items'>more</div>
 						}
 					</div>
 				</div>
@@ -34,6 +46,9 @@ const SubCategory = (props) => {
 					<h4 className='coll-mini-title'>Хиты продаж:</h4>
 					<div className='sales-hits'>
 						{
+							hitCollections ? hitCollections.map(item => (
+								<Collection img={item.image1} />
+							)) : <div className='no-items'>more</div>
 						}
 					</div>
 				</div>
@@ -41,6 +56,9 @@ const SubCategory = (props) => {
 					<h4 className='coll-mini-title'>Остальные:</h4>
 					<div className='others'>
 						{
+							otherCollections ? otherCollections.map(item => (
+								<Collection img={item.image1} />
+							)) : <div className='no-items'>more</div>
 						}
 					</div>
 				</div>

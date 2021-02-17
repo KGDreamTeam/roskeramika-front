@@ -7,7 +7,12 @@
 			width: max-content;
 			color: $nav-color;
 		}
-
+		.sub-collections-wrapper{
+			.sub-collections{
+				display: flex;
+				flex-wrap: wrap;
+			}
+		}
 	}
 }
 
