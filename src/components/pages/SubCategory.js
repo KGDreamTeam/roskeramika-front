@@ -31,15 +31,24 @@ const SubCategory = (props) => {
 		<div className='sub-category-page'>
 			<BannerHeader img={banner} />
 			<div className='sub-category-page-wrapper'>
-				<h2 className='sub-title'>{title}</h2>
-				<div className='sub-collections-wrapper'>
-					<h4 className='coll-mini-title'>Новинки:</h4>
-					<div className='sub-collections'>
-						{
-							newCollections ? newCollections.map(item => (
-								<Collection img={item.image1} />
-							)) : <div className='no-items'>more</div>
-						}
+				<div className='background'>
+					<div className='container-width'>
+						<h2 className='sub-title'>{title}</h2>
+						<div className='sub-collections-wrapper'>
+							<h4 className='coll-mini-title'>Новинки:</h4>
+							<div className='sub-collections'>
+								{
+									newCollections ? newCollections.map(item => (
+										<Collection 
+											img={item.image1} 
+											labelnew={item.labelnew} 
+											price={item.price}
+											name={item.name}
+										/>
+									)) : <div className='no-items'>more</div>
+								}
+							</div>
+						</div>
 					</div>
 				</div>
 				<div className='sales-hits-wrapper'>
@@ -47,7 +56,12 @@ const SubCategory = (props) => {
 					<div className='sales-hits'>
 						{
 							hitCollections ? hitCollections.map(item => (
-								<Collection img={item.image1} />
+								<Collection 
+									img={item.image1} 
+									labelnew={item.labelnew}
+									price={item.price}
+									name={item.name}
+								/>
 							)) : <div className='no-items'>more</div>
 						}
 					</div>
@@ -57,7 +71,12 @@ const SubCategory = (props) => {
 					<div className='others'>
 						{
 							otherCollections ? otherCollections.map(item => (
-								<Collection img={item.image1} />
+								<Collection 
+									img={item.image1} 
+									labelnew={item.labelnew}
+									price={item.price}
+									name={item.name}
+								/>
 							)) : <div className='no-items'>more</div>
 						}
 					</div>

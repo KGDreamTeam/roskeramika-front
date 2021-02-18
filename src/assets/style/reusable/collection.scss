@@ -1,0 +1,55 @@
+.collection-for-page-wrapper{
+	position: relative;
+	max-width: 320px;
+	box-sizing: border-box;
+	margin: 10px;
+	.image-wrapper{
+		width: 100%;
+		img{
+			width: 100%;
+		}
+	}
+	.collection-information{
+		&-name-wrapper{
+			@include spaceBetween();
+			margin-bottom: 16px;
+			.name{
+				font-size: 20px;
+				font-weight: 700;
+				color: $nav-color;
+			}
+			.empty{
+				width: 1px;
+				height: 1px;
+			}
+			.to-basket{
+				background-color: $btn-yello;
+				@include alignCenter();
+				width: max-content;
+				padding: 7px 10px;
+				border-radius: 2px;
+				box-sizing: border-box;
+				&:hover{
+					cursor: pointer;
+				}
+				.basket-mini{
+					margin-right: 7px;
+				}
+			}
+		}
+		&-price-wrapper{
+			@include spaceBetween();
+			margin-bottom: 16px;
+			.price-text{
+				color: $grey-color;
+				font-size: 15px;
+			}
+			.price{
+				font-size: 15px;
+				color: $nav-color;
+				line-height: 24px;
+				font-weight: 700;
+			}
+		}
+	}
+}

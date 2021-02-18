@@ -1,16 +1,38 @@
 .sub-category-page{
 	&-wrapper{
-		width: 86%;
-		margin: 0 auto;
-		.sub-title{
-			margin: 100px auto 16px auto;
-			width: max-content;
-			color: $nav-color;
+		.background{
+			background-color: #F9F9F9;
+			.container-width{
+				width: 86%;
+				margin: 0 auto;
+				.sub-title{
+					margin: 0 auto;
+					width: max-content;
+					color: $nav-color;
+				}
+				.sub-collections-wrapper{
+					.sub-collections{
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+					}
+				}
+			}
+
 		}
-		.sub-collections-wrapper{
-			.sub-collections{
+		.sales-hits-wrapper{
+			.sales-hits{
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+		.others-wrapper{
+			background-color: #F9F9F9;
+			.others{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
 			}
 		}
 	}
