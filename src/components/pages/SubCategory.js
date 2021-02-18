@@ -25,7 +25,7 @@ const SubCategory = (props) => {
 			}
 		}
 		dispatch(handleGetSubCollectionsActionCreator(props.match.params.id))
-	}, [sub])
+	}, [sub, props.match.params.id])
 
 	return(
 		<div className='sub-category-page'>

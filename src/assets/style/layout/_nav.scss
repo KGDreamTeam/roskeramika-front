@@ -19,8 +19,15 @@
 			}
 			.item{
 				position: relative;
+				&:hover .sub-items{
+					display: flex;
+					flex-direction: column;
+				}
 				.link-wrapper{
 					display: flex;
+					&:hover .arr{
+						transform: rotate(180deg);
+					}
 					.to-navlink{
 						color: $nav-color;
 						text-decoration: none;
@@ -28,28 +35,16 @@
 							cursor: pointer;
 						}
 					}
-					.arr-wrapper{
-						width: 20px;
-						margin-left: 3px;
-						@include flexCenter();
-						.arr{
-							width: 10px;
-							&.down{
-								transform: rotate(180deg);
-							}
-						}
+					.arr{
+						width: 10px;
+						margin-left: 5px;
 					}
 				}
 				.sub-items{
 					display: none;
 					position: absolute;
-					top: 38px;
 					width: max-content;
 					z-index: 8;
-					&.show{
-						display: flex;
-						flex-direction: column;
-					}
 					.sub-item{
 						font-weight: normal;
 						text-decoration: none;
