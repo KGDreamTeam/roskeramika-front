@@ -45,6 +45,7 @@ const SubCategory = (props) => {
 											price={item.price}
 											name={item.name}
 											key={item.id}
+											id={item.id}
 										/>
 									)) : <div className='no-items'>more</div>
 								}
@@ -63,6 +64,7 @@ const SubCategory = (props) => {
 									price={item.price}
 									name={item.name}
 									key={item.id}
+									id={item.id}
 								/>
 							)) : <div className='no-items'>more</div>
 						}
@@ -79,6 +81,7 @@ const SubCategory = (props) => {
 									price={item.price}
 									name={item.name}
 									key={item.id}
+									id={item.id}
 								/>
 							)) : <div className='no-items'>more</div>
 						}

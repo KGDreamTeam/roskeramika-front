@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
@@ -11,7 +12,9 @@ const Collection = (props) => {
 	return(
 		<div className='collection-for-page-wrapper'>
 			<div className='image-wrapper'>
-				<img src={props.img} alt='image of Collection' />
+				<NavLink className='link-to-collection' to={`/collection/${props.id}`}>
+					<img src={props.img} alt='image of Collection' />
+				</NavLink>
 			</div>
 			<div className='collection-information'>
 				<div className='collection-information-name-wrapper'>
