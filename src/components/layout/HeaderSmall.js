@@ -47,8 +47,8 @@ const HeaderSmall = (props) => {
 						setInput={setInput}
 					/>
 					<NavLink to='/'className='logos'>
-						<img src={logoMain} className='logo-main' />
-						<img src={logoSec} className='logo-sec' />
+						<img src={logoMain} className='logo-main' alt='main logo' />
+						<img src={logoSec} className='logo-sec' alt='second logo' />
 					</NavLink>
 				</div>
 				<div className='searched-items'>
