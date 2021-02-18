@@ -1,14 +1,32 @@
 import axios from '../../axios/axios'
-import {PUSH_COLLECTIONS, PUSH_NEWS_COLLECTIONS, PUSH_HIT_COLLECTIONS, PUSH_OTHER_COLLECTIONS} from '../actionTypes'
+import {PUSH_COLLECTIONS, PUSH_NEWS_COLLECTIONS, PUSH_HIT_COLLECTIONS, PUSH_OTHER_COLLECTIONS, PUSH_ONE_COLLECTION} from '../actionTypes'
 
-export const handleGetAllCollectionsActionCreator = () => dispatch => {
-	axios.get('/apiv1/collection/')
-		.then(res => {
-			console.log(res)
+export const handleGetOneCollectionActionCreator = (id) => dispatch => {
+	let collection = `/apiv1/collection/${id}/`
+	let products = `/apiv1/products/?categorie=&subcategorie=&collection=${id}`
+	axios.get(collection)
+		.then(response => {
+			axios.get(products)
+				.then(res => {
+					console.log(response)
+					console.log(res)
+					dispatch(pushOneCollection({
+						collection: {
+							...response.data
+						},
+						products: [
+							...res.data.results
+						]
+					}))
+				})
+				.catch(err => {
+					console.log(err)
+				})
 		})
 		.catch(err => {
 			console.log(err)
 		})
+	
 }
 
 export const handleGetSubCollectionsActionCreator = (subCategoryId) => dispatch => {
@@ -38,6 +56,13 @@ export const handleGetSubCollectionsActionCreator = (subCategoryId) => dispatch 
 export const pushCollections = (payload) => {
 	return{
 		type: PUSH_COLLECTIONS,
+		payload
+	}
+}
+
+export const pushOneCollection = (payload) => {
+	return{
+		type: PUSH_ONE_COLLECTION,
 		payload
 	}
 }

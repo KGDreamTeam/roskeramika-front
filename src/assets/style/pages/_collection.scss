@@ -75,10 +75,10 @@
 					@include spaceBetween();
 					.post{
 						color: $nav-color;
-						@include alignCenter;
+						@include alignCenter();
 					}
 					.collection-is-true{
-						@include alignCenter;
+						@include alignCenter();
 						.green-circle{
 							width: 19px;
 							height: 19px;
@@ -229,6 +229,9 @@
 						&:disabled{
 							background-color: #EEEFF0;
 							color: #86879A;
+						}
+						&:hover{
+							cursor: pointer;
 						}
 					}
 				}

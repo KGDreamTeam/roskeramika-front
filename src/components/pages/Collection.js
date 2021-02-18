@@ -1,42 +1,44 @@
-import React, {useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 
 import CollectionInfo from '../templates/CollectionInfo'
 import CollectionProducts from '../templates/CollectionProducts'
 import BannerHeader from '../templates/BannerHeader'
 
 import bannerImg from '../../assets/img/banner-header.svg'
-import CollectionMain from '../../assets/img/collection-main.svg'
+import {handleGetOneCollectionActionCreator} from '../../store/actions/collections'
 
 const Collection = (props) => {
-
-	const collections = useSelector(state => state.collections)
-
-	const [collection, setCollection] = useState({})
+	const dispatch = useDispatch()
+	const collection = useSelector(state => state.collections.oneCollection)
 
 	useEffect(() => {
-		if(collections){
-			setCollection({
-				...collections.filter(item => parseInt(item.id) === parseInt(props.match.params.id))
-			})
-		}
-		console.log(collection)
-	}, [collections])
+		dispatch(handleGetOneCollectionActionCreator(props.match.params.id))
+	}, [props.match.params.id])
 
 	return(
 		<div className='collection'>
 			<BannerHeader img={bannerImg} />
-			<CollectionInfo
-				id={props.match.params}
-				img={CollectionMain}
-				name={'hello'}
-				price={'hello'}
-				manufacturer={'hello'}
-				size={'hello'}
-				surface={'hello'}
-				style={'hello'}
-			/>
-			<CollectionProducts items={[{id: 1, view: 'h', size: '2', type: 'hello'}, {id: 2, view: 'h', size: '2', type: 'hello'}]} />
+			{
+				collection ? (
+					<CollectionInfo
+						id={props.match.params.id}
+						img={collection.image1}
+						name={collection.name}
+						price={'pri'}
+						manufacturer={collection.name}
+						surface={collection.surface}
+					/>
+				) : null
+			}
+			{
+				collection.products ? (
+					<CollectionProducts 
+						items={collection.products}
+						collection={collection.name}
+					/>
+				) : null
+			}
 		</div>
 	)
 }

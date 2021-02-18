@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CollectionProduct from './CollectionProduct'
-import imageProduct from '../../assets/img/product-item.svg'
 
 const CollectionProducts = (props) => {
 	return(
@@ -11,11 +10,12 @@ const CollectionProducts = (props) => {
 				{
 					props.items.length !== 0 ? props.items.map(item => (
 						<CollectionProduct 
-							size={item.size} 
+							size={`${item.width}x${item.length}`} 
 							key={item.id} 
-							type={item.type}
-							view={item.view}
-							img={imageProduct}
+							type={item.surface}
+							view={item.usage}
+							img={item.image1}
+							price={item.price}
 						/>
 					)) : <div className='no-products'>Нет товаров</div>
 				}

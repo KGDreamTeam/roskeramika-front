@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 const CollectionProduct = (props) => {
 
@@ -20,6 +20,10 @@ const CollectionProduct = (props) => {
 	const offerHandler = () => {
 		console.log('offering')
 	}
+
+	useEffect(() => {
+		setPrice(props.price)
+	}, [])
 
 	return(
 		<div className='collection-product'>
@@ -57,7 +61,7 @@ const CollectionProduct = (props) => {
 				<div className='dots'></div>
 				<div className='price-wrapper'>
 					<div className='price-text'>Цена:</div>
-					<div className='price'>{price}<span className='som'>Сом</span></div>
+					<div className='price'>{props.price}<span className='som'>Сом</span></div>
 				</div>
 				<button className='btn-offer' onClick={offerHandler} disabled={quantity <= 0 ? true : false}>оформить заказ</button>
 			</div>
