@@ -1,5 +1,6 @@
 import axios from '../../axios/axios'
 import {PUSH_COLLECTIONS, PUSH_NEWS_COLLECTIONS, PUSH_HIT_COLLECTIONS, PUSH_OTHER_COLLECTIONS, PUSH_ONE_COLLECTION} from '../actionTypes'
+import {pushItemToBasket} from './basket'
 
 export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 	let collection = `/apiv1/collection/${id}/`
@@ -8,15 +9,9 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 		.then(response => {
 			axios.get(products)
 				.then(res => {
-					console.log(response)
-					console.log(res)
 					dispatch(pushOneCollection({
-						collection: {
-							...response.data
-						},
-						products: [
-							...res.data
-						]
+						collection: {...response.data},
+						products: [...res.data]
 					}))
 				})
 				.catch(err => {
@@ -26,7 +21,16 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 		.catch(err => {
 			console.log(err)
 		})
-	
+}
+
+export const handleGetProductsOfColletionActionCreator = (id) => dispatch => {
+	axios.get(`/apiv1/products/?collection=${id}`)
+		.then(res => {
+			dispatch(pushItemToBasket(res.data))
+		})
+		.catch(err => {
+			console.log(err)
+		})
 }
 
 export const handleGetSubCollectionsActionCreator = (subCategoryId) => dispatch => {

@@ -1,7 +1,7 @@
 import {PUSH_ITEMS_BASKET} from '../actionTypes'
 
 const initialState = {
-	items: [2,3]
+	items: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,10 +11,9 @@ const reducer = (state = initialState, action) => {
 				...state,
 				items: [
 					...state.items,
-					action.payload
+					...action.payload
 				]
 			}
-
 		default:
 			return state
 	}

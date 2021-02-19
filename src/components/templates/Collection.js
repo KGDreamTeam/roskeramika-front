@@ -1,12 +1,16 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
+import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
+
 const Collection = (props) => {
+	const dispatch = useDispatch()
 
 	const hanldeToBasket = () => {
-		console.log('to basket')
+		dispatch(handleGetProductsOfColletionActionCreator(props.id))
 	}
 
 	return(
