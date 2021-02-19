@@ -15,7 +15,7 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 							...response.data
 						},
 						products: [
-							...res.data.results
+							...res.data
 						]
 					}))
 				})

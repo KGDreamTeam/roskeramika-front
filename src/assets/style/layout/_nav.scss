@@ -19,6 +19,9 @@
 			}
 			.item{
 				position: relative;
+				&:last-of-type .arr{
+					display: none;
+				}
 				&:hover .sub-items{
 					display: flex;
 					flex-direction: column;
