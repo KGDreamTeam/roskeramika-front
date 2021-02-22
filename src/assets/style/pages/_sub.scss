@@ -21,15 +21,21 @@
 
 		}
 		.sales-hits-wrapper{
+			padding-top: 25px;
 			.sales-hits{
+				width: 86%;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
+				margin: 0 auto;
 			}
 		}
 		.others-wrapper{
 			background-color: #F9F9F9;
+			padding-top: 25px;
 			.others{
+				width: 86%;
+				margin: 0 auto;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;

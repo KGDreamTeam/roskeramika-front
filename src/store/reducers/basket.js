@@ -1,7 +1,8 @@
 import {PUSH_ITEMS_BASKET} from '../actionTypes'
 
 const initialState = {
-	items: []
+	items: [],
+	customerInfo: {}
 }
 
 const reducer = (state = initialState, action) => {
