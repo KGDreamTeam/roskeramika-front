@@ -10,11 +10,11 @@ const CollectionProduct = (props) => {
 	}
 
 	const minusHandler = () => {
-		setQuantity(prev => prev - 1)
+		setQuantity(prev => prev - 0.1)
 	}
 
 	const plusHandler = () => {
-		setQuantity(prev => prev + 1)
+		setQuantity(prev => prev + 0.1)
 	}
 
 	const offerHandler = () => {
@@ -50,10 +50,10 @@ const CollectionProduct = (props) => {
 					<input 
 						value={quantity}
 						type='number'
-						min='0'
+						min={0}
 						className='input-quantity'
 						onChange={e => changeHandler(e)}
-						step='0.01'
+						step={0.01}
 					/>
 					<button className='plus' onClick={plusHandler}>+</button>
 					<span className='m'>m<sup className='sup'>2</sup></span>
