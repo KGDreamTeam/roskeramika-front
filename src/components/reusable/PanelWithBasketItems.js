@@ -17,6 +17,7 @@ const PanelWithBasketItems = () => {
 						image={item.image1}
 						manufac={item.manufacturer.name}
 						surface={item.surface}
+						size={`${item.width}x${item.length}`}
 					/>
 				)) : <div>no</div>
 			}

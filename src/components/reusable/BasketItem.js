@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 const BasketItem = (props) => {
 
 	const [count, setCount] = useState(0)
+	const [price, setPrice] = useState(0)
 
   return (
     <div className="cart-item">
@@ -33,18 +34,25 @@ const BasketItem = (props) => {
           <div className="count-wrapper">
             <div className="count-text">Количество</div>
             <div className="count-logic">
-              <button>-</button>
+              <button className='minus'>-</button>
 							<input 
 								value={count} 
 								onChange={e => setCount(e.target.value)}
 								type='number' 
+								className='input-count'
 							/>
-              <button>+</button>
+              <button className='minus'>+</button>
             </div>
-            <span>
-              m<sup>2</sup>
-            </span>
+            <span>m<sup>2</sup></span>
           </div>
+					<div className='item-total-price-wrapper'>
+						<div className='price-text'>Цена:</div>
+						<div className='price'>
+							{price} 
+							<span>Сом</span> 
+							<button className='delete-item-btn'>x</button>
+						</div>
+					</div>
         </div>
       </div>
     </div>
