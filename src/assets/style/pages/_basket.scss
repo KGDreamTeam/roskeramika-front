@@ -36,11 +36,12 @@
 			}
 		}
 		.panels{
-			.items{
+			margin-top: 50px;
+			.panel-with-basket-items{
 				display: flex;
 				flex-wrap: wrap;
 				.cart-item{
-					max-width: 500px;
+					max-width: 600px;
 					&-infos{
 						display: flex;
 						justify-content: space-between;

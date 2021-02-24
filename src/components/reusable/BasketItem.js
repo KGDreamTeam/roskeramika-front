@@ -5,7 +5,7 @@ const BasketItem = (props) => {
 	const [count, setCount] = useState(0)
 
   return (
-    <div key={item.id} className="cart-item">
+    <div className="cart-item">
       <h2>
         {props.subname} {props.name} ({props.artikul})
       </h2>
