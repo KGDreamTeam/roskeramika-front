@@ -1,0 +1,64 @@
+@import '../templates';
+
+.panel-with-offer{
+	.form{
+		display: flex;
+		input[type='text'], input[type='email']{
+			padding: 10px 16px;
+			width: 476px;
+			border: 1px solid #B7B8CC;
+			box-sizing: border-box;
+			border-radius: 4px;
+		}
+		input[type=radio]{
+			margin-right: 12px;
+		}
+		.left{
+			display: flex;
+			flex-direction: column;
+			margin-right: 60px;
+			.text{
+				color: #86879A;
+			}
+			.label{
+				margin-bottom: 32px;
+				.error{
+					color: red;
+				}
+				.labels-radios{
+					display: flex;
+					label{
+						@include alignCenter();
+					}
+				}
+			}
+		}
+		.right{
+			display: flex;
+			flex-direction: column;
+			.text{
+				color: #86879A;
+			}
+			.label{
+				margin-bottom: 32px;
+				.error{
+					color: red;
+				}
+				.comment{
+					padding: 10px 16px;
+					box-sizing: border-box;
+					width: 476px;
+					border-radius: 4px;
+					max-width: 476px;
+				}
+				.labels-radios{
+					display: flex;
+					label{
+						@include alignCenter();
+					}
+				}
+			}
+		}
+	}
+}
+

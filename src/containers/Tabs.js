@@ -10,6 +10,7 @@ import greyTabSecond from '../assets/img/grey-tab-second.svg'
 
 import CustomTab from '../components/reusable/CustomTab'
 import PanelWithBasketItems from '../components/reusable/PanelWithBasketItems'
+import PanelWithOffer from '../components/reusable/PanelWithOffer'
 
 const Tabs = () => {
   const [tabIndex, setTabIndex] = useState(0)
@@ -47,6 +48,11 @@ const Tabs = () => {
 				{
 					tabIndex === 0 && (
 						<PanelWithBasketItems />
+					)
+				}
+				{
+					tabIndex === 1 && (
+						<PanelWithOffer />
 					)
 				}
 			</div>
