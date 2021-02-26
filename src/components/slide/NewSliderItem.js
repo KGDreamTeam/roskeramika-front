@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
@@ -14,7 +15,9 @@ const NewSliderItem = (props) => {
 			}
 			<div className='content'>
 				<div className='image-wrapper'>
-					<img src={props.img} alt='imageFrom props' />
+					<NavLink to={`/collection/${props.id}`}>
+						<img src={props.img} alt='imageFrom props' />
+					</NavLink>
 				</div>
 				<div className='name-wrapper'>
 					<div className='name'>{props.name}</div>

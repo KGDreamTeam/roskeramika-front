@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
@@ -20,7 +21,9 @@ const SalesSliderItem = (props) => {
 			</div> 
 			<div className='content'>
 				<div className='image-wrapper'>
-					<img src={props.img} alt='imageFrom props' className='sales-image' />
+					<NavLink to={`/collection/${props.id}`}>
+						<img src={props.img} alt='imageFrom props' className='sales-image' />
+					</NavLink>
 					<div className='name-wrapper'>
 						<div className='name'>{props.name}</div>
 						<div className='to-basket'>
