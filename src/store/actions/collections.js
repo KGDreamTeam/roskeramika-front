@@ -1,5 +1,11 @@
 import axios from '../../axios/axios'
-import {PUSH_COLLECTIONS, PUSH_NEWS_COLLECTIONS, PUSH_HIT_COLLECTIONS, PUSH_OTHER_COLLECTIONS, PUSH_ONE_COLLECTION} from '../actionTypes'
+import {
+	PUSH_COLLECTIONS, 
+	PUSH_NEWS_COLLECTIONS, 
+	PUSH_HIT_COLLECTIONS, 
+	PUSH_OTHER_COLLECTIONS, 
+	PUSH_ONE_COLLECTION, 
+} from '../actionTypes'
 import {pushItemToBasket} from './basket'
 
 export const handleGetOneCollectionActionCreator = (id) => dispatch => {

@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import Slider from 'react-slick'
 import useWindowDimension from '../helpers/useWindowDimension'
+import {useSelector} from 'react-redux'
 
 import NewSliderItem from '../components/slide/NewSliderItem'
 import slideImg from '../assets/img/slideItem.svg'
 
 const NewSlider = () => {
-
 	const {width} = useWindowDimension()
 
 	const [items] = useState([
