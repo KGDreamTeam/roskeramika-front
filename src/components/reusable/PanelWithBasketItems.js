@@ -15,7 +15,7 @@ const PanelWithBasketItems = () => {
 						name={item.name}
 						artikul={item.artikul}
 						image={item.image1}
-						manufac={item.manufacturer.name}
+						manufac={item.manufacturer.company_name}
 						surface={item.surface}
 						size={`${item.width}x${item.length}`}
 					/>

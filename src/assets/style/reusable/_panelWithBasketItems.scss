@@ -16,7 +16,7 @@
 
       .image-wrapper {
         width: 160px;
-        height: 200px;
+				max-height: 240px;
         overflow: hidden;
         .cart-item-img {
           width: 100%;
