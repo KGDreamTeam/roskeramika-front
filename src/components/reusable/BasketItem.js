@@ -1,9 +1,18 @@
 import React, {useState} from 'react'
+import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
 
 const BasketItem = (props) => {
 
 	const [count, setCount] = useState(0)
 	const [price, setPrice] = useState(0)
+
+	const minusHandler = () => {
+		setCount(prev => roundCalculationMinus(prev))
+	}
+
+	const plusHandler = () => {
+		setCount(prev => roundCalculationPlus(prev))
+	}
 
   return (
     <div className="cart-item">
@@ -34,14 +43,21 @@ const BasketItem = (props) => {
           <div className="count-wrapper">
             <div className="count-text">Количество</div>
             <div className="count-logic">
-              <button className='minus'>-</button>
+							<button 
+								disabled={count <= 0 ? true : false}
+								className='minus' 
+								onClick={minusHandler}
+							>-</button>
 							<input 
 								value={count} 
 								onChange={e => setCount(e.target.value)}
 								type='number' 
 								className='input-count'
+								type='number'
+								min={0}
+								step={0.01}
 							/>
-              <button className='minus'>+</button>
+              <button className='minus' onClick={plusHandler}>+</button>
             </div>
             <span>m<sup>2</sup></span>
           </div>
