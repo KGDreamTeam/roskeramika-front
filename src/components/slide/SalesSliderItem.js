@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
+import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
 
 const SalesSliderItem = (props) => {
+	const dispatch = useDispatch()
+
+	const handleToBasket = () => {
+		dispatch(handleGetProductsOfColletionActionCreator(props.id))
+	}
 
 	const [price, setPrice] = useState(0)
 
@@ -26,7 +33,7 @@ const SalesSliderItem = (props) => {
 					</NavLink>
 					<div className='name-wrapper'>
 						<div className='name'>{props.name}</div>
-						<div className='to-basket'>
+						<div className='to-basket' onClick={handleToBasket}>
 							<img src={basketMini} alt='basket' className='basket-mini' />
 							в корзину
 						</div>

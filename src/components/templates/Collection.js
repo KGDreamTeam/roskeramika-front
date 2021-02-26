@@ -9,7 +9,7 @@ import {handleGetProductsOfColletionActionCreator} from '../../store/actions/col
 const Collection = (props) => {
 	const dispatch = useDispatch()
 
-	const hanldeToBasket = () => {
+	const handleToBasket = () => {
 		dispatch(handleGetProductsOfColletionActionCreator(props.id))
 	}
 
@@ -29,7 +29,7 @@ const Collection = (props) => {
 						) : (
 							<div 
 								className='to-basket'
-								onClick={hanldeToBasket}
+								onClick={handleToBasket}
 							>
 								<img src={basketMini} alt='basket' className='basket-mini' />
 								в корзину
