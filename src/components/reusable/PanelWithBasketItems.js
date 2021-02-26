@@ -19,7 +19,7 @@ const PanelWithBasketItems = () => {
 						surface={item.surface}
 						size={`${item.width}x${item.length}`}
 					/>
-				)) : <div>no</div>
+				)) : <div className='no-items'>Ваша корзина пуста, Вы можете выбрать товары в каталоге.</div>
 			}
 		</div>
 	)
