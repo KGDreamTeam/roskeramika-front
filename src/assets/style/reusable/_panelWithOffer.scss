@@ -24,6 +24,7 @@
 				margin-bottom: 32px;
 				.error{
 					color: red;
+					font-size: 12px;
 				}
 				.labels-radios{
 					display: flex;
@@ -43,6 +44,7 @@
 				margin-bottom: 32px;
 				.error{
 					color: red;
+					font-size: 12px;
 				}
 				.comment{
 					padding: 10px 16px;
@@ -50,12 +52,17 @@
 					width: 476px;
 					border-radius: 4px;
 					max-width: 476px;
+					font-family: inherit;
+					min-height: 118px;
 				}
 				.labels-radios{
 					display: flex;
 					label{
 						@include alignCenter();
 					}
+				}
+				.input-select{
+					width: 100%;
 				}
 			}
 		}

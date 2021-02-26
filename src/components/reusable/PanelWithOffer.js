@@ -13,25 +13,41 @@ const PanelWithOffer = (props) => {
 						fio: '',
 						email: '',
 						state: 'bishkek',
-						oplata: 'nal'
+						oplata: 'nal',
+						address: '',
+						comment: ''
 					}
 				}
 				validationSchema={
 					Yup.object().shape({
 						phone: Yup.string()
-							.required('required'),
+							.required('Необходимое поле'),
 						email: Yup.string()
-							.required('required'),
+							.required('Необходимое поле'),
 						fio: Yup.string()
-							.required('required')
+							.required('Необходимое поле'),
+						dostavka: Yup.string()
+							.required('Необходимое поле'),
+						state: Yup.string()
+							.required('Необходимое поле'),
+						oplata: Yup.string()
+							.required('Необходимое поле'),
+						address: Yup.string()
+						.required('Необходимое поле'),
+						comment: Yup.string()
 					})
 				}
 				onSubmit={
 					fields => {
 						props.handleChangePassword({
 							phone: fields.phone,
-							password: fields.password,
-							otp: fields.otp
+							dostavka: fields.dostavka,
+							fio: fields.fio,
+							email: fields.email,
+							state: fields.state,
+							oplata: fields.oplata,
+							address: fields.address,
+							comment: fields.comment
 						})
 					}
 				}>
@@ -78,13 +94,18 @@ const PanelWithOffer = (props) => {
 						</div>
 						<div className='right'>
 							<div className='label'>
-								<Field as='textarea' name="comment" placeholder='comment' className='comment'/>
+								<Field 
+									as='textarea' 
+									name="comment" 
+									placeholder='Комментарий к заказу' 
+									className='comment'
+								/>
 								<ErrorMessage name="comment" component="div" className='error'/>
 							</div>
 							
 							<div className='label'>
 								<div className='text'>Выберите населенный пункт или город</div>
-								<Field as='select' name="state" >
+								<Field as='select' name="state" className='input-select'>
 									<option value='bishkek'>Бишкек</option>
 									<option value='kant'>Кант</option>
 									<option value='tokmok'>Токмок</option>
@@ -95,7 +116,6 @@ const PanelWithOffer = (props) => {
 									<option value='novoPokrovka'>C. Ново-Покровка</option>
 								</Field>
 							</div>
-
 
 							<div className='label'>
 								<Field type="text" name="address" placeholder='Адрес' />
