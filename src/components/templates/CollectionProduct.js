@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
 
 const CollectionProduct = (props) => {
 
@@ -10,11 +11,11 @@ const CollectionProduct = (props) => {
 	}
 
 	const minusHandler = () => {
-		setQuantity(prev => prev - 0.1)
+		setQuantity(prev => roundCalculationMinus(prev))
 	}
 
 	const plusHandler = () => {
-		setQuantity(prev => prev + 0.1)
+		setQuantity(prev => roundCalculationPlus(prev))
 	}
 
 	const offerHandler = () => {
