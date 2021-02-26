@@ -1,21 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import useWindowDimension from '../helpers/useWindowDimension'
 import {useSelector} from 'react-redux'
 
 import NewSliderItem from '../components/slide/NewSliderItem'
-import slideImg from '../assets/img/slideItem.svg'
 
 const NewSlider = () => {
 	const {width} = useWindowDimension()
-
-	const [items] = useState([
-		{id: 1, name: 'Solar', price: 300.90}, 
-		{id: 2, name: 'Solar', price: 30.90}, 
-		{id: 3, name: 'Solar', price: 730.90}, 
-		{id: 4, name: 'Solar', price: 100.90}, 
-		{id: 5, name: 'Solar', price: 400.90}
-	])
+	const newsItems = useSelector(state => state.sliders.newsSliderArray)
 
 	var settings = {
 		dots: false,
@@ -34,10 +26,10 @@ const NewSlider = () => {
 				<h3 className='sub-title'>Самые последние поступления:</h3>
 				<Slider {...settings}>
 					{
-						items.map(item => (
+						newsItems && newsItems.map(item => (
 							<NewSliderItem 
 								key={item.id}
-								img={slideImg}
+								img={item.image1}
 								name={item.name}
 								price={item.price}
 							/>

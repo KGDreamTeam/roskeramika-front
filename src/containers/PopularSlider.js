@@ -1,21 +1,14 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import useWindowDimension from '../helpers/useWindowDimension'
 
 import NewSliderItem from '../components/slide/NewSliderItem'
-import slideImg from '../assets/img/slideItem.svg'
+import {useSelector} from 'react-redux'
 
 const PopularSlider = () => {
 
 	const {width} = useWindowDimension()
-
-	const [items] = useState([
-		{id: 1, name: 'Solar', price: 300.90}, 
-		{id: 2, name: 'Solar', price: 30.90}, 
-		{id: 3, name: 'Solar', price: 730.90}, 
-		{id: 4, name: 'Solar', price: 100.90}, 
-		{id: 5, name: 'Solar', price: 400.90}
-	])
+	const hitsItems = useSelector(state => state.sliders.hitsSliderArray)
 
 	var settings = {
 		dots: false,
@@ -26,6 +19,7 @@ const PopularSlider = () => {
 		slidesToScroll: 1,
 		className: 'new-slider'
   }
+
   return (
 		<div className='news-slider-main'>
 			<div className='container'>
@@ -33,10 +27,10 @@ const PopularSlider = () => {
 				<h3 className='sub-title'>Самые популярные товары!</h3>
 				<Slider {...settings}>
 					{
-						items.map(item => (
+						hitsItems && hitsItems.map(item => (
 							<NewSliderItem 
 								key={item.id}
-								img={slideImg}
+								img={item.image1}
 								name={item.name}
 								price={item.price}
 							/>
