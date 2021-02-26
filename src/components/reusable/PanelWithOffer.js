@@ -1,8 +1,12 @@
 import React from 'react'
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
+import {useSelector} from 'react-redux';
 
 const PanelWithOffer = (props) => {
+
+	const basketItems = useSelector(state => state.basket.items)
+
 	return(
 		<div className='panel-with-offer'>
 			<Formik
@@ -88,7 +92,11 @@ const PanelWithOffer = (props) => {
 								</div>
 							</div>
 
-							<button type="submit" className='submit-btn'>
+							<button 
+								disabled={basketItems.length === 0 ? true : false} 
+								type="submit" 
+								className='submit-btn'
+							>
 								Оформить
 							</button>
 						</div>
