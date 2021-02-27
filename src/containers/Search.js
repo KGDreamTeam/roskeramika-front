@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
+import React, {useState, useEffect} from 'react'
+import axios from '../axios/axios'
+
+import clearInput from '../assets/img/clear-input.svg'
+import searchIcon from '../assets/img/search-icon.svg'
 
 const Search = () => {
-
-	const products = useSelector(state => state.products)
 
 	const [input, setInput] = useState('')
 	const [items, setItems] = useState('')
@@ -11,22 +12,55 @@ const Search = () => {
 
 	const handleChangeInput = (e) => {
 		setInput(e.target.value)
-		let searched = products.filter(item => item.name.includes(input))
-		setItems([...searched])
 	}
+
+	const handleClearInput = () => {
+		setInput('')
+	}
+
+	const handleClickSearch = () => {
+		setShow(true)
+		axios.get(`/apiv1/collection/?search=${input}`)
+			.then(res => {
+				console.log(res.data)
+				setItems([...res.data])
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
+	useEffect(() => {
+		if(!input){
+			setShow(false)
+		}
+	}, [input])
 
 	return(
 		<div className='search'>
-			<input 
-				type='text' 
-				className='search-input' 
-				placeholder='Я ищу...'
-				value={input}
-				onChange={e => handleChangeInput(e)}
-			/>
-			<button className='btn-search'>Найти</button>
+			<div className='search-div'>
+				<img src={searchIcon} className='search-icon' alt='search' />
+				<input 
+					type='text' 
+					className='search-input' 
+					placeholder='Я ищу...'
+					value={input}
+					onChange={e => handleChangeInput(e)}
+				/>
+				{
+					input.length !== 0 ? (
+						<img 
+							src={clearInput} 
+							className='clear-input' 
+							alt='clear input' 
+							onClick={handleClearInput}
+						/>
+					) : null
+				}
+			</div>
+			<button className='btn-search' onClick={handleClickSearch}>Найти</button>
 			{
-				input && items && show ? (
+				show ? (
 					<div className='searched-items' >
 						{
 							items.lenght !== 0 ? items.map(items => (
