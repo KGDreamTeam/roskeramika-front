@@ -4,8 +4,8 @@ import{PUSH_ITEMS_SLIDER_COLLECTIONS} from '../actionTypes'
 export const handleGetAllCollections = () => dispatch => {
 	
 	const sortArray = (array) => {
-		const newsArr = array.filter(item => item.labelnew)
-		const hitsArr = array.filter(item => item.labelhit)
+		const newsArr = array.filter(item => item.labelnew && item.discount === 0)
+		const hitsArr = array.filter(item => item.labelhit && item.discount === 0)
 		const salesArr = array.filter(item => item.discount !== 0)
 		return{
 			newsArr,
