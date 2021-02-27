@@ -26,12 +26,12 @@ const Basket = () => {
 					<div className='basket-dropdown'>
 						{
 							basket.items.length !== 0 ? basket.items.map(item => (
-								<div key={item.id} className='basket-dropdown-item'>
-									<div className='cart-img-wrapper'>
-										<img src={item.image1} alt='carts item' className='cart-img' />
-									</div>
-									<span className='text'>{item.name} {item.artikul}</span>
-								</div>
+								<BasketMiniItem 
+									key={item.name}
+									image={item.image1}
+									name={item.name}
+									artikul={item.artikul}
+								/>
 							)) : (
 								<div>ничего нету</div>
 							)
@@ -40,6 +40,17 @@ const Basket = () => {
 					</div>
 				) : null
 			}
+		</div>
+	)
+}
+
+const BasketMiniItem = (props) => {
+	return(
+		<div className='basket-dropdown-item'>
+			<div className='cart-img-wrapper'>
+				<img src={props.image} alt='carts item' className='cart-img' />
+			</div>
+			<span className='text'>{props.name} {props.artikul}</span>
 		</div>
 	)
 }
