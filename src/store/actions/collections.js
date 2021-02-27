@@ -1,4 +1,5 @@
 import axios from '../../axios/axios'
+import {getPersentPriceOne} from '../../helpers/persentCalc'
 import {
 	PUSH_COLLECTIONS, 
 	PUSH_NEWS_COLLECTIONS, 
@@ -32,7 +33,17 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 export const handleGetProductsOfColletionActionCreator = (id) => dispatch => {
 	axios.get(`/apiv1/products/?collection=${id}`)
 		.then(res => {
-			dispatch(pushItemToBasket(res.data))
+			const data = res.data
+			console.log(data)
+				for(let i = 0; i < data.length; i++){
+					if(data[i].collection.discount !== 0){
+						data[i].price = getPersentPriceOne(data[i].collection.discount, data[i].price)
+						data[i].discount = data[i].collection.discount 
+					} else {
+						data[i].price = getPersentPriceOne(data[i].discount, data[i].price)
+					}
+				}
+			dispatch(pushItemToBasket(data))
 		})
 		.catch(err => {
 			console.log(err)

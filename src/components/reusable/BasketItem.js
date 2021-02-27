@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
 import closeIcon from '../../assets/img/closeIcon.svg'
+import {getTotalPriceProduct} from '../../helpers/sizeManipulation'
 
 const BasketItem = (props) => {
 
@@ -14,6 +15,10 @@ const BasketItem = (props) => {
 	const plusHandler = () => {
 		setCount(prev => roundCalculationPlus(prev))
 	}
+
+	useEffect(() => {
+		setPrice(getTotalPriceProduct(props.price, count))
+	}, [count])
 
   return (
     <div className="cart-item">
@@ -35,7 +40,7 @@ const BasketItem = (props) => {
           </div>
           <div className="size-wrapper">
             <div className="size-text">Размер:</div>
-            <div className="size">{props.size}</div>
+            <div className="size">{`${props.width}x${props.length}`}</div>
           </div>
           <div className="surface-wrapper">
             <div className="surface-text">Поверхность:</div>
