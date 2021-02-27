@@ -1,16 +1,21 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
+import {getMinPriceOfArr} from '../../helpers/persentCalc'
 import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
 
 const NewSliderItem = (props) => {
 	const dispatch = useDispatch()
+	const [price, setPrice] = useState(0)
 
 	const hanldeToBasket = () => {
 		dispatch(handleGetProductsOfColletionActionCreator(props.id))
 	}
+	useEffect(() => {
+		setPrice(getMinPriceOfArr([...props.products]))
+	}, [props.products])
 
 	return(
 		<div className='new-slider-item'>
@@ -36,7 +41,7 @@ const NewSliderItem = (props) => {
 				</div>
 				<div className='price-wrapper'>
 					<div className='price-pr'>Цена:</div>
-					<div className='price'>{props.price} C</div>
+					<div className='price'>{price} C</div>
 				</div>
 			</div>
 		</div>

@@ -9,7 +9,8 @@
 	}
   .cart-item {
     width: 600px;
-
+		margin: 36px 36px 36px 0;
+		box-sizing: border-box;
     &-infos {
       display: flex;
       justify-content: space-between;
@@ -108,16 +109,17 @@
           }
           .price {
             color: $nav-color;
+						display: flex;
             span {
               color: $grey-color;
               margin-left: 8px;
             }
             .delete-item-btn {
+							@include flexCenter();
               background-color: red;
               border-radius: 50%;
               width: 24px;
               height: 24px;
-              color: white;
               border: none;
               margin-left: 25px;
             }

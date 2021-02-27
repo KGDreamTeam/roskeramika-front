@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
+import closeIcon from '../../assets/img/closeIcon.svg'
 
 const BasketItem = (props) => {
 
@@ -68,7 +69,9 @@ const BasketItem = (props) => {
 						<div className='price'>
 							{price} 
 							<span>Сом</span> 
-							<button className='delete-item-btn'>x</button>
+							<button className='delete-item-btn'>
+								<img src={closeIcon} alt='delete item' className='close-icon' />
+							</button>
 						</div>
 					</div>
         </div>

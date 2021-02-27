@@ -31,8 +31,8 @@ const NewSlider = () => {
 								key={item.id}
 								img={item.image1}
 								name={item.name}
-								price={item.price}
 								id={item.id}
+								products={item.products}
 							/>
 						))
 					}

@@ -34,6 +34,7 @@ const PopularSlider = () => {
 								name={item.name}
 								price={item.price}
 								id={item.id}
+								products={item.products}
 							/>
 						))
 					}
