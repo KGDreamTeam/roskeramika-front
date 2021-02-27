@@ -13,9 +13,14 @@
 			width: 100%;
 		}
 		.grand-comfort{
-			@include flexCenter;
-			.ros-grand{
-				width: 100%;
+			.a{
+				&:active, &:focus{
+					outline: none;
+				}
+				.ros-grand{
+					width: 100%;
+					@include flexCenter;
+				}
 			}
 		}
 		.design{

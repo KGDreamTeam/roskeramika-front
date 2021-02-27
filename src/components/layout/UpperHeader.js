@@ -17,7 +17,7 @@ const UpperHeader = () => {
 		<div className='upper-header'>
 			<div className='wrapper'>
 				<div className='grand-comfort'>
-					<NavLink to='/'>
+					<NavLink to='/' className='a'>
 						<img alt='rosGrand' className='ros-grand' src={rosGrand} />
 					</NavLink>
 				</div>
