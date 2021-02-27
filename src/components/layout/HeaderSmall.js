@@ -70,7 +70,14 @@ const HeaderSmall = (props) => {
 
 	const Item = (props) => {
 		return(
-			<NavLink to={`/collection/${props.id}`} className='nav-small' onClick={handleClearInput}>
+			<NavLink 
+				to={`/collection/${props.id}`} 
+				className='nav-small' 
+				onClick={() => {
+					handleClearInput()
+					handleCloseBurger()
+				}}
+			>
 				<div className='item-small'>
 					<span className='bold-small'>{props.name}</span> {props.sub}
 				</div>
