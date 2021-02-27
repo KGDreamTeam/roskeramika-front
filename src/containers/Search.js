@@ -3,6 +3,7 @@ import axios from '../axios/axios'
 
 import clearInput from '../assets/img/clear-input.svg'
 import searchIcon from '../assets/img/search-icon.svg'
+import {NavLink} from 'react-router-dom'
 
 const Search = () => {
 
@@ -17,25 +18,37 @@ const Search = () => {
 	const handleClearInput = () => {
 		setInput('')
 		setShow(false)
+		setItems('')
 	}
 
 	const handleClickSearch = () => {
-		setShow(true)
 		axios.get(`/apiv1/collection/?search=${input}`)
 			.then(res => {
-				console.log(res.data)
-				setItems([...res.data])
+				const data = res.data.sort((a, b) => a.name - b.name)
+				setItems([...data])
 			})
 			.catch(err => {
 				console.log(err)
 			})
+		setShow(true)
 	}
 
 	useEffect(() => {
 		if(input.length === 0){
 			setShow(false)
+			setItems('')
 		}
 	}, [input])
+	
+	const Item = (props) => {
+		return(
+			<NavLink to={`/collection/${props.id}`}className='nav' onClick={handleClearInput}>
+				<div className='item'>
+					<span className='bold'>{props.name}</span> {props.sub}
+				</div>
+			</NavLink>
+		)
+	}
 
 	return(
 		<div className='search'>
@@ -64,9 +77,14 @@ const Search = () => {
 				show ? (
 					<div className='searched-items' >
 						{
-							items.lenght !== 0 ? items.map(items => (
-								<div>{items.hello}</div>
-							)) : (<div>Не удалось найти</div>)
+							items.length !== 0 ? items.map(item => (
+								<Item
+									key={item.id}
+									name={item.name}
+									sub={item.subcategorieis.name}
+									id={item.id}
+								/>
+							)) : (<div className='nothing'>Не удалось найти</div>)
 						}
 					</div>
 				) : null
@@ -74,5 +92,6 @@ const Search = () => {
 		</div>
 	)
 }
+
 
 export default Search

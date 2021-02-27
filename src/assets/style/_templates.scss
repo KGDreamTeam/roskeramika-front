@@ -65,15 +65,41 @@
 		padding: 8px 23px;
 		border-radius: 0 2px 2px 0;
 		box-sizing: border-box;
+		outline: none;
 		&:active{
 			filter: brightness(120%);
 		}
 	}
 	.searched-items{
+		color: #151F37;
 		position: absolute;
-		top: 40px;
+		top: 110px;
+		left: 0;
 		width: 100%;
-		height: 40px;
+		border-top: 1px solid $grey-color;
+		background-color: white;
+		.nav{
+			text-decoration: none;
+			color: #151F37;
+			.item{
+				@include alignCenter();
+				padding-left: 30%;
+				height: 48px;
+				font-weight: normal;
+				color: #151F37;
+				&:hover{
+					background-color: #F6F6FB;
+				}
+				.bold{
+					font-weight: bold;
+					margin-right: 15px;
+				}
+			}
+		}
+		.nothing{
+			text-align: center;
+			height: 48px;
+		}
 	}
 }
 @mixin _1150(){
