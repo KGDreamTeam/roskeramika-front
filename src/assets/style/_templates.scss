@@ -39,6 +39,9 @@
 		padding: 8px 23px;
 		border: none;
 		box-sizing: border-box;
+		&:focus{
+			outline: none;
+		}
 	}
 	.btn-search{
 		background-color: $btn-yello;
@@ -46,6 +49,9 @@
 		padding: 8px 23px;
 		border-radius: 0 2px 2px 0;
 		box-sizing: border-box;
+		&:active{
+			filter: brightness(120%);
+		}
 	}
 	.searched-items{
 		position: absolute;
