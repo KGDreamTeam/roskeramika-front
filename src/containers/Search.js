@@ -16,6 +16,7 @@ const Search = () => {
 
 	const handleClearInput = () => {
 		setInput('')
+		setShow(false)
 	}
 
 	const handleClickSearch = () => {
@@ -31,7 +32,7 @@ const Search = () => {
 	}
 
 	useEffect(() => {
-		if(!input){
+		if(input.length === 0){
 			setShow(false)
 		}
 	}, [input])
