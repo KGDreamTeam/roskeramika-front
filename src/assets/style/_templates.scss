@@ -70,6 +70,36 @@
 			filter: brightness(120%);
 		}
 	}
+	.searched-items-small{
+		color: #151F37;
+		width: 100%;
+		border-top: 1px solid $grey-color;
+		background-color: white;
+		.nav-small{
+			text-decoration: none;
+			color: #151F37;
+			.item-small{
+				@include alignCenter();
+				height: 48px;
+				font-weight: normal;
+				color: #151F37;
+				&:hover{
+					background-color: #F6F6FB;
+				}
+				&:active{
+					background-color: #F6F6FB;
+				}
+				.bold-small{
+					font-weight: bold;
+					margin-right: 15px;
+				}
+			}
+		}
+		.nothing-small{
+			text-align: center;
+			height: 48px;
+		}
+	}
 	.searched-items{
 		color: #151F37;
 		position: absolute;

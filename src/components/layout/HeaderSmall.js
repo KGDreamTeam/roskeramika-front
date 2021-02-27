@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {slide as Menu} from 'react-burger-menu'
 import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import axios from '../../axios/axios'
 
-import Search from '../../containers/Search'
 import logoMain from '../../assets/img/logo.svg'
 import logoSec from '../../assets/img/logo-2.svg'
 import SmallLink from '../reusable/SmallLink'
+import clearInput from '../../assets/img/clear-input.svg'
+import searchIcon from '../../assets/img/search-icon.svg'
 
 const HeaderSmall = (props) => {
 
@@ -16,6 +18,36 @@ const HeaderSmall = (props) => {
 
 	const [items, setItems] = useState('')
 	const [input, setInput] = useState('')
+	const [show, setShow] = useState(false)
+
+	const handleChangeInput = (e) => {
+		setInput(e.target.value)
+	}
+
+	const handleClearInput = () => {
+		setInput('')
+		setShow(false)
+		setItems('')
+	}
+
+	const handleClickSearch = () => {
+		axios.get(`/apiv1/collection/?search=${input}`)
+			.then(res => {
+				const data = res.data.sort((a, b) => a.name - b.name)
+				setItems([...data])
+			})
+			.catch(err => {
+				console.log(err)
+			})
+		setShow(true)
+	}
+
+	useEffect(() => {
+		if(input.length === 0){
+			setShow(false)
+			setItems('')
+		}
+	}, [input])
 
 	const handleOpenBurger = () => {
 		props.setOpen(true)
@@ -36,30 +68,64 @@ const HeaderSmall = (props) => {
 		width: '80%',
 	}
 
+	const Item = (props) => {
+		return(
+			<NavLink to={`/collection/${props.id}`} className='nav-small' onClick={handleClearInput}>
+				<div className='item-small'>
+					<span className='bold-small'>{props.name}</span> {props.sub}
+				</div>
+			</NavLink>
+		)
+	}
+
 	return(
 		<Menu {...menuProps}>
 			<div className='inside-side-menu'>
 				<div className='searches'>
-					<Search 
-						items={items} 
-						setItems={setItems} 
-						input={input}
-						setInput={setInput}
-					/>
+					<div className='search'>
+						<div className='search-div'>
+							<img src={searchIcon} className='search-icon' alt='search' />
+							<input 
+								type='text' 
+								className='search-input' 
+								placeholder='Я ищу...'
+								value={input}
+								onChange={e => handleChangeInput(e)}
+							/>
+							{
+								input.length !== 0 ? (
+									<img 
+										src={clearInput} 
+										className='clear-input' 
+										alt='clear input' 
+										onClick={handleClearInput}
+									/>
+								) : null
+							}
+						</div>
+						<button className='btn-search' onClick={handleClickSearch}>Найти</button>
+					</div>
 					<NavLink to='/'className='logos'>
 						<img src={logoMain} className='logo-main' alt='main logo' />
 						<img src={logoSec} className='logo-sec' alt='second logo' />
 					</NavLink>
 				</div>
-				<div className='searched-items'>
-					{
-						items ? items.map(item => (
-							<div className='searched-item'>
-								hello
-							</div>
-						)) : null
-					}
-				</div>
+				{
+					show ? (
+						<div className='searched-items-small'>
+							{
+								items.length !== 0 ? items.map(item => (
+									<Item 
+										id={item.id}
+										key={item.id}
+										name={item.name}
+										sub={item.subcategorieis.name}
+									/>
+								)) : <div className='nothing-small'>Не удалось найти</div>
+							}
+						</div>
+					) : null
+				}
 				<div className='navigation-small'>
 					{
 						categories && categories.map(item => {
