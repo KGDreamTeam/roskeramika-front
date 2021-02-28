@@ -26,9 +26,9 @@ const reducer = (state = initialState, action) => {
 				]
 			}
 		case PLUS_ITEMS_PRICE:
-			let index = state.itemsPrices.findIndex(el => el.id == action.payload.id)
+			let index = state.itemsPrices.findIndex(el => el.id === action.payload.id)
 
-    if(index == -1){
+    if(index === -1){
 			return {
 				...state,
 				itemsPrices:[
