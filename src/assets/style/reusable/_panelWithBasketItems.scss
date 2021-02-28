@@ -80,6 +80,9 @@
                 background-color: $grey-color;
                 color: black;
               }
+							&:focus{
+								outline: none;
+							}
             }
             .plus {
               background-color: $btn-yello;
@@ -93,6 +96,9 @@
                 background-color: $grey-color;
                 color: black;
               }
+							&:focus{
+								outline: none;
+							}
             }
             .input-count {
               width: 100px;

@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
-import closeIcon from '../../assets/img/closeIcon.svg'
 import {getTotalPriceProduct} from '../../helpers/sizeManipulation'
+import {useDispatch} from 'react-redux'
+
+import closeIcon from '../../assets/img/closeIcon.svg'
+import {priceForItem} from '../../store/actions/basket'
 
 const BasketItem = (props) => {
 
 	const [count, setCount] = useState(0)
 	const [price, setPrice] = useState(0)
+	const dispatch = useDispatch()
+
 
 	const minusHandler = () => {
 		setCount(prev => roundCalculationMinus(prev))
@@ -18,7 +23,8 @@ const BasketItem = (props) => {
 
 	useEffect(() => {
 		setPrice(getTotalPriceProduct(props.price, count))
-	}, [count])
+		dispatch(priceForItem({id: props.id, price: price}))
+	}, [count, price])
 
   return (
     <div className="cart-item">

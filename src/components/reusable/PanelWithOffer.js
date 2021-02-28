@@ -1,11 +1,15 @@
 import React from 'react'
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {handleMakeOrder} from '../../store/actions/basket';
 
-const PanelWithOffer = (props) => {
+const PanelWithOffer = () => {
 
-	const basketItems = useSelector(state => state.basket.items)
+	const basketItems = useSelector(state => ({
+		basketItems: state.basket.items,
+	}))
+	const dispatch = useDispatch()
 
 	return(
 		<div className='panel-with-offer'>
@@ -43,16 +47,7 @@ const PanelWithOffer = (props) => {
 				}
 				onSubmit={
 					fields => {
-						props.handleChangePassword({
-							phone: fields.phone,
-							dostavka: fields.dostavka,
-							fio: fields.fio,
-							email: fields.email,
-							state: fields.state,
-							oplata: fields.oplata,
-							address: fields.address,
-							comment: fields.comment
-						})
+						dispatch(handleMakeOrder())
 					}
 				}>
 				{() => (
