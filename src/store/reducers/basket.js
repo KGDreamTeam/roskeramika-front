@@ -1,4 +1,9 @@
-import {DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_BASKET, PUSH_ITEMS_TO_SALE} from '../actionTypes'
+import {
+	DELETE_ITEM_BASKET, 
+	PLUS_ITEMS_PRICE, 
+	PUSH_ITEMS_BASKET, 
+	PUSH_ITEMS_TO_SALE
+} from '../actionTypes'
 
 const initialState = {
 	items: [],
