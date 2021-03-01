@@ -2,12 +2,13 @@ import React from 'react'
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {useDispatch, useSelector} from 'react-redux';
-import {handleMakeOrder} from '../../store/actions/basket';
+import {handleMakeOrderActionCreator} from '../../store/actions/basket';
 
 const PanelWithOffer = () => {
 
-	const basketItems = useSelector(state => ({
-		basketItems: state.basket.items,
+	const {basketItems, totalPriceToBuy} = useSelector(state => ({
+		basketItems: state.basket.itemsToSale,
+		totalPriceToBuy: state.basket.totalPriceToBuy
 	}))
 	const dispatch = useDispatch()
 
@@ -47,7 +48,17 @@ const PanelWithOffer = () => {
 				}
 				onSubmit={
 					fields => {
-						dispatch(handleMakeOrder())
+						dispatch(handleMakeOrderActionCreator({
+							phone: fields.phone,
+							email: fields.email,
+							fio: fields.fio,
+							dostavka: fields.dostavka,
+							state: fields.dostavka,
+							oplata: fields.oplata,
+							address: fields.address,
+							comment: fields.comment,
+							totalPriceToBuy: totalPriceToBuy
+						},basketItems))
 					}
 				}>
 				{() => (

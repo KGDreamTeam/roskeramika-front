@@ -2,14 +2,15 @@ import {
 	DELETE_ITEM_BASKET, 
 	PLUS_ITEMS_PRICE, 
 	PUSH_ITEMS_BASKET, 
-	PUSH_ITEMS_TO_SALE
+	PUSH_ITEMS_TO_SALE,
+	SET_TOTAL_PRICE
 } from '../actionTypes'
 
 const initialState = {
 	items: [],
-	customerInfo: {},
 	itemsToSale: [],
-	itemsPrices: []
+	itemsPrices: [],
+	totalPriceToBuy: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ const reducer = (state = initialState, action) => {
 				items: [
 					...newArr
 				]
+			}
+		case SET_TOTAL_PRICE:
+			return {
+				...state,
+				totalPriceToBuy: action.payload
 			}
 		case PUSH_ITEMS_TO_SALE:
 			return{

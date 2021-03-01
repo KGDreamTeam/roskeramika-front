@@ -1,5 +1,5 @@
 import axios from '../../axios/axios'
-import {PUSH_ITEMS_BASKET, DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_TO_SALE} from "../actionTypes"
+import {PUSH_ITEMS_BASKET, SET_TOTAL_PRICE, DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_TO_SALE} from "../actionTypes"
 
 export const pushItemToBasket = (payload) => {
 	return {
@@ -22,8 +22,15 @@ export const deleteItemBasket = (payload) => {
 	}
 }
 
-export const handleMakeOrder = (infoPerson, products) => dispatch => {
-	axios.post('/order/', {
+export const setTotalPrice = (payload) => {
+	return {
+		type: SET_TOTAL_PRICE,
+		payload
+	}
+}
+
+export const handleMakeOrderActionCreator = (infoPerson, products) => dispatch => {
+	axios.post('/apiv1/order/', {
 		...infoPerson,
 		products: [
 			...products

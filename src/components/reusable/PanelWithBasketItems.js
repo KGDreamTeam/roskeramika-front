@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {pushItemToSale} from '../../store/actions/basket'
+import {pushItemToSale, setTotalPrice} from '../../store/actions/basket'
 import BasketItem from './BasketItem'
 
 const PanelWithBasketItems = (props) => {
 
 	const items = useSelector(state => state.basket.items)
 	const prices = useSelector(state => state.basket.itemsPrices)
-	const [totalPrice, setTotalPrice] = useState(0)
+	const totalPrice = useSelector(state => state.basket.totalPriceToBuy)
 	const dispatch = useDispatch()
 
 
@@ -27,7 +27,7 @@ const PanelWithBasketItems = (props) => {
 		for(let i = 0; i < prices.length; i++){
 			total += parseInt(prices[i].price)
 		}
-		setTotalPrice(total)
+		dispatch(setTotalPrice(total))
 	}, [prices])
 
 	return(
