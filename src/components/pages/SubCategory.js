@@ -42,10 +42,11 @@ const SubCategory = (props) => {
 										<Collection 
 											img={item.image1} 
 											labelnew={item.labelnew} 
-											price={item.price}
 											name={item.name}
 											key={item.id}
 											id={item.id}
+											sales={item.discount}
+											products={item.products}
 										/>
 									)) : <div className='no-items'>more</div>
 								}
@@ -65,6 +66,8 @@ const SubCategory = (props) => {
 									name={item.name}
 									key={item.id}
 									id={item.id}
+									sales={item.discount}
+									products={item.products}
 								/>
 							)) : <div className='no-items'>more</div>
 						}
@@ -82,6 +85,8 @@ const SubCategory = (props) => {
 									name={item.name}
 									key={item.id}
 									id={item.id}
+									sales={item.discount}
+									products={item.products}
 								/>
 							)) : <div className='no-items'>more</div>
 						}

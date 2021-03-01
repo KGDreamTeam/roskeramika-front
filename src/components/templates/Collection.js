@@ -1,17 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import {getMinPriceOfArr, getPersentPrice} from '../../helpers/persentCalc'
+import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
-import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
-
 const Collection = (props) => {
 	const dispatch = useDispatch()
+	const [price, setPrice] = useState(0)
 
 	const handleToBasket = () => {
 		dispatch(handleGetProductsOfColletionActionCreator(props.id))
 	}
+
+	useEffect(() => {
+		setPrice(getMinPriceOfArr(props.products))
+	}, [])
 
 	return(
 		<div className='collection-for-page-wrapper'>
@@ -39,7 +44,7 @@ const Collection = (props) => {
 				</div>
 				<div className='collection-information-price-wrapper'>
 					<div className='price-text'>Цена</div>
-					<div className='price'>{props.price}</div>
+					<div className='price'>{price}</div>
 				</div>
 			</div>
 			<div className=''>
