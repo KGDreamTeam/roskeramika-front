@@ -1,12 +1,26 @@
 import React, {useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {pushItemToSale} from '../../store/actions/basket'
 import BasketItem from './BasketItem'
 
-const PanelWithBasketItems = () => {
+const PanelWithBasketItems = (props) => {
 
 	const items = useSelector(state => state.basket.items)
 	const prices = useSelector(state => state.basket.itemsPrices)
 	const [totalPrice, setTotalPrice] = useState(0)
+	const dispatch = useDispatch()
+
+
+	const handleClick = () => {
+		props.handleSelect(props.index)
+		const newItems = items.map(item => {
+			return {
+				...item,
+				mainPriceToThisItem: prices.find(x => x.id === item.id).price
+			}
+		})
+		dispatch(pushItemToSale(newItems))
+	}
 
 	useEffect(() => {
 		let total = 0
@@ -35,6 +49,7 @@ const PanelWithBasketItems = () => {
 				)) : <div className='no-items'>Ваша корзина пуста, Вы можете выбрать товары в каталоге.</div>
 			}
 			<h3>Общая стоимость заказа (без учета доставки) {totalPrice} сомов</h3>
+			<button onClick={handleClick}>Оформить</button>
 		</div>
 	)
 }

@@ -1,4 +1,4 @@
-import {DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_BASKET} from '../actionTypes'
+import {DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_BASKET, PUSH_ITEMS_TO_SALE} from '../actionTypes'
 
 const initialState = {
 	items: [],
@@ -25,25 +25,29 @@ const reducer = (state = initialState, action) => {
 					...newArr
 				]
 			}
-		case PLUS_ITEMS_PRICE:
-			let index = state.itemsPrices.findIndex(el => el.id === action.payload.id)
-
-    if(index === -1){
-			return {
-				...state,
-				itemsPrices:[
-					...state.itemsPrices,
-					{...action.payload}
-				]
-			}
-		} else {
-			let items = [...state.itemsPrices]
-			items[index].price = action.payload.price
+		case PUSH_ITEMS_TO_SALE:
 			return{
 				...state,
-				itemsPrices: [...items]
+				itemsToSale: [...action.payload]
 			}
-		}
+		case PLUS_ITEMS_PRICE:
+			let index = state.itemsPrices.findIndex(el => el.id === action.payload.id)
+			if(index === -1){
+				return {
+					...state,
+					itemsPrices:[
+						...state.itemsPrices,
+						{...action.payload}
+					]
+				}
+			} else {
+				let items = [...state.itemsPrices]
+				items[index].price = action.payload.price
+				return{
+					...state,
+					itemsPrices: [...items]
+				}
+			}
 		default:
 			return state
 	}

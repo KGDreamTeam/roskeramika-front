@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import {getMinPriceOfArr, getPersentPrice} from '../../helpers/persentCalc'
+import {getMinPriceOfArr} from '../../helpers/persentCalc'
 import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
 
 import basketMini from '../../assets/img/basket-mini.svg'

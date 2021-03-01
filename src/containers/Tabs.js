@@ -47,7 +47,10 @@ const Tabs = () => {
 			<div className='panels'>
 				{
 					tabIndex === 0 && (
-						<PanelWithBasketItems />
+						<PanelWithBasketItems
+							handleSelect={handleSelect}
+							index={1}
+						/>
 					)
 				}
 				{

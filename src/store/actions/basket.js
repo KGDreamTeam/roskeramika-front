@@ -1,9 +1,16 @@
 import axios from '../../axios/axios'
-import {PUSH_ITEMS_BASKET, DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE} from "../actionTypes"
+import {PUSH_ITEMS_BASKET, DELETE_ITEM_BASKET, PLUS_ITEMS_PRICE, PUSH_ITEMS_TO_SALE} from "../actionTypes"
 
 export const pushItemToBasket = (payload) => {
 	return {
 		type: PUSH_ITEMS_BASKET,
+		payload
+	}
+}
+
+export const pushItemToSale = (payload) => {
+	return {
+		type: PUSH_ITEMS_TO_SALE,
 		payload
 	}
 }
