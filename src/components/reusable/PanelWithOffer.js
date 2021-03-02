@@ -19,7 +19,7 @@ const PanelWithOffer = () => {
 					{
 						phone: '',
 						dostavka: 'Samovyvoz',
-						fio: '',
+						name: '',
 						email: '',
 						state: 'bishkek',
 						oplata: 'nal',
@@ -33,7 +33,7 @@ const PanelWithOffer = () => {
 							.required('Необходимое поле'),
 						email: Yup.string()
 							.required('Необходимое поле'),
-						fio: Yup.string()
+						name: Yup.string()
 							.required('Необходимое поле'),
 						dostavka: Yup.string()
 							.required('Необходимое поле'),
@@ -51,13 +51,13 @@ const PanelWithOffer = () => {
 						dispatch(handleMakeOrderActionCreator({
 							phone: fields.phone,
 							email: fields.email,
-							fio: fields.fio,
+							name: fields.name,
 							dostavka: fields.dostavka,
 							state: fields.dostavka,
 							oplata: fields.oplata,
 							address: fields.address,
 							comment: fields.comment,
-							totalPriceToBuy: totalPriceToBuy
+							price: totalPriceToBuy
 						},basketItems))
 					}
 				}>
@@ -67,8 +67,8 @@ const PanelWithOffer = () => {
 					<Form className='form'>
 						<div className='left'>
 							<div className='label'>
-								<Field type="text" name="fio" placeholder='ФИО' />
-								<ErrorMessage name="fio" component="div" className='error'/>
+								<Field type="text" name="name" placeholder='ФИО' />
+								<ErrorMessage name="name" component="div" className='error'/>
 							</div>
 							
 							<div className='label'>
