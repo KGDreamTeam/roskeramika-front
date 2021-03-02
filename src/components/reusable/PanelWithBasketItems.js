@@ -16,7 +16,7 @@ const PanelWithBasketItems = (props) => {
 		const newItems = items.map(item => {
 			return {
 				...item,
-				mainPriceToThisItem: prices.find(x => x.id === item.id).price
+				itemPrice: prices.find(x => x.id === item.id).price
 			}
 		})
 		dispatch(pushItemToSale(newItems))
