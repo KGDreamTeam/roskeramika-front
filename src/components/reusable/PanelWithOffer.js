@@ -3,6 +3,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {useDispatch, useSelector} from 'react-redux';
 import {handleMakeOrderActionCreator} from '../../store/actions/basket';
+import {getCurrentDate} from '../../helpers/date'
 
 const PanelWithOffer = () => {
 
@@ -49,15 +50,16 @@ const PanelWithOffer = () => {
 				onSubmit={
 					fields => {
 						dispatch(handleMakeOrderActionCreator({
-							phone: fields.phone,
+							phone: `Tел: ${fields.phone}`,
 							email: fields.email,
 							name: fields.name,
 							dostavka: fields.dostavka,
-							state: fields.dostavka,
+							state: fields.state,
 							oplata: fields.oplata,
 							address: fields.address,
 							comment: fields.comment,
-							price: totalPriceToBuy
+							order_date: getCurrentDate(),
+							price: `${totalPriceToBuy}som`
 						},basketItems))
 					}
 				}>

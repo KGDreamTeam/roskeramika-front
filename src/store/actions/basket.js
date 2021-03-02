@@ -30,6 +30,7 @@ export const setTotalPrice = (payload) => {
 }
 
 export const handleMakeOrderActionCreator = (infoPerson, products) => dispatch => {
+	console.log({...infoPerson, products: [...products]})
 	axios.post('/apiv1/order/', {
 		...infoPerson,
 		products: [
