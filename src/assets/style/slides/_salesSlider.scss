@@ -23,8 +23,24 @@
 		}
 		.sales-slider{
 			.slick-arrow{
-				background-color: black;
-				border-radius: 2px;
+				background-color: #FFDD00;
+				border-radius: 50%;
+				width: 48px;
+				height: 48px;
+				z-index: 2;
+				&:before {
+					display: none;
+				}
+				&.slick-next {
+					background-image: url(../../img/next.png);
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+				&.slick-prev{
+					background-image: url(../../img/prev.png);
+					background-repeat: no-repeat;
+					background-position: center;
+				}
 			}
 		}
 	}
