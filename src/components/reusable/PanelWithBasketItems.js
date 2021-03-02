@@ -32,24 +32,37 @@ const PanelWithBasketItems = (props) => {
 
 	return(
 		<div className='panel-with-basket-items'>
-			{
-				items.length !== 0 ? items.map(item => (
-					<BasketItem 
-						id={item.id}
-						subname={item.subcategorie.name}
-						name={item.name}
-						artikul={item.artikul}
-						image={item.image1}
-						manufac={item.manufacturer.company_name}
-						surface={item.surface}
-						length={item.length}
-						width={item.width}
-						price={item.price}
-					/>
-				)) : <div className='no-items'>Ваша корзина пуста, Вы можете выбрать товары в каталоге.</div>
-			}
-			<h3>Общая стоимость заказа (без учета доставки) {totalPrice} сомов</h3>
-			<button onClick={handleClick}>Оформить</button>
+			<div className='items'>
+				{
+					items.length !== 0 ? items.map(item => (
+						<BasketItem 
+							id={item.id}
+							subname={item.subcategorie.name}
+							name={item.name}
+							artikul={item.artikul}
+							image={item.image1}
+							manufac={item.manufacturer.company_name}
+							surface={item.surface}
+							length={item.length}
+							width={item.width}
+							price={item.price}
+						/>
+					)) : <div className='no-items'>Ваша корзина пуста, Вы можете выбрать товары в каталоге.</div>
+				}
+
+			</div>
+			<div className='main-info'>
+				<h3>
+					Общая стоимость заказа (без учета доставки) {totalPrice} сомов
+				</h3>
+				<button 
+					className='make-order' 
+					onClick={handleClick}
+				>
+					Оформить
+				</button>
+
+			</div>
 		</div>
 	)
 }
