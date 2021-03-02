@@ -146,7 +146,7 @@ const PanelWithOffer = () => {
 										</label>
 										<label htmlFor='elsom'>
 											<Field id='elsom' type="radio" name="oplata" value="elsom" />
-											<span>Эльсом</span>
+											<span>Элсом</span>
 										</label>
 
 									</div>
