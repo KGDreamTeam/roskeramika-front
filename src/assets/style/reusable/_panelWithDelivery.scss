@@ -1,0 +1,11 @@
+.panel-with-delivery{
+	color: #151F37;
+	.delivery-items{
+		display: flex;
+		justify-content: space-between;
+		max-width: 300px;
+		.price{
+			font-weight: bold;
+		}
+	}
+}

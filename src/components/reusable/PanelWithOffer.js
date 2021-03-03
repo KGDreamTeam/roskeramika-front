@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {handleMakeOrderActionCreator} from '../../store/actions/basket';
 import {getCurrentDate} from '../../helpers/date'
 
-const PanelWithOffer = () => {
+const PanelWithOffer = (props) => {
 
 	const {basketItems, totalPriceToBuy} = useSelector(state => ({
 		basketItems: state.basket.itemsToSale,
@@ -104,6 +104,7 @@ const PanelWithOffer = () => {
 								disabled={basketItems.length === 0 ? true : false} 
 								type="submit" 
 								className='submit-btn'
+								onClick={() => props.handleSelect(props.index)}
 							>
 								Оформить
 							</button>
