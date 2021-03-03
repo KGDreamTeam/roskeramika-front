@@ -34,7 +34,6 @@ export const handleGetProductsOfColletionActionCreator = (id) => dispatch => {
 	axios.get(`/apiv1/products/?collection=${id}`)
 		.then(res => {
 			const data = res.data
-			console.log(data)
 				for(let i = 0; i < data.length; i++){
 					if(data[i].collection.discount !== 0){
 						data[i].price = getPersentPriceOne(data[i].collection.discount, data[i].price)

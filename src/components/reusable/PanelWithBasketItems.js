@@ -37,6 +37,7 @@ const PanelWithBasketItems = (props) => {
 					items.length !== 0 ? items.map(item => (
 						<BasketItem 
 							id={item.id}
+							key={item.id}
 							subname={item.subcategorie.name}
 							name={item.name}
 							artikul={item.artikul}
