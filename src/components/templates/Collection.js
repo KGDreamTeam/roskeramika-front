@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import LazyLoad from 'react-lazyload'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {getMinPriceOfArr} from '../../helpers/persentCalc'
@@ -22,7 +23,14 @@ const Collection = (props) => {
 		<div className='collection-for-page-wrapper'>
 			<div className='image-wrapper'>
 				<NavLink className='link-to-collection' to={`/collection/${props.id}`}>
-					<img src={props.img} alt='image of Collection' />
+					<LazyLoad 
+						height={200} 
+						once 
+						offset={100}
+						style={{width: '300px', height: '155px', backgroundColor: 'grey'}}
+					>
+						<img src={props.img} alt='image of Collection' />
+					</LazyLoad>
 				</NavLink>
 			</div>
 			<div className='collection-information'>

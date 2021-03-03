@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import LazyLoad from 'react-lazyload'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
@@ -29,7 +30,15 @@ const NewSliderItem = (props) => {
 			<div className='content'>
 				<div className='image-wrapper'>
 					<NavLink to={`/collection/${props.id}`}>
-						<img src={props.img} alt='imageFrom props' />
+						<LazyLoad 
+							height={200} 
+							once 
+							offset={100} 
+							placeholder="Image"
+							style={{width: '300px', height: '155px', backgroundColor: 'grey'}}
+						>
+							<img src={props.img} alt='imageFrom props' />
+						</LazyLoad>
 					</NavLink>
 				</div>
 				<div className='name-wrapper'>
