@@ -36,13 +36,9 @@ const Footer = () => {
           <div className="info-item">Ламинат</div>
         </div>
         <div className="info">
-          <h4>Производители:</h4>
-          <div className="info-item">Нефрит</div>
-          <div className="info-item">ALMA CERAMICA</div>
-          <div className="info-item">Gracia Ceramica</div>
-          <div className="info-item">Азори</div>
-          <div className="info-item">Unitile Lasselsberger</div>
-          <div className="info-item">Grasaro</div>
+          <h4>Общая информация:</h4>
+          <div className="info-item">О нас</div>
+          <div className="info-item">Оплата и доставка</div>
         </div>
       </div>
 			<div className='last'>

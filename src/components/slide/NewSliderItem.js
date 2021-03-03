@@ -35,7 +35,6 @@ const NewSliderItem = (props) => {
 							once 
 							offset={100} 
 							placeholder="Image"
-							style={{width: '300px', height: '155px', backgroundColor: 'grey'}}
 						>
 							<img src={props.img} alt='imageFrom props' />
 						</LazyLoad>
