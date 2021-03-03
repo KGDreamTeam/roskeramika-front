@@ -65,7 +65,12 @@ const reducer = (state = initialState, action) => {
 }
 
 const deleteItem = (arr, el) => {
-	const index = arr.indexOf(el)
+	let index = 0
+	for(let i = 0; i < arr.length; i++){
+		if(arr[i].id === parseInt(el)){
+			index = i
+		}
+	}
 	if(index > -1){
 		arr.splice(index, 1)
 	}

@@ -4,7 +4,7 @@ import {getTotalPriceProduct} from '../../helpers/sizeManipulation'
 import {useDispatch} from 'react-redux'
 
 import closeIcon from '../../assets/img/closeIcon.svg'
-import {priceForItem} from '../../store/actions/basket'
+import {priceForItem, deleteItemBasket} from '../../store/actions/basket'
 
 const BasketItem = (props) => {
 
@@ -19,6 +19,10 @@ const BasketItem = (props) => {
 
 	const plusHandler = () => {
 		setCount(prev => roundCalculationPlus(prev))
+	}
+
+	const handleDelete = () => {
+		dispatch(deleteItemBasket(props.id))
 	}
 
 	useEffect(() => {
@@ -80,7 +84,7 @@ const BasketItem = (props) => {
 						<div className='price'>
 							{price} 
 							<span>Сом</span> 
-							<button className='delete-item-btn'>
+							<button className='delete-item-btn' onClick={handleDelete}>
 								<img src={closeIcon} alt='delete item' className='close-icon' />
 							</button>
 						</div>
