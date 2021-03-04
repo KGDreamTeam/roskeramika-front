@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 import wats from '../../assets/img/wats.svg'
 import BigLink from '../reusable/BigLink'
@@ -28,10 +28,12 @@ const Navigation = () => {
 				</div>
 				<div className='right'>
 					<div className='watsapp'>
-						<img src={wats} alt='watsapp' className='wats-icon' />
-						<div className='text'>
-							Напишите нам
-						</div>
+						<a href='tel:+996703411547'>
+							<img src={wats} alt='watsapp' className='wats-icon' />
+							<div className='text'>
+								Напишите нам
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>
