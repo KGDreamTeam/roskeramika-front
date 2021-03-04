@@ -19,9 +19,17 @@ const CollectionInfo = (props) => {
 						<span className='manufacturer-text'>Призводитель: </span>
 						<span className='manufacturer'>{props.manufacturer}</span>
 					</div>
+					<div className='size-wrapper'>
+						<span className='size-text'>Размер: </span>
+						<span className='size'>{props.size}</span>
+					</div>
 					<div className='surface-wrapper'>
 						<span className='surface-text'>Поверхность: </span>
 						<span className='surface'>{props.surface}</span>
+					</div>
+					<div className='style-wrapper'>
+						<span className='style-text'>Стиль: </span>
+						<span className='style'>{props.material}</span>
 					</div>
 					<div className='dots'></div>
 					<div className='post-wrapper'>
