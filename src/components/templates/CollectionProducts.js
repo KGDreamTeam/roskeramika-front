@@ -10,12 +10,8 @@ const CollectionProducts = (props) => {
 				{
 					props.items.length !== 0 ? props.items.map(item => (
 						<CollectionProduct 
-							size={`${item.width}x${item.length}`} 
-							key={item.id} 
-							type={item.surface}
-							view={item.usage}
-							img={item.image1}
-							price={item.price}
+							{...item}
+							key={item.id}
 						/>
 					)) : <div className='no-products'>Нет товаров</div>
 				}

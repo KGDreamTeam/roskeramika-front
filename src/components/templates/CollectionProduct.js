@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 import {roundCalculationMinus, roundCalculationPlus} from '../../helpers/roundCalculation'
+import {pushItemToBasket} from '../../store/actions/basket'
 
 const CollectionProduct = (props) => {
+	const dispatch = useDispatch()
 
 	const [quantity, setQuantity] = useState(0)
 	const [price, setPrice] = useState(0.0)
@@ -19,7 +23,7 @@ const CollectionProduct = (props) => {
 	}
 
 	const offerHandler = () => {
-		console.log('offering')
+		dispatch(pushItemToBasket([{...props}]))
 	}
 
 	useEffect(() => {
@@ -29,20 +33,20 @@ const CollectionProduct = (props) => {
 	return(
 		<div className='collection-product'>
 			<div className='image-wrapper'>
-				<img src={props.img} alt='product' className='image-product' />
+				<img src={props.image1} alt='product' className='image-product' />
 			</div>
 			<div className='product-wrapper'>
 				<div className='type-wrapper'>
 					<div className='type-text'>Тип:</div>
-					<div className='type'>{props.type}</div>
+					<div className='type'>{props.material}</div>
 				</div>
 				<div className='view-wrapper'>
 					<div className='view-text'>Вид:</div>
-					<div className='view'>{props.view}</div>
+					<div className='view'>{props.surface}</div>
 				</div>
 				<div className='size-wrapper'>
 					<div className='size-text'>Размер:</div>
-					<div className='size'>{props.size}</div>
+					<div className='size'>{`${props.width}x${props.length}`}</div>
 				</div>
 				<div className='dots'></div>
 				<div className='quantity-wrapper'>
@@ -64,7 +68,14 @@ const CollectionProduct = (props) => {
 					<div className='price-text'>Цена:</div>
 					<div className='price'>{props.price}<span className='som'>Сом</span></div>
 				</div>
-				<button className='btn-offer' onClick={offerHandler} disabled={quantity <= 0 ? true : false}>оформить заказ</button>
+				<NavLink
+					to='/basket'
+					className='btn-offer' 
+					onClick={offerHandler} 
+					disabled={quantity <= 0 ? true : false}
+				>
+					оформить заказ
+				</NavLink>
 			</div>
 		</div>
 	)

@@ -23,8 +23,10 @@ const Collection = (props) => {
 			let mainProduct = collection.products.filter(item => {
 				return item.main_tovar === true
 			})
-			let sizeProd = `${mainProduct[0].width}x${mainProduct[0].length}`
-			setSize(sizeProd)
+			if(mainProduct.length !== 0){
+				let sizeProd = `${mainProduct[0].width}x${mainProduct[0].length}`
+				setSize(sizeProd)
+			}
 		}
 	}, [props.match.params.id, collection])
 
