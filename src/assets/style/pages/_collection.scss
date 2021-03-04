@@ -112,6 +112,9 @@
 		padding-bottom: 58px;
 		@include _1045(){
 			width: 100%;
+			h2{
+				text-align: center
+			}
 		}
 		.collection-products{
 			display: flex;
@@ -127,8 +130,9 @@
 				border-radius: 2px;
 				@include _870(){
 					flex-direction: column;
-					width: 98%;
+					width: 95%;
 					margin: 0 auto;
+					margin-bottom: 35px;
 				}
 				.image-wrapper{
 					width: 30%;

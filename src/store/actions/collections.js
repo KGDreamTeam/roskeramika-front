@@ -1,5 +1,5 @@
 import axios from '../../axios/axios'
-import {getPersentPriceOne} from '../../helpers/persentCalc'
+import {getMinPriceOfArr, getPersentPriceOne} from '../../helpers/persentCalc'
 import {
 	PUSH_COLLECTIONS, 
 	PUSH_NEWS_COLLECTIONS, 
@@ -16,8 +16,23 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 		.then(response => {
 			axios.get(products)
 				.then(res => {
+					let sizeProd;
+					let price = getMinPriceOfArr(response.data.products)
+					let mainProduct = res.data.filter(item => {
+						return item.main_tovar === true
+					})
+					if(mainProduct.length !== 0){
+						sizeProd = `${mainProduct[0].width}x${mainProduct[0].length}`
+					} else {
+						sizeProd = 'no main product'
+					}
+
 					dispatch(pushOneCollection({
-						collection: {...response.data},
+						collection: {
+							...response.data, 
+							size: sizeProd, 
+							price: price
+						},
 						products: [...res.data]
 					}))
 				})
