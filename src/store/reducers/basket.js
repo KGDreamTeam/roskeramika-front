@@ -25,11 +25,11 @@ const reducer = (state = initialState, action) => {
 			}
 		case DELETE_ITEM_BASKET:
 			const newArr = deleteItem(state.items, action.payload)
+			const arrFromToSale = deleteItem(state.itemsToSale, action.payload)
 			return {
 				...state,
-				items: [
-					...newArr
-				]
+				itemsToSale: [...arrFromToSale],
+				items: [...newArr]
 			}
 		case SET_TOTAL_PRICE:
 			return {

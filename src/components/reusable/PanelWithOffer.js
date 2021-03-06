@@ -104,6 +104,7 @@ const PanelWithOffer = (props) => {
 								{
 									basketItems.length !== 0 ? basketItems.map(item => (
 										<Items
+											key={item.id}
 											name={item.name}
 											price={item.itemPrice}
 										/>
