@@ -99,6 +99,16 @@ const PanelWithOffer = (props) => {
 									</div>
 								</div>
 							</div>
+							<div className='label'>
+								{
+									basketItems.length !== 0 ? basketItems.map(item => (
+										<Items
+											name={item.name}
+											price={item.itemPrice}
+										/>
+									)) : <div>пожалуйста, выберите товары</div>
+								}
+							</div>
 
 							<button 
 								disabled={basketItems.length === 0 ? true : false} 
@@ -160,6 +170,14 @@ const PanelWithOffer = (props) => {
 					</>
 				)}
 			</Formik>
+		</div>
+	)
+}
+
+const Items = (props) => {
+	return(
+		<div className='item'>
+			<span>{props.name}</span> <span>{props.price}</span>
 		</div>
 	)
 }
