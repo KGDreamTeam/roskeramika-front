@@ -49,6 +49,7 @@ const PanelWithOffer = (props) => {
 				}
 				onSubmit={
 					fields => {
+						props.handleSelect(props.index)
 						dispatch(handleMakeOrderActionCreator({
 							phone: `Tел: ${fields.phone}`,
 							email: fields.email,
@@ -114,7 +115,6 @@ const PanelWithOffer = (props) => {
 								disabled={basketItems.length === 0 ? true : false} 
 								type="submit" 
 								className='submit-btn'
-								onClick={() => props.handleSelect(props.index)}
 							>
 								Оформить
 							</button>
