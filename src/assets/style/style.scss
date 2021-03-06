@@ -29,7 +29,33 @@
 @import 'reusable/panelWithOffer';
 @import 'reusable/panelWithDelivery';
 
-
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
 @import '../../../node_modules/react-tabs/style/react-tabs.scss';
+
+.whatsapp-mobile {
+  display: none;
+  @include _600() {
+    display: block;
+  }
+  a {
+    background-color: $btn-yello;
+		border-radius: 50px;
+    text-decoration: none;
+    color: black;
+		@include flexCenter();
+    box-sizing: border-box;
+    .whats-icon {
+			width: 100%;
+    }
+    @include _600() {
+      position: fixed;
+      width: 48px;
+      height: 48px;
+      padding: 10px;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9;
+    }
+  }
+}

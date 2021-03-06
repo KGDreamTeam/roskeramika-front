@@ -13,8 +13,12 @@ const Footer = () => {
           <div className="info-item">Тел: +996 (770) 93-99-93</div>
           <div className="info-item">Email: rkaugrand@gmail.com</div>
 					<div className='soc-icons'>
-						<img src={whiteInst} alt='instagram' className='white-inst' />
-						<img src={whiteWhats} alt='whatsapp' className='white-whats' />
+						<a href='https://instagram.com/tech._insta_/' target='_blank'>
+							<img src={whiteInst} alt='instagram' className='white-inst' />
+						</a>
+						<a href='https://api.whatsapp.com/send?phone=996703411547' target='_blank'>
+							<img src={whiteWhats} alt='whatsapp' className='white-whats' />
+						</a>
 					</div>
         </div>
         <div className="info">

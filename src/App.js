@@ -14,6 +14,8 @@ import About from './components/pages/About'
 
 import {handleGetAllKategoriActionCreator, handleGetAllSubCategoriesActionCreator} from './store/actions/kategori'
 
+import wats from './assets/img/wats.svg'
+
 function App() {
 
 	const dispatch = useDispatch()
@@ -25,6 +27,11 @@ function App() {
 
   return (
     <div className="App" id='App'>
+			<div className='whatsapp-mobile'>
+				<a href='https://api.whatsapp.com/send?phone=996703411547' target='_blank'>
+					<img src={wats} alt='watsapp' className='wats-icon' />
+				</a>
+			</div>
 			<BrowserRouter>
 				<Header />
 				<Switch>
