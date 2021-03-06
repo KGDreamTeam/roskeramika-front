@@ -17,8 +17,8 @@ const SalesSliderItem = (props) => {
 	}
 
 	useEffect(() => {
-		setPricePersent(getPersentPrice(props.sales, props.products))
-		setPrice(getMinPriceOfArr(props.products))
+		setPricePersent(getPersentPrice(props.sales, props.products).toFixed(2))
+		setPrice(getMinPriceOfArr(props.products).toFixed(2))
 	}, [props.price, props.sales])
 
 	return(
@@ -50,12 +50,12 @@ const SalesSliderItem = (props) => {
 				<div className='price-wrapper'>
 					<div className='before-sales'>
 						<div className='price-pr'>Цена:</div>
-						<div className='price'>{price} C</div>
+						<div className='price'>от {price} C</div>
 						<div className='red-line'> </div>
 					</div>
 					<div className='after-sales'>
 						<div className='price-p'>Цена со скидкой:</div>
-						<div className='price-with-sales'>{pricePersent} C</div>
+						<div className='price-with-sales'>от {pricePersent} C</div>
 					</div>
 				</div>
 			</div>

@@ -16,7 +16,7 @@ const Collection = (props) => {
 	}
 
 	useEffect(() => {
-		setPrice(getMinPriceOfArr(props.products))
+		setPrice(getMinPriceOfArr(props.products).toFixed(2))
 	}, [])
 
 	return(
@@ -51,7 +51,7 @@ const Collection = (props) => {
 				</div>
 				<div className='collection-information-price-wrapper'>
 					<div className='price-text'>Цена</div>
-					<div className='price'>{price}</div>
+					<div className='price'>{price} C</div>
 				</div>
 			</div>
 			<div className=''>

@@ -20,6 +20,7 @@
 		}
 		.sub-title{
 			@include subTitleTemplate;
+			font-weight: normal;
 		}
 		.sales-slider{
 			.slick-arrow{

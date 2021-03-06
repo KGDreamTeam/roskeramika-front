@@ -15,7 +15,7 @@ const NewSliderItem = (props) => {
 		dispatch(handleGetProductsOfColletionActionCreator(props.id))
 	}
 	useEffect(() => {
-		setPrice(getMinPriceOfArr([...props.products]))
+		setPrice(getMinPriceOfArr([...props.products]).toFixed(2))
 	}, [props.products])
 
 	return(
