@@ -34,7 +34,7 @@ const Collection = (props) => {
 			</div>
 			<div className='collection-information'>
 				<div className='collection-information-name-wrapper'>
-					<div className='name'>{props.name}</div>
+					<NavLink className='name'>{props.name}</NavLink>
 					{
 						props.labelnew ? (
 							<div className='empty'></div>
@@ -51,7 +51,7 @@ const Collection = (props) => {
 				</div>
 				<div className='collection-information-price-wrapper'>
 					<div className='price-text'>Цена</div>
-					<div className='price'>{price} C</div>
+					<div className='price'>от {price} C</div>
 				</div>
 			</div>
 			<div className=''>

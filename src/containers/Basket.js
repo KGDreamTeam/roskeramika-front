@@ -36,7 +36,11 @@ const Basket = () => {
 								<div>ничего нету</div>
 							)
 						}
-						<NavLink to='/basket' className='offer'>оформить заказ</NavLink>
+						{
+							basket.items.length !== 0 ? (
+								<NavLink to='/basket' className='offer'>оформить заказ</NavLink>
+							) : null
+						}
 					</div>
 				) : null
 			}

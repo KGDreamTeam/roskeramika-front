@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 import whiteWhats from '../../assets/img/white-wats.svg'
 import whiteInst from '../../assets/img/white-inst.svg'
@@ -9,9 +10,8 @@ const Footer = () => {
       <div className="container">
         <div className="info">
           <h4>Контактная информация:</h4>
-          <div className="info-item">Тел: +996 (555) 93-99-93</div>
-          <div className="info-item">Тел: +996 (770) 93-99-93</div>
-          <div className="info-item">Email: rkaugrand@gmail.com</div>
+					<a className="info-item" href='tel:+996555939993'>Тел: +996 (555) 93-99-93</a><br />
+          <a className="info-item" href='mailto:rkaugrand@gmail.com'>Email: rkaugrand@gmail.com</a>
 					<div className='soc-icons'>
 						<a href='https://instagram.com/tech._insta_/' target='_blank'>
 							<img src={whiteInst} alt='instagram' className='white-inst' />
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <div className="info">
           <h4>Общая информация:</h4>
-          <div className="info-item">О нас</div>
+					<NavLink to='/about' className="info-item">О нас</NavLink>
           <div className="info-item">Оплата и доставка</div>
         </div>
       </div>

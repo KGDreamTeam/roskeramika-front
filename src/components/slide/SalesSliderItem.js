@@ -39,7 +39,7 @@ const SalesSliderItem = (props) => {
 						</LazyLoad>
 					</NavLink>
 					<div className='name-wrapper'>
-						<div className='name'>{props.name}</div>
+						<NavLink className='name'>{props.name}</NavLink>
 						<div className='to-basket' onClick={handleToBasket}>
 							<img src={basketMini} alt='basket' className='basket-mini' />
 							в корзину

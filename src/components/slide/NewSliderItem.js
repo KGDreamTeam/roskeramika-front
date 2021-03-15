@@ -41,7 +41,7 @@ const NewSliderItem = (props) => {
 					</NavLink>
 				</div>
 				<div className='name-wrapper'>
-					<div className='name'>{props.name}</div>
+					<NavLink className='name'>{props.name}</NavLink>
 					<div className='to-basket' onClick={hanldeToBasket}>
 						<img src={basketMini} alt='basket' className='basket-mini' />
 						в корзину
