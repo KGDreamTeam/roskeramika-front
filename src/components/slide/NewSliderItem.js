@@ -24,16 +24,16 @@ const NewSliderItem = (props) => {
 				props.burn ? (
 					<div className='burn-price'>
 						Горящая цена
-					</div> 
+					</div>
 				) : null
 			}
 			<div className='content'>
 				<div className='image-wrapper'>
 					<NavLink to={`/collection/${props.id}`}>
-						<LazyLoad 
-							height={200} 
-							once 
-							offset={100} 
+						<LazyLoad
+							height={200}
+							once
+							offset={100}
 							placeholder="Image"
 						>
 							<img src={props.img} alt='imageFrom props' />
@@ -41,7 +41,7 @@ const NewSliderItem = (props) => {
 					</NavLink>
 				</div>
 				<div className='name-wrapper'>
-					<NavLink className='name'>{props.name}</NavLink>
+					<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
 					<div className='to-basket' onClick={hanldeToBasket}>
 						<img src={basketMini} alt='basket' className='basket-mini' />
 						в корзину

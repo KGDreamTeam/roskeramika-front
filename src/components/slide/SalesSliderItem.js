@@ -26,20 +26,20 @@ const SalesSliderItem = (props) => {
 			<div className='sales-price'>
 				<div className='sales-procent'>-{props.sales}%</div>
 				<div className='p'>Скидка</div>
-			</div> 
+			</div>
 			<div className='content'>
 				<div className='image-wrapper'>
 					<NavLink to={`/collection/${props.id}`}>
-						<LazyLoad 
-							height={250} 
-							once 
+						<LazyLoad
+							height={250}
+							once
 							offset={100}
 						>
 							<img src={props.img} alt='imageFrom props' className='sales-image' />
 						</LazyLoad>
 					</NavLink>
 					<div className='name-wrapper'>
-						<NavLink className='name'>{props.name}</NavLink>
+						<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
 						<div className='to-basket' onClick={handleToBasket}>
 							<img src={basketMini} alt='basket' className='basket-mini' />
 							в корзину
