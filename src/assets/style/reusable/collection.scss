@@ -7,7 +7,9 @@
 		width: 100%;
 		.link-to-collection{
 			img{
-				width: 100%;
+              width: 320px;
+				object-fit: cover;
+				height: 213px;
 			}
 		}
 	}

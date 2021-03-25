@@ -3,7 +3,7 @@ import LazyLoad from 'react-lazyload'
 import {useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {getMinPriceOfArr} from '../../helpers/persentCalc'
-import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
+import {handleGetProductsOfCollectionActionCreator} from '../../store/actions/collections'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 
@@ -12,7 +12,7 @@ const Collection = (props) => {
 	const [price, setPrice] = useState(0)
 
 	const handleToBasket = () => {
-		dispatch(handleGetProductsOfColletionActionCreator(props.id))
+		dispatch(handleGetProductsOfCollectionActionCreator(props.id))
 	}
 
 	useEffect(() => {
@@ -28,26 +28,20 @@ const Collection = (props) => {
 						once 
 						offset={100}
 					>
-						<img src={props.img} alt='image of Collection' />
+						<img src={props.img} alt='image of Collection' className='collection-image' />
 					</LazyLoad>
 				</NavLink>
 			</div>
 			<div className='collection-information'>
 				<div className='collection-information-name-wrapper'>
 					<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
-					{
-						props.labelnew ? (
-							<div className='empty'></div>
-						) : (
-							<div 
+							<div
 								className='to-basket'
 								onClick={handleToBasket}
 							>
 								<img src={basketMini} alt='basket' className='basket-mini' />
 								в корзину
 							</div>
-						)
-					}
 				</div>
 				<div className='collection-information-price-wrapper'>
 					<div className='price-text'>Цена</div>

@@ -5,14 +5,14 @@ import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 import {getMinPriceOfArr} from '../../helpers/persentCalc'
-import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
+import {handleGetProductsOfCollectionActionCreator} from '../../store/actions/collections'
 
 const NewSliderItem = (props) => {
 	const dispatch = useDispatch()
 	const [price, setPrice] = useState(0)
 
-	const hanldeToBasket = () => {
-		dispatch(handleGetProductsOfColletionActionCreator(props.id))
+	const handleToBasket = () => {
+		dispatch(handleGetProductsOfCollectionActionCreator(props.id))
 	}
 	useEffect(() => {
 		setPrice(getMinPriceOfArr([...props.products]).toFixed(2))
@@ -42,7 +42,7 @@ const NewSliderItem = (props) => {
 				</div>
 				<div className='name-wrapper'>
 					<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
-					<div className='to-basket' onClick={hanldeToBasket}>
+					<div className='to-basket' onClick={handleToBasket}>
 						<img src={basketMini} alt='basket' className='basket-mini' />
 						в корзину
 					</div>

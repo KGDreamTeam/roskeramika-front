@@ -45,9 +45,10 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 		})
 }
 
-export const handleGetProductsOfColletionActionCreator = (id) => dispatch => {
+export const handleGetProductsOfCollectionActionCreator = (id) => dispatch => {
 	axios.get(`/apiv1/products/?collection=${id}`)
 		.then(res => {
+			console.log(res.data)
 			const data = res.data
 				for(let i = 0; i < data.length; i++){
 					if(data[i].collection.discount !== 0){

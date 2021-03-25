@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 
 import basketMini from '../../assets/img/basket-mini.svg'
 import {getMinPriceOfArr, getPersentPrice} from '../../helpers/persentCalc'
-import {handleGetProductsOfColletionActionCreator} from '../../store/actions/collections'
+import {handleGetProductsOfCollectionActionCreator} from '../../store/actions/collections'
 
 const SalesSliderItem = (props) => {
 	const dispatch = useDispatch()
@@ -13,7 +13,7 @@ const SalesSliderItem = (props) => {
 	const [pricePersent, setPricePersent] = useState(0)
 
 	const handleToBasket = () => {
-		dispatch(handleGetProductsOfColletionActionCreator(props.id))
+		dispatch(handleGetProductsOfCollectionActionCreator(props.id))
 	}
 
 	useEffect(() => {
