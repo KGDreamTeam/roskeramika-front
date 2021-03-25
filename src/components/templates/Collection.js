@@ -34,7 +34,7 @@ const Collection = (props) => {
 			</div>
 			<div className='collection-information'>
 				<div className='collection-information-name-wrapper'>
-					<NavLink className='name'>{props.name}</NavLink>
+					<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
 					{
 						props.labelnew ? (
 							<div className='empty'></div>

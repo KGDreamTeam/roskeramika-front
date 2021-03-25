@@ -112,7 +112,7 @@ const HeaderSmall = (props) => {
 						</div>
 						<button className='btn-search' onClick={handleClickSearch}>Найти</button>
 					</div>
-					<NavLink to='/'className='logos'>
+					<NavLink to='/' className='logos'>
 						<img src={logoMain} className='logo-main' alt='main logo' />
 						<img src={logoSec} className='logo-sec' alt='second logo' />
 					</NavLink>
