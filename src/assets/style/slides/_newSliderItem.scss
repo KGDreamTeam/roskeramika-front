@@ -15,7 +15,9 @@
 			margin-bottom: 11px;
 			@include flexCenter();
 			img{
-				width: 98%;
+              width: 320px;
+				height: 213px;
+				object-fit: cover;
 			}
 		}
 		.name-wrapper{

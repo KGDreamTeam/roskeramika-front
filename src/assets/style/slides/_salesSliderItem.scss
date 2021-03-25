@@ -39,7 +39,9 @@
         top: 0;
         left: 0;
 				@include flexCenter();
-				width: 100%;
+        width: 320px;
+        height: 213px;
+        object-fit: cover;
       }
       .name-wrapper {
         margin-bottom: 16px;

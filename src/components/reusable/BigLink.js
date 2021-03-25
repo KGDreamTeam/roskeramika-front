@@ -11,9 +11,9 @@ const BigLink = props => {
   return (
     <div className="item" >
 			<div className='link-wrapper'>
-				<Link to={`/category/${props.id}`} className="to-navlink">
+				<div className="to-navlink">
 					{props.name}
-				</Link>
+				</div>
 				<img 
 					src={upArr} 
 					alt="arr-small" 
