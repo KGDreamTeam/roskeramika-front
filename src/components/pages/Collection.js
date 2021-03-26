@@ -29,7 +29,7 @@ const Collection = (props) => {
 						price={collection.price}
 						size={collection.size}
 						material={collection.material}
-						manufacturer={collection.manufacturer}
+						manufacturer={collection.man}
 						surface={collection.surface}
 					/>
 				) : null

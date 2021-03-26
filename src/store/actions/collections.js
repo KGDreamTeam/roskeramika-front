@@ -16,22 +16,26 @@ export const handleGetOneCollectionActionCreator = (id) => dispatch => {
 		.then(response => {
 			axios.get(products)
 				.then(res => {
-					let sizeProd;
+					let sizeProd
+					let manufacturer
 					let price = getMinPriceOfArr(response.data.products)
 					let mainProduct = res.data.filter(item => {
 						return item.main_tovar === true
 					})
 					if(mainProduct.length !== 0){
 						sizeProd = `${mainProduct[0].width}x${mainProduct[0].length}`
+            manufacturer = `${mainProduct[0]['manufacturer']['company_name']}`
 					} else {
 						sizeProd = 'no main product'
+						manufacturer = 'no main product'
 					}
 
 					dispatch(pushOneCollection({
 						collection: {
 							...response.data, 
 							size: sizeProd, 
-							price: price
+							price: price,
+							man: manufacturer,
 						},
 						products: [...res.data]
 					}))

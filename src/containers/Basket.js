@@ -8,6 +8,7 @@ import useWindowDimensions from '../helpers/useWindowDimension'
 const Basket = () => {
 	const [show, setShow] = useState(false)
 	const basket = useSelector(state => state.basket)
+	const totalSum = useSelector(state => state.basket.totalPriceToBuy)
 	const {width} = useWindowDimensions()
 
 	return(
@@ -18,10 +19,8 @@ const Basket = () => {
 					<div className='ic-basket-count'>{basket.items.length}</div> 
 				) : null
 			}
+			<div className='total-sum'>{totalSum.toFixed(2)} руб</div>
 			{
-				width < 820 ? null : 'Корзина'
-			}
-			{			
 				show ? (
 					<div className='basket-dropdown'>
 						{
