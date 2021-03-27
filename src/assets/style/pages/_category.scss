@@ -1,3 +1,13 @@
+@import "../templates";
 .category-page{
-
+  min-height: 80vh;
+  &-container{
+    width: 85%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    @include _400{
+      width: 95%;
+    }
+  }
 }
