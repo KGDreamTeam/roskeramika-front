@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 
 import upArr from '../../assets/img/upArr.svg'
 
@@ -10,7 +10,7 @@ const BigLink = props => {
 
   return (
     <div className="item" >
-			<div className='link-wrapper'>
+			<NavLink to={`/category/${props.id}`} className='link-wrapper'>
 				<div className="to-navlink">
 					{props.name}
 				</div>
@@ -19,7 +19,7 @@ const BigLink = props => {
 					alt="arr-small" 
 					className={'arr'} 
 				/>
-			</div>
+			</NavLink>
       <div className={'sub-items'}>
 				{
 					subCategories && subCategories.map(sub => {
