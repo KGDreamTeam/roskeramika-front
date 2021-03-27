@@ -59,7 +59,7 @@ const PanelWithBasketItems = (props) => {
 				<button 
 					className='make-order' 
 					onClick={handleClick}
-					disabled={items.length !== 0 ? false : true}
+					disabled={items.length !== 0}
 				>
 					Оформить
 				</button>

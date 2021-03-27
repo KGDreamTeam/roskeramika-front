@@ -56,12 +56,12 @@ const BasketItem = (props) => {
             <div className="surface-text">Поверхность:</div>
             <div className="surface">{props.surface}</div>
           </div>
-					<div className='dots'></div>
+					<div className='dots'> </div>
           <div className="count-wrapper">
             <div className="count-text">Количество</div>
             <div className="count-logic">
 							<button 
-								disabled={count <= 0 ? true : false}
+								disabled={count <= 0}
 								className='minus' 
 								onClick={minusHandler}
 							>-</button>
@@ -78,7 +78,7 @@ const BasketItem = (props) => {
             </div>
             <span>m<sup>2</sup></span>
           </div>
-					<div className='dots'></div>
+					<div className='dots'> </div>
 					<div className='item-total-price-wrapper'>
 						<div className='price-text'>Цена:</div>
 						<div className='price'>

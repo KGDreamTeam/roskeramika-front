@@ -1,13 +1,24 @@
-import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
+import React, {useState, useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import icBasket from '../assets/img/ic_bascket.svg'
+import {setTotalPrice} from "../store/actions/basket";
 
 const Basket = () => {
 	const [show, setShow] = useState(false)
 	const basket = useSelector(state => state.basket)
+	const prices = useSelector(state => state.basket.itemsPrices)
 	const totalSum = useSelector(state => state.basket.totalPriceToBuy)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		let total = 0
+		for(let i = 0; i < prices.length; i++){
+			total += parseInt(prices[i].price)
+		}
+		dispatch(setTotalPrice(total))
+	}, [prices])
 
 	return(
 		<div className='basket' onClick={() => setShow(!show)}>

@@ -9,9 +9,16 @@ const CollectionProducts = (props) => {
 			<div className='collection-products'>
 				{
 					props.items.length !== 0 ? props.items.map(item => (
-						<CollectionProduct 
-							{...item}
+						<CollectionProduct
+              img={item.image1}
+							material={item.material}
+							surface={item.surface}
+							width={item.width}
+							length={item.length}
+							price={item.price}
 							key={item.id}
+							id={item.id}
+              artikul={item.artikul}
 						/>
 					)) : <div className='no-products'>Нет товаров</div>
 				}
