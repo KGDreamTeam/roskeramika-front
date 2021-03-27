@@ -66,16 +66,22 @@ const CollectionProduct = (props) => {
 				<div className='dots'></div>
 				<div className='price-wrapper'>
 					<div className='price-text'>Цена:</div>
+					<div className='price'>
+						<strong>{props.price}</strong>
+						<span className='som'>Сом</span>
+					</div>
+				</div>
+				<div className='price-wrapper'>
+					<div className='price-text'>Сумма:</div>
 					<div className='price'>{props.price}<span className='som'>Сом</span></div>
 				</div>
-				<NavLink
-					to='/basket'
-					className='btn-offer' 
+				<button
+					className='btn-offer'
 					onClick={offerHandler} 
 					disabled={quantity <= 0 ? true : false}
 				>
 					оформить заказ
-				</NavLink>
+				</button>
 			</div>
 		</div>
 	)
