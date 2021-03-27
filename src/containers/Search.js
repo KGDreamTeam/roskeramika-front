@@ -21,6 +21,12 @@ const Search = () => {
 		setItems('')
 	}
 
+	const handleKeyPressed = (e) => {
+		if(e.keyCode === 13){
+			handleClickSearch()
+		}
+	}
+
 	const handleClickSearch = () => {
 		axios.get(`/apiv1/collection/?search=${input}`)
 			.then(res => {
@@ -59,6 +65,7 @@ const Search = () => {
 					className='search-input' 
 					placeholder='Я ищу...'
 					value={input}
+          onKeyDown={handleKeyPressed}
 					onChange={e => handleChangeInput(e)}
 				/>
 				{
