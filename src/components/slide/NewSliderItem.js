@@ -1,59 +1,50 @@
-import React, {useEffect, useState} from 'react'
-import LazyLoad from 'react-lazyload'
-import {useDispatch} from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import LazyLoad from "react-lazyload";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import basketMini from '../../assets/img/basket-mini.svg'
-import {getMinPriceOfArr} from '../../helpers/persentCalc'
-import {handleGetProductsOfCollectionActionCreator} from '../../store/actions/collections'
+import basketMini from "../../assets/img/basket-mini.svg";
+import { getMinPriceOfArr } from "../../helpers/persentCalc";
+import { handleGetProductsOfCollectionActionCreator } from "../../store/actions/collections";
 
-const NewSliderItem = (props) => {
-	const dispatch = useDispatch()
-	const [price, setPrice] = useState(0)
+const NewSliderItem = props => {
+  const dispatch = useDispatch();
+  const [price, setPrice] = useState(0);
 
-	const handleToBasket = () => {
-		dispatch(handleGetProductsOfCollectionActionCreator(props.id))
-	}
-	useEffect(() => {
-		setPrice(getMinPriceOfArr([...props.products]).toFixed(2))
-	}, [props.products])
+  const handleToBasket = () => {
+    dispatch(handleGetProductsOfCollectionActionCreator(props.id));
+  };
+  useEffect(() => {
+    setPrice(getMinPriceOfArr([...props.products]).toFixed(2));
+  }, [props.products]);
 
-	return(
-		<div className='new-slider-item'>
-			{
-				props.burn ? (
-					<div className='burn-price'>
-						Горящая цена
-					</div>
-				) : null
-			}
-			<div className='content'>
-				<div className='image-wrapper'>
-					<NavLink to={`/collection/${props.id}`}>
-						<LazyLoad
-							height={200}
-							once
-							offset={100}
-							placeholder="Image"
-						>
-							<img src={props.img} alt='imageFrom props' />
-						</LazyLoad>
-					</NavLink>
-				</div>
-				<div className='name-wrapper'>
-					<NavLink to={`/collection/${props.id}`} className='name'>{props.name}</NavLink>
-					<div className='to-basket' onClick={handleToBasket}>
-						<img src={basketMini} alt='basket' className='basket-mini' />
-						в корзину
-					</div>
-				</div>
-				<div className='price-wrapper'>
-					<div className='price-pr'>Цена:</div>
-					<div className='price'>{price} C</div>
-				</div>
-			</div>
-		</div>
-	)
-}
+  return (
+    <div className="new-slider-item">
+      {props.burn ? <div className="burn-price">Горящая цена</div> : null}
+      <div className="content">
+        <div className="image-wrapper">
+          <NavLink to={`/collection/${props.id}`}>
+            <LazyLoad height={200} once offset={100} placeholder="Image">
+              <img src={props.img} alt="imageFrom props" />
+            </LazyLoad>
+          </NavLink>
+        </div>
+        <div className="name-wrapper">
+          <NavLink to={`/collection/${props.id}`} className="name">
+            {props.name}
+          </NavLink>
+          <div className="to-basket" onClick={handleToBasket}>
+            <img src={basketMini} alt="basket" className="basket-mini" />в
+            корзину
+          </div>
+        </div>
+        <div className="price-wrapper">
+          <div className="price-pr">Цена:</div>
+          <div className="price">{price} C</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default NewSliderItem
+export default NewSliderItem;

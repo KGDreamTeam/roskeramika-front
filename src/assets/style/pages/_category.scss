@@ -1,12 +1,12 @@
 @import "../templates";
-.category-page{
+.category-page {
   min-height: 80vh;
-  &-container{
+  &-container {
     width: 85%;
     margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
-    @include _400{
+    @include _400 {
       width: 95%;
     }
   }

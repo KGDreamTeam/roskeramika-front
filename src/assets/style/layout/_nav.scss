@@ -1,121 +1,120 @@
-@import '../templates';
+@import "../templates";
 
-.nav{
-	color: $nav-color;
-	background-color: white;
-	font-weight: bold;
-	font-size: 15px;
-	box-shadow: 0px 2px 3px rgba(156, 156, 156, 0.25);
-	.container{
-		width: 86%;
-		margin: 0 auto;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		@include _900(){
-			width: 97%;
-		}
-		.left{
-			@include spaceBetween();
-			align-items: center;
-			width: 55%;
-			@include _900(){
-				width: 100%;
-			}
-			.item{
-				position: relative;
-				padding: 15px 0;
-				&:last-of-type .arr{
-					display: none;
-				}
-				&:hover .sub-items{
-					display: flex;
-					flex-direction: column;
-				}
-				.link-wrapper{
-					display: flex;
-					align-items: center;
-					height: 40px;
-					&:hover .arr{
-						transform: rotate(180deg);
-					}
-					.to-navlink{
-						color: $nav-color;
-						text-decoration: none;
-						&:hover{
-							cursor: pointer;
-							color: #F5CB36;
-						}
-					}
-					.arr{
-						width: 10px;
-						margin-left: 5px;
-					}
-				}
-				.sub-items{
-					display: none;
-					top: 70px;
-					position: absolute;
-					width: max-content;
-					z-index: 8;
-					.sub-item{
-						font-weight: normal;
-						text-decoration: none;
-						color: $nav-color;
-						padding: 7px 20px;
-						height: 100%;
-						background-color: white;
-						&:hover{
-							color: #F5CB36;
-						}
-					}
-				}
-			}
-			.item-link{
-				text-decoration: none;
-				color: $nav-color;
-				&:hover{
-					color: #F5CB36;
-				}
-			}
-		}
-		.right{
-			.watsapp{
-				a{
-					background-color: $btn-yello;
-					text-decoration: none;
-					color: black;
-					@include alignCenter();
-					padding: 10px 23px;
-					border-radius: 2px;
-					box-sizing: border-box;
-					width: max-content;
-					margin-left: 10px;
-					.wats-icon{
-						margin-right: 7px;
-						@include _768(){
-							margin: 0;
-							width: 100%;
-						}
-
-					}
-					.text{
-						@include _768(){
-							display: none;
-						}
-					}
-					@include _768(){
-						position: fixed;
-						width: 48px;
-						height: 48px;
-						padding: 10px;
-						border-radius: 50px;
-						bottom: 10px;
-						right: 10px;
-						z-index: 9;
-					}
-				}
-			}
-		}
-	}
+.nav {
+  color: $nav-color;
+  background-color: white;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0px 2px 3px rgba(156, 156, 156, 0.25);
+  .container {
+    width: 86%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include _900() {
+      width: 97%;
+    }
+    .left {
+      @include spaceBetween();
+      align-items: center;
+      width: 55%;
+      @include _900() {
+        width: 100%;
+      }
+      .item {
+        position: relative;
+        padding: 15px 0;
+        &:last-of-type .arr {
+          display: none;
+        }
+        &:hover .sub-items {
+          display: flex;
+          flex-direction: column;
+        }
+        .link-wrapper {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          &:hover .arr {
+            transform: rotate(180deg);
+          }
+          .to-navlink {
+            color: $nav-color;
+            text-decoration: none;
+            &:hover {
+              cursor: pointer;
+              color: #f5cb36;
+            }
+          }
+          .arr {
+            width: 10px;
+            margin-left: 5px;
+          }
+        }
+        .sub-items {
+          display: none;
+          top: 70px;
+          position: absolute;
+          width: max-content;
+          z-index: 8;
+          .sub-item {
+            font-weight: normal;
+            text-decoration: none;
+            color: $nav-color;
+            padding: 7px 20px;
+            height: 100%;
+            background-color: white;
+            &:hover {
+              color: #f5cb36;
+            }
+          }
+        }
+      }
+      .item-link {
+        text-decoration: none;
+        color: $nav-color;
+        &:hover {
+          color: #f5cb36;
+        }
+      }
+    }
+    .right {
+      .watsapp {
+        a {
+          background-color: $btn-yello;
+          text-decoration: none;
+          color: black;
+          @include alignCenter();
+          padding: 10px 23px;
+          border-radius: 2px;
+          box-sizing: border-box;
+          width: max-content;
+          margin-left: 10px;
+          .wats-icon {
+            margin-right: 7px;
+            @include _768() {
+              margin: 0;
+              width: 100%;
+            }
+          }
+          .text {
+            @include _768() {
+              display: none;
+            }
+          }
+          @include _768() {
+            position: fixed;
+            width: 48px;
+            height: 48px;
+            padding: 10px;
+            border-radius: 50px;
+            bottom: 10px;
+            right: 10px;
+            z-index: 9;
+          }
+        }
+      }
+    }
+  }
 }

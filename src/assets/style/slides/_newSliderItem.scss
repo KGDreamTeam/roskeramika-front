@@ -1,59 +1,59 @@
-@import '../templates';
+@import "../templates";
 
-.new-slider-item{
-	width: 300px;
-	max-width: 310px;
-	position: relative;
-	margin: 0 auto;
-	padding: 3px;
-	.burn-price{
-		position: absolute;
-		border-radius: 50%;
-	}
-	.content{
-		.image-wrapper{
-			margin-bottom: 11px;
-			@include flexCenter();
-			img{
-              width: 320px;
-				height: 213px;
-				object-fit: cover;
-			}
-		}
-		.name-wrapper{
-			@include spaceBetween();
-			margin-bottom: 16px;
-			.name{
-				font-size: 20px;
-				font-weight: 700;
-				text-decoration: none;
-				color: $nav-color;
-			}
-			.to-basket{
-				background-color: $btn-yello;
-				padding: 7px 10px;
-				@include alignCenter();
-				border-radius: 2px;
-				&:hover{
-					cursor: pointer;
-				}
-				.basket-mini{
-					margin-right: 7px;
-				}
-			}
-		}
-		.price-wrapper{
-			@include spaceBetween();
-			.price-pr{
-				color: $grey-color;
-				font-size: 15px;
-			}
-			.price{
-				font-size: 15px;
-				color: $nav-color;
-				line-height: 24px;
-				font-weight: 700;
-			}
-		}
-	}
+.new-slider-item {
+  width: 300px;
+  max-width: 310px;
+  position: relative;
+  margin: 0 auto;
+  padding: 3px;
+  .burn-price {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .content {
+    .image-wrapper {
+      margin-bottom: 11px;
+      @include flexCenter();
+      img {
+        width: 320px;
+        height: 213px;
+        object-fit: cover;
+      }
+    }
+    .name-wrapper {
+      @include spaceBetween();
+      margin-bottom: 16px;
+      .name {
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        color: $nav-color;
+      }
+      .to-basket {
+        background-color: $btn-yello;
+        padding: 7px 10px;
+        @include alignCenter();
+        border-radius: 2px;
+        &:hover {
+          cursor: pointer;
+        }
+        .basket-mini {
+          margin-right: 7px;
+        }
+      }
+    }
+    .price-wrapper {
+      @include spaceBetween();
+      .price-pr {
+        color: $grey-color;
+        font-size: 15px;
+      }
+      .price {
+        font-size: 15px;
+        color: $nav-color;
+        line-height: 24px;
+        font-weight: 700;
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-@import '../templates';
+@import "../templates";
 
 .sales-slider-item {
   width: 315px;
@@ -30,7 +30,7 @@
     }
   }
   .content {
-		padding: 10px;
+    padding: 10px;
     .image-wrapper {
       margin-bottom: 11px;
       position: relative;
@@ -38,7 +38,7 @@
         position: relative;
         top: 0;
         left: 0;
-				@include flexCenter();
+        @include flexCenter();
         width: 320px;
         height: 213px;
         object-fit: cover;
@@ -53,7 +53,7 @@
           bottom: 16px;
           font-size: 20px;
           font-weight: 700;
-					text-decoration: none;
+          text-decoration: none;
         }
         .to-basket {
           position: absolute;
@@ -64,9 +64,9 @@
           padding: 7px 10px;
           @include alignCenter;
           border-radius: 2px;
-					&:hover{
-						cursor: pointer;
-					}
+          &:hover {
+            cursor: pointer;
+          }
           .basket-mini {
             margin-right: 7px;
           }
@@ -84,33 +84,33 @@
       }
     }
     .price-wrapper {
-      .before-sales{
+      .before-sales {
         width: 100%;
         @include spaceBetween;
-				position: relative;
+        position: relative;
         .price-pr {
           color: $grey-color;
           font-size: 15px;
         }
         .price {
           font-size: 15px;
-					color: #86879A;
+          color: #86879a;
           line-height: 24px;
           font-weight: 700;
         }
-				.red-line{
-					position: absolute;
-					width: 100px;
-					height: 1px;
-					background-color: red;
-					top: 14px;
-					right: 0;
-					transform: rotate(-8deg);
-				}
+        .red-line {
+          position: absolute;
+          width: 100px;
+          height: 1px;
+          background-color: red;
+          top: 14px;
+          right: 0;
+          transform: rotate(-8deg);
+        }
       }
       .after-sales {
-				width: 100%;
-				@include spaceBetween;
+        width: 100%;
+        @include spaceBetween;
         .price-p {
           color: $grey-color;
           font-size: 15px;

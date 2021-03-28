@@ -1,32 +1,31 @@
-import React , {useState}from 'react'
-import {useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import upArr from '../../assets/img/upArr.svg'
+import upArr from "../../assets/img/upArr.svg";
 
 const SmallLink = props => {
+  const subCategories = useSelector(state => state.kategori.subCategories);
+  const [show, setShow] = useState(false);
 
-	const subCategories = useSelector(state => state.kategori.subCategories)
-	const [show, setShow] = useState(false)
-
-	const handleClick = () => {
-		setShow(!show)
-	}
+  const handleClick = () => {
+    setShow(!show);
+  };
 
   return (
-    <div className="to-small" >
-			<div className='link-wrapper'>
-				<Link to={`/category/${props.id}`} className="to-navlink-small">
-					{props.name}
-				</Link>
-				<img 
-					src={upArr} 
-					alt="arr-small" 
-					className={show ? 'arr down' : 'arr'} 
-					onClick={handleClick} 
-				/>
-			</div>
-      <div className={show ? 'sub-to-small show': 'sub-to-small'}>
+    <div className="to-small">
+      <div className="link-wrapper">
+        <Link to={`/category/${props.id}`} className="to-navlink-small">
+          {props.name}
+        </Link>
+        <img
+          src={upArr}
+          alt="arr-small"
+          className={show ? "arr down" : "arr"}
+          onClick={handleClick}
+        />
+      </div>
+      <div className={show ? "sub-to-small show" : "sub-to-small"}>
         {subCategories &&
           subCategories.map(sub => {
             if (sub.category === props.id) {
@@ -34,15 +33,16 @@ const SmallLink = props => {
                 <Link
                   to={`/sub/${sub.id}`}
                   key={sub.id}
-                  className="sub-item-small">
+                  className="sub-item-small"
+                >
                   {sub.name}
                 </Link>
-              )
+              );
             }
           })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SmallLink
+export default SmallLink;

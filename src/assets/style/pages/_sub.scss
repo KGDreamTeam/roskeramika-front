@@ -1,56 +1,55 @@
-.sub-category-page{
-	&-wrapper{
-		.background{
-			background-color: #F9F9F9;
-			.container-width{
-				width: 86%;
-				margin: 0 auto;
-				.sub-title{
-					margin: 0 auto;
-					width: max-content;
-					color: $nav-color;
-				}
-				.sub-collections-wrapper{
-					.sub-collections{
-						display: flex;
-						flex-wrap: wrap;
-						justify-content: center;
-					}
-				}
-			}
-
-		}
-		.sales-hits-wrapper{
-			padding-top: 25px;
-			.sales-hits{
-				width: 86%;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				margin: 0 auto;
-			}
-		}
-		.others-wrapper{
-			background-color: #F9F9F9;
-			padding-top: 25px;
-			.others{
-				width: 86%;
-				margin: 0 auto;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-			}
-		}
-	}
+.sub-category-page {
+  &-wrapper {
+    .background {
+      background-color: #f9f9f9;
+      .container-width {
+        width: 86%;
+        margin: 0 auto;
+        .sub-title {
+          margin: 0 auto;
+          width: max-content;
+          color: $nav-color;
+        }
+        .sub-collections-wrapper {
+          .sub-collections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    .sales-hits-wrapper {
+      padding-top: 25px;
+      .sales-hits {
+        width: 86%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+      }
+    }
+    .others-wrapper {
+      background-color: #f9f9f9;
+      padding-top: 25px;
+      .others {
+        width: 86%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  }
 }
 
-.coll-mini-title{
-	width: max-content;
-	height: max-content;
-	margin: 0 auto 34px auto;
-	padding-bottom: 0;
-	font-size: 20px;
-	color: #151F37;
-	font-weight: normal;
-	border-bottom: 4px solid #FFDD00;
+.coll-mini-title {
+  width: max-content;
+  height: max-content;
+  margin: 0 auto 34px auto;
+  padding-bottom: 0;
+  font-size: 20px;
+  color: #151f37;
+  font-weight: normal;
+  border-bottom: 4px solid #ffdd00;
 }

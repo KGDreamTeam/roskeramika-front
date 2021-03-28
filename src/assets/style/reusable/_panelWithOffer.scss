@@ -1,23 +1,24 @@
-@import '../templates';
+@import "../templates";
 
-.panel-with-offer{
-	.form{
-		display: flex;
-		padding-bottom: 56px;
-		input[type='text'], input[type='email']{
-			padding: 10px 16px;
-			width: 476px;
-			border: 1px solid #B7B8CC;
-			box-sizing: border-box;
-			border-radius: 4px;
-			&:focus{
-				outline: 1px solid #FFDD00;
-				box-shadow: 0 0 1pt 2pt #FFDD00;
-			}
-		}
-		input[type='radio']{
-			margin-right: 10px;
-			&:after {
+.panel-with-offer {
+  .form {
+    display: flex;
+    padding-bottom: 56px;
+    input[type="text"],
+    input[type="email"] {
+      padding: 10px 16px;
+      width: 476px;
+      border: 1px solid #b7b8cc;
+      box-sizing: border-box;
+      border-radius: 4px;
+      &:focus {
+        outline: 1px solid #ffdd00;
+        box-shadow: 0 0 1pt 2pt #ffdd00;
+      }
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      &:after {
         width: 15px;
         height: 15px;
         border-radius: 15px;
@@ -25,104 +26,103 @@
         left: -1px;
         position: relative;
         background-color: #d1d3d1;
-        content: '';
+        content: "";
         display: inline-block;
         visibility: visible;
         border: 2px solid white;
-			}
-			&:checked:after {
+      }
+      &:checked:after {
         width: 15px;
         height: 15px;
         border-radius: 15px;
         top: -2px;
         left: -1px;
         position: relative;
-        background-color: #FFDD00;
-        content: '';
+        background-color: #ffdd00;
+        content: "";
         display: inline-block;
         visibility: visible;
         border: 2px solid white;
-			}
-		}
-		.left{
-			display: flex;
-			flex-direction: column;
-			margin-right: 60px;
-			.submit-btn{
-				padding: 10px 16px;
-				border: none;
-				background-color: #393939;
-				color: white;
-				&:disabled{
-					background-color: #EEEFF0;
-					color: #86879A;
-				}
-				&:active{
-					filter: brightness(120%);
-				}
-				&:hover{
-					cursor: pointer;
-					filter: brightness(110%);
-				}
-			}
-			.text{
-				color: #86879A;
-			}
-			.label{
-				margin-bottom: 32px;
-				.item{
-					display: flex;
-					justify-content: space-between;
-					font-weight: bold;
-				}
-				.error{
-					color: red;
-					font-size: 12px;
-				}
-				.labels-radios{
-					display: flex;
-					label{
-						@include alignCenter();
-					}
-				}
-			}
-		}
-		.right{
-			display: flex;
-			flex-direction: column;
-			.text{
-				color: #86879A;
-			}
-			.label{
-				margin-bottom: 32px;
-				.error{
-					color: red;
-					font-size: 12px;
-				}
-				.comment{
-					padding: 10px 16px;
-					box-sizing: border-box;
-					width: 476px;
-					border-radius: 4px;
-					max-width: 476px;
-					font-family: inherit;
-					min-height: 118px;
-					&:focus{
-						outline: 1px solid #FFDD00;
-						box-shadow: 0 0 1pt 2pt #FFDD00;
-					}
-				}
-				.labels-radios{
-					display: flex;
-					label{
-						@include alignCenter();
-					}
-				}
-				.input-select{
-					width: 100%;
-				}
-			}
-		}
-	}
+      }
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      margin-right: 60px;
+      .submit-btn {
+        padding: 10px 16px;
+        border: none;
+        background-color: #393939;
+        color: white;
+        &:disabled {
+          background-color: #eeeff0;
+          color: #86879a;
+        }
+        &:active {
+          filter: brightness(120%);
+        }
+        &:hover {
+          cursor: pointer;
+          filter: brightness(110%);
+        }
+      }
+      .text {
+        color: #86879a;
+      }
+      .label {
+        margin-bottom: 32px;
+        .item {
+          display: flex;
+          justify-content: space-between;
+          font-weight: bold;
+        }
+        .error {
+          color: red;
+          font-size: 12px;
+        }
+        .labels-radios {
+          display: flex;
+          label {
+            @include alignCenter();
+          }
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      .text {
+        color: #86879a;
+      }
+      .label {
+        margin-bottom: 32px;
+        .error {
+          color: red;
+          font-size: 12px;
+        }
+        .comment {
+          padding: 10px 16px;
+          box-sizing: border-box;
+          width: 476px;
+          border-radius: 4px;
+          max-width: 476px;
+          font-family: inherit;
+          min-height: 118px;
+          &:focus {
+            outline: 1px solid #ffdd00;
+            box-shadow: 0 0 1pt 2pt #ffdd00;
+          }
+        }
+        .labels-radios {
+          display: flex;
+          label {
+            @include alignCenter();
+          }
+        }
+        .input-select {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
-
