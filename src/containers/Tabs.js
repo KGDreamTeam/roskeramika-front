@@ -28,21 +28,18 @@ const Tabs = () => {
 					img={ShoppingCart}
 					text="Корзина"
 					index={0}
-					handleSelect={handleSelect}
 				/>
 				<CustomTab
 					bg={tabIndex === 1 ? yellowTabSecond : greyTabSecond}
 					img={Edit}
 					text="Оформление заказа"
 					index={1}
-					handleSelect={handleSelect}
 				/>
 				<CustomTab
 					bg={tabIndex === 2 ? yellowTabSecond : greyTabSecond}
 					img={Car}
 					text="Доставка товара"
 					index={2}
-					handleSelect={handleSelect}
 				/>
 			</div>
 			<div className='panels'>
@@ -56,7 +53,7 @@ const Tabs = () => {
 				}
 				{
 					tabIndex === 1 && (
-						<PanelWithOffer 
+						<PanelWithOffer
 							handleSelect={handleSelect}
 							index={2}
 						/>

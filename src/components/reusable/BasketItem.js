@@ -8,8 +8,8 @@ import {priceForItem, deleteItemBasket} from '../../store/actions/basket'
 
 const BasketItem = (props) => {
 
-	const [count, setCount] = useState(0)
-	const [price, setPrice] = useState(0)
+	const [count, setCount] = useState(props.count )
+	const [price, setPrice] = useState(props.sum )
 	const dispatch = useDispatch()
 
 
@@ -60,15 +60,15 @@ const BasketItem = (props) => {
           <div className="count-wrapper">
             <div className="count-text">Количество</div>
             <div className="count-logic">
-							<button 
+							<button
 								disabled={count <= 0}
-								className='minus' 
+								className='minus'
 								onClick={minusHandler}
 							>-</button>
-							<input 
-								value={count} 
+							<input
+								value={count}
 								onChange={e => setCount(e.target.value)}
-								type='number' 
+								type='number'
 								className='input-count'
 								type='number'
 								min={0}
@@ -82,8 +82,8 @@ const BasketItem = (props) => {
 					<div className='item-total-price-wrapper'>
 						<div className='price-text'>Цена:</div>
 						<div className='price'>
-							{price} 
-							<span>Сом</span> 
+							{`${price}`}
+							<span>Сом</span>
 							<button className='delete-item-btn' onClick={handleDelete}>
 								<img src={closeIcon} alt='delete item' className='close-icon' />
 							</button>

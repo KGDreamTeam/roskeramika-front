@@ -73,7 +73,7 @@ const PanelWithOffer = (props) => {
 								<Field type="text" name="name" placeholder='ФИО' />
 								<ErrorMessage name="name" component="div" className='error'/>
 							</div>
-							
+
 							<div className='label'>
 								<Field type="email" name="email" placeholder='Email' />
 								<ErrorMessage name="email" component="div" className='error'/>
@@ -106,15 +106,16 @@ const PanelWithOffer = (props) => {
 										<Items
 											key={item.id}
 											name={item.name}
+											artikul={item.artikul}
 											price={item.itemPrice}
 										/>
 									)) : <div>пожалуйста, выберите товары</div>
 								}
 							</div>
 
-							<button 
-								disabled={basketItems.length === 0 ? true : false} 
-								type="submit" 
+							<button
+								disabled={basketItems.length === 0 ? true : false}
+								type="submit"
 								className='submit-btn'
 							>
 								Оформить
@@ -122,15 +123,15 @@ const PanelWithOffer = (props) => {
 						</div>
 						<div className='right'>
 							<div className='label'>
-								<Field 
-									as='textarea' 
-									name="comment" 
-									placeholder='Комментарий к заказу' 
+								<Field
+									as='textarea'
+									name="comment"
+									placeholder='Комментарий к заказу'
 									className='comment'
 								/>
 								<ErrorMessage name="comment" component="div" className='error'/>
 							</div>
-							
+
 							<div className='label'>
 								<div className='text'>Выберите населенный пункт или город</div>
 								<Field as='select' name="state" className='input-select'>
@@ -178,7 +179,7 @@ const PanelWithOffer = (props) => {
 const Items = (props) => {
 	return(
 		<div className='item'>
-			<span>{props.name}</span> <span>{props.price}</span>
+			<span>{props.name} {props.artikul}</span> <span>{props.price}</span>
 		</div>
 	)
 }

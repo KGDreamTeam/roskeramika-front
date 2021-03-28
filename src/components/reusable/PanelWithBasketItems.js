@@ -30,19 +30,22 @@ const PanelWithBasketItems = (props) => {
 		dispatch(setTotalPrice(total))
 	}, [prices])
 
+
 	return(
 		<div className='panel-with-basket-items'>
 			<div className='items'>
 				{
 					items.length !== 0 ? items.map(item => (
-						<BasketItem 
+						<BasketItem
 							id={item.id}
 							key={item.id}
-							subname={item.subcategorie.name}
+							count={item.count}
+							sum={item.sum}
+							subname={item.subcategory}
 							name={item.name}
 							artikul={item.artikul}
 							image={item.image1}
-							manufac={item.manufacturer.company_name}
+							manufac={item.manufacturer}
 							surface={item.surface}
 							length={item.length}
 							width={item.width}
@@ -56,10 +59,10 @@ const PanelWithBasketItems = (props) => {
 				<h3>
 					Общая стоимость заказа (без учета доставки) {totalPrice} сомов
 				</h3>
-				<button 
-					className='make-order' 
+				<button
+					className='make-order'
 					onClick={handleClick}
-					disabled={items.length !== 0}
+					disabled={totalPrice < 0}
 				>
 					Оформить
 				</button>

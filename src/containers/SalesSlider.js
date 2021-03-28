@@ -28,7 +28,7 @@ const SalesSlider = () => {
 				<Slider {...settings}>
 					{
 						salesItems && salesItems.map(item => (
-							<SalesSliderItem 
+							<SalesSliderItem
 								id={item.id}
 								key={item.id}
 								img={item.image1}

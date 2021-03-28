@@ -28,6 +28,8 @@ const CollectionProduct = (props) => {
 			artikul: props.artikul,
 			image1: props.img,
 			price: props.price,
+      subcategory: props.subcategory,
+      manufacturer: props.manufacturer,
 			name: props.name,
 			width: props.width,
       surface: props.surface,
@@ -42,7 +44,6 @@ const CollectionProduct = (props) => {
 	useEffect(() => {
 		const sum = props.price * quantity
 		setPrice(sum.toFixed(1))
-		console.log('index: ', props.id)
 	}, [quantity])
 
 	return(
@@ -71,7 +72,7 @@ const CollectionProduct = (props) => {
 				<div className='quantity-wrapper'>
 					<span className='quantity'>Количество:</span>
 					<button disabled={quantity <= 0} className='minus' onClick={minusHandler}>-</button>
-					<input 
+					<input
 						value={quantity}
 						type='number'
 						min={0}
@@ -96,7 +97,7 @@ const CollectionProduct = (props) => {
 				</div>
 				<button
 					className='btn-offer'
-					onClick={offerHandler} 
+					onClick={offerHandler}
 					disabled={quantity <= 0}
 				>
 					оформить заказ

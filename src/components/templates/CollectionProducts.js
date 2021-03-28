@@ -12,6 +12,7 @@ const CollectionProducts = (props) => {
 						<CollectionProduct
               img={item.image1}
 							material={item.material}
+							name={item.name}
 							surface={item.surface}
 							width={item.width}
 							length={item.length}
@@ -19,6 +20,8 @@ const CollectionProducts = (props) => {
 							key={item.id}
 							id={item.id}
               artikul={item.artikul}
+							subcategory={item.subcategorie.name}
+							manufacturer={item.manufacturer.company_name}
 						/>
 					)) : <div className='no-products'>Нет товаров</div>
 				}
