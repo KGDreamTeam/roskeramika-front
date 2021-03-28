@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import whiteWhats from "../../assets/img/white-wats.svg";
 import whiteInst from "../../assets/img/white-inst.svg";
@@ -39,20 +39,30 @@ const Footer = () => {
         </div>
         <div className="info">
           <h4>Каталог:</h4>
-          <div className="info-item">Напольная плитка</div>
-          <div className="info-item">Плитка для ванной</div>
-          <div className="info-item">Плитка для кухни</div>
-          <div className="info-item">Фасад</div>
-          <div className="info-item">Керамогранит</div>
-          <div className="info-item">Теплый пол</div>
-          <div className="info-item">Ламинат</div>
+          <Link to="/sub/4" className="info-item">
+            Плитка для ванной
+          </Link>
+          <Link to="/sub/5" className="info-item">
+            Плитка для кухни
+          </Link>
+          <Link to="/sub/6" className="info-item">
+            Фасад
+          </Link>
+          <Link to="/category/1" className="info-item">
+            Керамогранит
+          </Link>
+          <Link to="/category/3" className="info-item">
+            Теплый пол
+          </Link>
         </div>
         <div className="info">
           <h4>Общая информация:</h4>
           <NavLink to="/about" className="info-item">
             О нас
           </NavLink>
-          <div className="info-item">Оплата и доставка</div>
+          <NavLink to="/delivery" className="info-item">
+            Оплата и доставка
+          </NavLink>
         </div>
       </div>
       <div className="last">

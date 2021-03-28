@@ -11,6 +11,7 @@ import Collection from "./components/pages/Collection";
 import SubCategory from "./components/pages/SubCategory";
 import Category from "./components/pages/Category";
 import About from "./components/pages/About";
+import Delivery from "./components/pages/Delivery";
 
 import {
   handleGetAllKategoriActionCreator,
@@ -47,6 +48,7 @@ function App() {
           <Route path="/sub/:id" component={SubCategory} />
           <Route path="/category/:id" component={Category} />
           <Route path="/about" component={About} />
+          <Route path="/delivery" component={Delivery} />
         </Switch>
         <Footer />
       </BrowserRouter>
