@@ -25,7 +25,7 @@ const Navigation = () => {
         <div className="right">
           <div className="watsapp">
             <a
-              href="https://api.whatsapp.com/send?phone=996703411547"
+              href="https://api.whatsapp.com/send?phone=+996555939993"
               target="_blank"
             >
               <img src={wats} alt="watsapp" className="wats-icon" />

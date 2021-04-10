@@ -18,11 +18,11 @@ const Footer = () => {
             Email: rkaugrand@gmail.com
           </a>
           <div className="soc-icons">
-            <a href="https://instagram.com/tech._insta_/" target="_blank">
+            <a href="https://www.instagram.com/rosskeramika_official/" target="_blank">
               <img src={whiteInst} alt="instagram" className="white-inst" />
             </a>
             <a
-              href="https://api.whatsapp.com/send?phone=996703411547"
+              href="https://api.whatsapp.com/send?phone=+996555939993"
               target="_blank"
             >
               <img src={whiteWhats} alt="whatsapp" className="white-whats" />

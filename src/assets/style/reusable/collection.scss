@@ -36,6 +36,7 @@
         box-sizing: border-box;
         &:hover {
           cursor: pointer;
+          filter: brightness(105%);
         }
         .basket-mini {
           margin-right: 7px;

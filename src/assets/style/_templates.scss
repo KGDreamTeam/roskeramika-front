@@ -69,6 +69,10 @@
     &:active {
       filter: brightness(120%);
     }
+    &:hover{
+      filter: brightness(110%);
+      cursor: pointer;
+    }
   }
   .searched-items {
     color: #151f37;
