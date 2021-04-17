@@ -32,7 +32,7 @@ function App() {
     <div className="App" id="App">
       <div className="whatsapp-mobile">
         <a
-          href="https://api.whatsapp.com/send?phone=996703411547"
+          href="https://api.whatsapp.com/send?phone=+996555939993"
           target="_blank"
         >
           <img src={wats} alt="watsapp" className="wats-icon" />
