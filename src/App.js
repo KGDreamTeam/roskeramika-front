@@ -2,23 +2,25 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import Header from "./components/layout/Header";
-import Home from "./components/pages/Home";
-import Footer from "./components/layout/Footer";
-import Product from "./components/pages/Product";
-import Basket from "./components/pages/Basket";
-import Collection from "./components/pages/Collection";
-import SubCategory from "./components/pages/SubCategory";
-import Category from "./components/pages/Category";
-import About from "./components/pages/About";
-import Delivery from "./components/pages/Delivery";
-
 import {
   handleGetAllKategoriActionCreator,
   handleGetAllSubCategoriesActionCreator
 } from "./store/actions/kategori";
 
 import wats from "./assets/img/wats.svg";
+
+const Home = React.lazy(() => import("./components/pages/Home"))
+const Footer = React.lazy( () => import("./components/layout/Footer"))
+const Product = React.lazy(() => import("./components/pages/Product"))
+const Basket = React.lazy(() => import("./components/pages/Basket"))
+const Collection = React.lazy(() => import("./components/pages/Collection"))
+const SubCategory = React.lazy(() => import("./components/pages/SubCategory"))
+const Category = React.lazy(() => import("./components/pages/Category"))
+const About = React.lazy(() => import("./components/pages/About"))
+const Delivery = React.lazy(() => import("./components/pages/Delivery"))
+
+const Header = React.lazy(() => import("./components/layout/Header"))
+
 
 function App() {
   const dispatch = useDispatch();
