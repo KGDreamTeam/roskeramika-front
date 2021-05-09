@@ -1,0 +1,48 @@
+.filter{
+  background-color: #E5E5E5;
+  .filter-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid #D4D4E6;
+  }
+  .wrapper{
+    width: 86%;
+    margin: 0 auto;
+    .filters{
+      display: flex;
+      justify-content: space-between;
+      .filter-item{
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        padding: 20px 0;
+        .filter-text{
+          display: flex;
+          align-items: center;
+          &:hover{
+            cursor: pointer;
+          }
+          p{
+            padding: 0;
+            margin: 0;
+          }
+          .filter-more{
+            width: 20px;
+            margin-left: 10px;
+          }
+        }
+        .dropdown-options-filter{
+          width: 170px;
+          max-height: 277px;
+          background-color: white;
+          overflow-y: scroll;
+          position: absolute;
+          bottom: -34%;
+        }
+      }
+    }
+  }
+}

@@ -3,13 +3,14 @@ import {
   PUSH_ONE_COLLECTION,
   PUSH_OTHER_COLLECTIONS,
   PUSH_HIT_COLLECTIONS,
-  PUSH_NEWS_COLLECTIONS
+  PUSH_NEWS_COLLECTIONS, PUSH_ALL_COLLECTIONS
 } from "../actionTypes";
 
 const initialState = {
   newCollections: [],
   hitCollections: [],
   otherCollections: [],
+  allProducts: [],
   oneCollection: {}
 };
 
@@ -27,6 +28,11 @@ const reducer = (state = initialState, action) => {
           ...state.oneCollection
         }
       };
+    case PUSH_ALL_COLLECTIONS:
+      return {
+        ...state,
+        allProducts: [...action.payload]
+      }
     case PUSH_OTHER_COLLECTIONS:
       return {
         ...state,

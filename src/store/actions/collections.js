@@ -8,7 +8,7 @@ import {
   PUSH_NEWS_COLLECTIONS,
   PUSH_HIT_COLLECTIONS,
   PUSH_OTHER_COLLECTIONS,
-  PUSH_ONE_COLLECTION
+  PUSH_ONE_COLLECTION, PUSH_ALL_COLLECTIONS
 } from "../actionTypes";
 import { pushItemToBasket } from "./basket";
 
@@ -101,6 +101,7 @@ export const handleGetSubCollectionsActionCreator = subCategoryId => dispatch =>
   axios
     .get(`/apiv1/collection/?categories=&subcategorieis=${subCategoryId}`)
     .then(res => {
+      dispatch(pushAllCollections(res.data))
       const filtered = sort(res.data);
       dispatch(pushNewsCollections(filtered.newCollections));
       dispatch(pushHitCollections(filtered.hitCollections));
@@ -145,3 +146,10 @@ export const pushOtherCollections = payload => {
     payload
   };
 };
+
+export const pushAllCollections = payload => {
+  return{
+    type: PUSH_ALL_COLLECTIONS,
+    payload
+  }
+}

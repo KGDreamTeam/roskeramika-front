@@ -6,6 +6,7 @@ import BannerHeader from '../templates/BannerHeader'
 import Collection from '../templates/Collection'
 
 import banner from '../../assets/img/banner-header.svg'
+import Filter from "../../containers/Filter";
 
 const SubCategory = (props) => {
 	const {sub, newCollections, hitCollections, otherCollections} = useSelector(state => ({
@@ -17,6 +18,7 @@ const SubCategory = (props) => {
 	const dispatch = useDispatch()
 
 	const [title, setTitle] = useState('')
+	const [filteredCollections, setFilteredCollections] = useState({})
 
 	useEffect(() => {
 		for(let i = 0; i < sub.length; i++){
@@ -30,6 +32,11 @@ const SubCategory = (props) => {
 	return(
 		<div className='sub-category-page'>
 			<BannerHeader img={banner} />
+			<Filter
+				filteredCollections={filteredCollections}
+				setFilteredCollections={setFilteredCollections}
+				index={props.match.params.id}
+			/>
 			<div className='sub-category-page-wrapper'>
 				<div className='background'>
 					<div className='container-width'>
