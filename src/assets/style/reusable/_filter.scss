@@ -19,6 +19,7 @@
         position: relative;
         justify-content: center;
         padding: 20px 0;
+        user-select: none;
         .reset-filter{
           background-color: #393939;
           border: 1px solid #393939;
@@ -71,10 +72,17 @@
 
 .checkbox-item{
   padding: 5px;
+  user-select: none;
   &:hover{
     cursor: pointer;
   }
   &-checkbox{
     margin-right: 10px;
+    user-select: none;
+  }
+  label{
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
