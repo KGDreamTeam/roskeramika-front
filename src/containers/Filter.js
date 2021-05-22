@@ -32,6 +32,10 @@ const Filter = (props) => {
     setShowSurface(prev => !prev)
   }
 
+  const handleResetFilter = () => {
+    // setShowFiltered(false)
+  }
+
   useEffect(() => {
     dispatch(getAllFiltersActionCreator(props.index))
   }, [])
@@ -44,7 +48,7 @@ const Filter = (props) => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowSizes}>
               <p>Размер</p>
-              <img src={arrowDown} alt="more" className='filter-more'/>
+              <img src={arrowDown} alt="more" className={ showSizes ? 'filter-more act' : 'filter-more'}/>
             </div>
             <div className={showSizes ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
@@ -57,7 +61,7 @@ const Filter = (props) => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowUsage}>
               <p>Назначение</p>
-              <img src={arrowDown} alt="more" className='filter-more'/>
+              <img src={arrowDown} alt="more" className={ showUsage ? 'filter-more act': 'filter-more'}/>
             </div>
             <div className={showUsage ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
@@ -72,7 +76,7 @@ const Filter = (props) => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowSurface}>
               <p>Поверхность</p>
-              <img src={arrowDown} alt="more" className='filter-more'/>
+              <img src={arrowDown} alt="more" className={ showSurface ? 'filter-more act': 'filter-more'}/>
             </div>
             <div className={showSurface ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
@@ -88,7 +92,9 @@ const Filter = (props) => {
             Каталог
           </div>
           <div className='filter-item'>
-            Сбросить Фильтр
+            <div className="reset-filter" onClick={handleResetFilter}>
+              Сбросить Фильтр
+            </div>
           </div>
         </div>
 

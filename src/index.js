@@ -10,6 +10,8 @@ import "./assets/style/style.scss";
 
 import rootReducer from "./store/reducers/index";
 
+import Loading from "./containers/Loading";
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
@@ -19,7 +21,7 @@ const store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<h2>loading...</h2>}>
+    <Suspense fallback={<Loading />}>
       <Provider store={store}>
         <App />
       </Provider>

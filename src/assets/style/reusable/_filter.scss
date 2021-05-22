@@ -19,6 +19,18 @@
         position: relative;
         justify-content: center;
         padding: 20px 0;
+        .reset-filter{
+          background-color: #393939;
+          border: 1px solid #393939;
+          color: white;
+          padding: 10px 20px;
+          transition: 0.3s;
+          &:hover{
+            background-color: transparent;
+            color: #393939;
+            cursor: pointer;
+          }
+        }
         .filter-text{
           display: flex;
           align-items: center;
@@ -32,6 +44,10 @@
           .filter-more{
             width: 20px;
             margin-left: 10px;
+            transition: 0.2s;
+            &.act{
+              transform: rotate(180deg);
+            }
           }
         }
         .dropdown-options-filter{
@@ -50,5 +66,15 @@
         }
       }
     }
+  }
+}
+
+.checkbox-item{
+  padding: 5px;
+  &:hover{
+    cursor: pointer;
+  }
+  &-checkbox{
+    margin-right: 10px;
   }
 }
