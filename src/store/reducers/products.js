@@ -1,16 +1,14 @@
-import { CREATE_DATA } from "../actionTypes";
+import { CREATE_DATA, SET_ALL_PRODUCTS } from "../actionTypes"
 
-const initialState = {
-  hello: true
-};
+const initialState = []
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_DATA:
-      return state;
+    case SET_ALL_PRODUCTS:
+      return [...action.payload]
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default reducer;
+export default reducer

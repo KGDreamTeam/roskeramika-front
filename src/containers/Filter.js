@@ -5,7 +5,7 @@ import {
   getAllFiltersActionCreator,
   setFiltered,
 } from "../store/actions/filters"
-import { isFiltersChecked } from "../helpers/filters"
+import { filterCollections, isFiltersChecked } from "../helpers/filters"
 
 import arrowDown from "../assets/img/arrow-down.svg"
 import FilterItem from "../components/reusable/FilterItem"
@@ -16,14 +16,15 @@ const Filter = (props) => {
   const [showSurface, setShowSurface] = useState(false)
   const [showCatalog, setShowCatalog] = useState(false)
 
-  const { sizeFilter, usageFilter, surfaceFilter, catalog } = useSelector(
-    (state) => ({
+  const { sizeFilter, usageFilter, surfaceFilter, catalog, filters, products } =
+    useSelector((state) => ({
       sizeFilter: state.filters.size,
       usageFilter: state.filters.usage,
       surfaceFilter: state.filters.surface,
       catalog: state.filters.catalog,
-    })
-  )
+      filters: state.filters,
+      products: state.products,
+    }))
 
   const dispatch = useDispatch()
 
@@ -59,14 +60,21 @@ const Filter = (props) => {
     const isSizeChecked = isFiltersChecked(sizeFilter)
     const isUsageChecked = isFiltersChecked(usageFilter)
     const isSurfaceChecked = isFiltersChecked(surfaceFilter)
+    const isCatalogChecked = isFiltersChecked(catalog)
 
-    if (isSizeChecked || isUsageChecked || isSurfaceChecked) {
+    if (
+      isSizeChecked ||
+      isUsageChecked ||
+      isSurfaceChecked ||
+      isCatalogChecked
+    ) {
       dispatch(setFiltered(true))
       // dispatch(filterProductsToShow())
+      filterCollections(products, filters)
     } else {
       dispatch(setFiltered(false))
     }
-  }, [sizeFilter, usageFilter, surfaceFilter])
+  }, [sizeFilter, usageFilter, surfaceFilter, catalog])
 
   return (
     <div className='filter'>
@@ -95,7 +103,7 @@ const Filter = (props) => {
                     change={handleCheckboxChecked}
                     checked={item.checked}
                     formName='size'
-                    name={item.size}
+                    name={item.name}
                     value={index}
                     count={item.count}
                   />
@@ -124,7 +132,7 @@ const Filter = (props) => {
                     change={handleCheckboxChecked}
                     checked={item.checked}
                     formName='usage'
-                    name={item.usage}
+                    name={item.name}
                     value={index}
                     count={item.count}
                   />
@@ -156,7 +164,7 @@ const Filter = (props) => {
                     change={handleCheckboxChecked}
                     checked={item.checked}
                     formName='surface'
-                    name={item.surface}
+                    name={item.name}
                     value={index}
                     count={item.count}
                   />

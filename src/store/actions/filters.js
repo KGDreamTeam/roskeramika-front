@@ -11,6 +11,7 @@ import {
   SET_FILTERS_TO_STORE,
   SET_LOADING_FILTER,
 } from "../actionTypes"
+import { setAllProducts } from "./products"
 
 export const getAllFiltersActionCreator = () => (dispatch) => {
   axios
@@ -21,6 +22,7 @@ export const getAllFiltersActionCreator = () => (dispatch) => {
       let items = getIfMainTovar(res.data)
       payload = getAllFilter(items)
 
+      dispatch(setAllProducts(items))
       dispatch(setFiltersToStore(payload))
     })
     .catch((err) => {
