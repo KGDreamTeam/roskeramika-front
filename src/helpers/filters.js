@@ -3,15 +3,15 @@ export const getAllFilter = (items) => {
   let filters = {
     sizes: {},
     usage: {},
-    surface: {}
+    surface: {},
   }
-  const sizes = items.map(item => `${item.width}x${item.length}`)
+  const sizes = items.map((item) => `${item.width}x${item.length}`)
   sizes.forEach((a) => {
-    count[a] = (count[a] || 0) + 1;
+    count[a] = (count[a] || 0) + 1
   })
   items.forEach((a) => {
-    filters.usage[a.usage] = (filters[a.usage] || 0) + 1;
-    filters.surface[a.surface] = (filters[a.surface] || 0) + 1;
+    filters.usage[a.usage] = (filters[a.usage] || 0) + 1
+    filters.surface[a.surface] = (filters[a.surface] || 0) + 1
   })
   const keys = Object.keys(count)
   const values = Object.values(count)
@@ -23,31 +23,41 @@ export const getAllFilter = (items) => {
   let final = {
     sizes: [],
     usage: [],
-    surface: []
+    surface: [],
   }
 
-  for(let i = 0; i < keys.length; i++){
-    final.sizes[i] = {size: keys[i], count: values[i], checked: false}
+  for (let i = 0; i < keys.length; i++) {
+    final.sizes[i] = { size: keys[i], count: values[i], checked: false }
   }
-  for(let i = 0; i < filterUsageKeys.length; i++){
-    final.usage[i] = {usage: filterUsageKeys[i], count: filterUsageValue[i], checked: false}
+  for (let i = 0; i < filterUsageKeys.length; i++) {
+    final.usage[i] = {
+      usage: filterUsageKeys[i],
+      count: filterUsageValue[i],
+      checked: false,
+    }
   }
-  for(let i = 0; i < filterSurfaceKeys.length; i++){
-    final.surface[i] = {surface: filterSurfaceKeys[i], count: filterSurfaceValue[i], checked: false}
+  for (let i = 0; i < filterSurfaceKeys.length; i++) {
+    final.surface[i] = {
+      surface: filterSurfaceKeys[i],
+      count: filterSurfaceValue[i],
+      checked: false,
+    }
   }
 
   return final
 }
 
 export const getIfMainTovar = (items) => {
-  return items.filter(item => item?.main_tovar === true)
+  return items.filter((item) => item?.main_tovar === true)
 }
 
 export const isFiltersChecked = (filters) => {
-  const filteredItems = filters.filter(item => item.checked)
-  if(filteredItems.length > 0){
+  const filteredItems = filters.filter((item) => item.checked)
+  if (filteredItems.length > 0) {
     return true
   } else {
     return false
   }
 }
+
+export const filterCheckedProducts = (filters) => {}

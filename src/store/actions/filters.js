@@ -1,10 +1,19 @@
-import axios from "../../axios/axios";
-import {getIfMainTovar, getAllFilter} from '../../helpers/filters'
-import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERED, SET_FILTERS_TO_STORE, SET_LOADING_FILTER} from "../actionTypes";
+import axios from "../../axios/axios"
+import { getIfMainTovar, getAllFilter } from "../../helpers/filters"
+import {
+  CHECK_SIZE_FILTER,
+  CHECK_SURFACE_FILTER,
+  CHECK_USAGE_FILTER,
+  RE_SET_FILTERS,
+  SET_FILTERED,
+  SET_FILTERS_TO_STORE,
+  SET_LOADING_FILTER,
+} from "../actionTypes"
 
-export const getAllFiltersActionCreator = (sub) => dispatch => {
-  axios.get(`apiv1/products/?subcategorie=${sub}`)
-    .then(res => {
+export const getAllFiltersActionCreator = () => (dispatch) => {
+  axios
+    .get(`apiv1/products/`)
+    .then((res) => {
       let payload = {}
 
       let items = getIfMainTovar(res.data)
@@ -12,21 +21,21 @@ export const getAllFiltersActionCreator = (sub) => dispatch => {
 
       dispatch(setFiltersToStore(payload))
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err)
     })
 }
 
-export const setFiltersToStore = payload => {
-  return{
+export const setFiltersToStore = (payload) => {
+  return {
     type: SET_FILTERS_TO_STORE,
-    payload
+    payload,
   }
 }
 
 export const resetFilter = () => {
-  return{
-    type: RE_SET_FILTERS
+  return {
+    type: RE_SET_FILTERS,
   }
 }
 
@@ -35,37 +44,39 @@ export const checkOneCheckbox = (payload) => {
     case "size":
       return {
         type: CHECK_SIZE_FILTER,
-        payload: parseInt(payload.value)
+        payload: parseInt(payload.value),
       }
-  
+
     case "usage":
       return {
         type: CHECK_USAGE_FILTER,
-        payload: parseInt(payload.value)
+        payload: parseInt(payload.value),
       }
 
     case "surface":
       return {
         type: CHECK_SURFACE_FILTER,
-        payload: parseInt(payload.value)
+        payload: parseInt(payload.value),
       }
     default:
       return {
         type: null,
-        payload: null
+        payload: null,
       }
   }
 }
 
+export const setFilteredItems = (payload) => {}
+
 export const setFiltered = (payload) => {
-  return{
+  return {
     type: SET_FILTERED,
-    payload
+    payload,
   }
 }
 
 export const setLoadingFilter = () => {
   return {
-    type: SET_LOADING_FILTER
+    type: SET_LOADING_FILTER,
   }
 }
