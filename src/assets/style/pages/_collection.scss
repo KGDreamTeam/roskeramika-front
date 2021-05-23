@@ -16,16 +16,37 @@
         display: flex;
         flex-direction: column;
       }
-      .photo-wrapper {
+      .images {
         width: 47%;
-        @include _870() {
-          width: 98%;
-          margin: 0 auto;
-        }
-        .photo {
+        .photo-wrapper {
           width: 100%;
-          height: 460px;
-          object-fit: cover;
+          @include _870() {
+            margin: 0 auto;
+          }
+          .photo {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+          }
+        }
+        .small-images {
+          display: flex;
+          .small-image-wrapper {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 4px;
+            &.selected {
+              border: 2px solid $btn-yello;
+            }
+            &:hover {
+              cursor: pointer;
+            }
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
         }
       }
       .all-info-wrapper {
