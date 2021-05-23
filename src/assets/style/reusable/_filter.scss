@@ -1,60 +1,60 @@
-.filter{
-  background-color: #E5E5E5;
-  .filter-title{
+.filter {
+  background-color: #e5e5e5;
+  .filter-title {
     text-align: center;
     font-weight: bold;
     font-size: 24px;
     padding: 20px 0;
-    border-bottom: 1px solid #D4D4E6;
+    border-bottom: 1px solid #d4d4e6;
     background-color: white;
   }
-  .wrapper{
+  .wrapper {
     width: 86%;
     margin: 0 auto;
-    .filters{
+    .filters {
       display: flex;
       justify-content: space-between;
-      .filter-item{
+      .filter-item {
         display: flex;
         align-items: center;
         position: relative;
         justify-content: center;
         padding: 20px 0;
         user-select: none;
-        .reset-filter{
+        .reset-filter {
           background-color: #393939;
           border: 1px solid #393939;
           color: white;
           padding: 10px 20px;
           transition: 0.3s;
-          &:hover{
+          &:hover {
             background-color: transparent;
             color: #393939;
             cursor: pointer;
           }
         }
-        .filter-text{
+        .filter-text {
           display: flex;
           align-items: center;
-          &:hover{
+          &:hover {
             cursor: pointer;
           }
-          p{
+          p {
             padding: 0;
             margin: 0;
           }
-          .filter-more{
+          .filter-more {
             width: 20px;
             margin-left: 10px;
             transition: 0.2s;
-            &.act{
+            &.act {
               transform: rotate(180deg);
             }
           }
         }
-        .dropdown-options-filter{
+        .dropdown-options-filter {
           z-index: 3;
-          width: 170px;
+          width: max-content;
           max-height: 277px;
           background-color: white;
           overflow-y: scroll;
@@ -62,7 +62,7 @@
           top: 61px;
           display: none;
           flex-direction: column;
-          &.show{
+          &.show {
             display: flex;
           }
         }
@@ -71,18 +71,21 @@
   }
 }
 
-.checkbox-item{
-  padding: 5px;
+.checkbox-item {
+  padding: 7px 15px;
   user-select: none;
-  &:hover{
+  &.catalog {
+    width: max-content;
+  }
+  &:hover {
     cursor: pointer;
   }
-  &-checkbox{
+  &-checkbox {
     margin-right: 10px;
     user-select: none;
   }
-  label{
-    &:hover{
+  label {
+    &:hover {
       cursor: pointer;
     }
   }

@@ -14,12 +14,16 @@ const Filter = (props) => {
   const [showSizes, setShowSizes] = useState(false)
   const [showUsage, setShowUsage] = useState(false)
   const [showSurface, setShowSurface] = useState(false)
+  const [showCatalog, setShowCatalog] = useState(false)
 
-  const { sizeFilter, usageFilter, surfaceFilter } = useSelector((state) => ({
-    sizeFilter: state.filters.size,
-    usageFilter: state.filters.usage,
-    surfaceFilter: state.filters.surface,
-  }))
+  const { sizeFilter, usageFilter, surfaceFilter, catalog } = useSelector(
+    (state) => ({
+      sizeFilter: state.filters.size,
+      usageFilter: state.filters.usage,
+      surfaceFilter: state.filters.surface,
+      catalog: state.filters.catalog,
+    })
+  )
 
   const dispatch = useDispatch()
 
@@ -35,6 +39,10 @@ const Filter = (props) => {
     setShowSurface((prev) => !prev)
   }
 
+  const handleShowCatalog = () => {
+    setShowCatalog((prev) => !prev)
+  }
+
   const handleResetFilter = () => {
     // setShowFiltered(false)
   }
@@ -44,7 +52,7 @@ const Filter = (props) => {
   }
 
   useEffect(() => {
-    dispatch(getAllFiltersActionCreator(props.index))
+    dispatch(getAllFiltersActionCreator())
   }, [])
 
   useEffect(() => {
@@ -158,7 +166,38 @@ const Filter = (props) => {
               )}
             </div>
           </div>
-          <div className='filter-item'>Каталог</div>
+          <div className='filter-item'>
+            <div className='filter-text' onClick={handleShowCatalog}>
+              <p>Каталог</p>
+              <img
+                src={arrowDown}
+                alt='more'
+                className={showCatalog ? "filter-more act" : "filter-more"}
+              />
+            </div>
+            <div
+              className={
+                showCatalog
+                  ? "dropdown-options-filter show"
+                  : "dropdown-options-filter"
+              }>
+              {catalog ? (
+                catalog.map((item, index) => (
+                  <FilterItem
+                    key={index}
+                    change={handleCheckboxChecked}
+                    checked={item.checked}
+                    formName='catalog'
+                    name={item.name}
+                    value={index}
+                    class={"catalog"}
+                  />
+                ))
+              ) : (
+                <div>no</div>
+              )}
+            </div>
+          </div>
           <div className='filter-item'>
             <div className='reset-filter' onClick={handleResetFilter}>
               Сбросить Фильтр

@@ -1,4 +1,13 @@
-import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERED, SET_FILTERS_TO_STORE} from "../actionTypes";
+import {
+  CHECK_CATALOG_FILTER,
+  CHECK_SIZE_FILTER,
+  CHECK_SURFACE_FILTER,
+  CHECK_USAGE_FILTER,
+  PUSH_CATEGORY_TO_FILTER,
+  RE_SET_FILTERS,
+  SET_FILTERED,
+  SET_FILTERS_TO_STORE,
+} from "../actionTypes"
 
 let initialState = {
   loading: false,
@@ -6,10 +15,11 @@ let initialState = {
   size: [],
   usage: [],
   surface: [],
+  catalog: [],
 }
 
 const reducer = (state = initialState, action) => {
-  switch (action.type){
+  switch (action.type) {
     case SET_FILTERS_TO_STORE:
       return {
         ...state,
@@ -18,49 +28,61 @@ const reducer = (state = initialState, action) => {
         surface: action.payload?.surface,
       }
     case RE_SET_FILTERS:
-      return{
+      return {
         ...state,
       }
     case CHECK_SIZE_FILTER:
-      return{
+      return {
         ...state,
         size: state.size.map((item, index) => {
-          if(index === action.payload){
+          if (index === action.payload) {
             item.checked = !item.checked
           }
           return item
-          
-        })
+        }),
       }
     case CHECK_USAGE_FILTER:
-      return{
+      return {
         ...state,
         usage: state.usage.map((item, index) => {
-          if(index === action.payload){
+          if (index === action.payload) {
             item.checked = !item.checked
           }
           return item
-          
-        })
+        }),
       }
     case CHECK_SURFACE_FILTER:
-      return{
+      return {
         ...state,
         surface: state.surface.map((item, index) => {
-          if(index === action.payload){
+          if (index === action.payload) {
             item.checked = !item.checked
           }
           return item
-          
-        })
+        }),
+      }
+    case CHECK_CATALOG_FILTER:
+      return {
+        ...state,
+        catalog: state.catalog.map((item, index) => {
+          if (index === action.payload) {
+            item.checked = !item.checked
+          }
+          return item
+        }),
       }
     case SET_FILTERED:
-      return{
+      return {
         ...state,
-        show: action.payload
+        show: action.payload,
+      }
+    case PUSH_CATEGORY_TO_FILTER:
+      return {
+        ...state,
+        catalog: [...action.payload],
       }
     default:
-      return state;
+      return state
   }
 }
 

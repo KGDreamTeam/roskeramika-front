@@ -1,38 +1,40 @@
-import axios from "../../axios/axios";
-import { PUSH_CATEGORY, PUSH_SUB_CATEGORY } from "../actionTypes";
+import axios from "../../axios/axios"
+import { PUSH_CATEGORY, PUSH_SUB_CATEGORY } from "../actionTypes"
+import { pushCategoriesToFilter } from "./filters"
 
-export const handleGetAllKategoriActionCreator = () => dispatch => {
+export const handleGetAllKategoriActionCreator = () => (dispatch) => {
   axios
     .get("/apiv1/categories/")
-    .then(res => {
-      dispatch(pushCategoi(res.data));
+    .then((res) => {
+      dispatch(pushCategoi(res.data))
     })
-    .catch(err => {
-      console.log(err);
-    });
-};
+    .catch((err) => {
+      console.log(err)
+    })
+}
 
-export const handleGetAllSubCategoriesActionCreator = () => dispatch => {
+export const handleGetAllSubCategoriesActionCreator = () => (dispatch) => {
   axios
     .get("/apiv1/subcategories/")
-    .then(res => {
-      dispatch(pushSubCategories(res.data));
+    .then((res) => {
+      dispatch(pushSubCategories(res.data))
+      dispatch(pushCategoriesToFilter(res.data))
     })
-    .catch(err => {
-      console.log(err);
-    });
-};
+    .catch((err) => {
+      console.log(err)
+    })
+}
 
-export const pushCategoi = payload => {
+export const pushCategoi = (payload) => {
   return {
     type: PUSH_CATEGORY,
-    payload
-  };
-};
+    payload,
+  }
+}
 
-export const pushSubCategories = payload => {
+export const pushSubCategories = (payload) => {
   return {
     type: PUSH_SUB_CATEGORY,
-    payload
-  };
-};
+    payload,
+  }
+}

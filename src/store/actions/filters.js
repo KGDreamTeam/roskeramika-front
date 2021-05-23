@@ -1,9 +1,11 @@
 import axios from "../../axios/axios"
 import { getIfMainTovar, getAllFilter } from "../../helpers/filters"
 import {
+  CHECK_CATALOG_FILTER,
   CHECK_SIZE_FILTER,
   CHECK_SURFACE_FILTER,
   CHECK_USAGE_FILTER,
+  PUSH_CATEGORY_TO_FILTER,
   RE_SET_FILTERS,
   SET_FILTERED,
   SET_FILTERS_TO_STORE,
@@ -58,6 +60,11 @@ export const checkOneCheckbox = (payload) => {
         type: CHECK_SURFACE_FILTER,
         payload: parseInt(payload.value),
       }
+    case "catalog":
+      return {
+        type: CHECK_CATALOG_FILTER,
+        payload: parseInt(payload.value),
+      }
     default:
       return {
         type: null,
@@ -67,6 +74,19 @@ export const checkOneCheckbox = (payload) => {
 }
 
 export const setFilteredItems = (payload) => {}
+
+export const pushCategoriesToFilter = (payload) => {
+  const items = payload.map((item) => {
+    return {
+      checked: false,
+      name: item.name,
+    }
+  })
+  return {
+    type: PUSH_CATEGORY_TO_FILTER,
+    payload: items,
+  }
+}
 
 export const setFiltered = (payload) => {
   return {
