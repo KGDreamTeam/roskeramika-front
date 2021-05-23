@@ -27,13 +27,13 @@ export const getAllFilter = (items) => {
   }
 
   for(let i = 0; i < keys.length; i++){
-    final.sizes[i] = {size: keys[i], count: values[i]}
+    final.sizes[i] = {size: keys[i], count: values[i], checked: false}
   }
   for(let i = 0; i < filterUsageKeys.length; i++){
-    final.usage[i] = {usage: filterUsageKeys[i], count: filterUsageValue[i]}
+    final.usage[i] = {usage: filterUsageKeys[i], count: filterUsageValue[i], checked: false}
   }
   for(let i = 0; i < filterSurfaceKeys.length; i++){
-    final.surface[i] = {surface: filterSurfaceKeys[i], count: filterSurfaceValue[i]}
+    final.surface[i] = {surface: filterSurfaceKeys[i], count: filterSurfaceValue[i], checked: false}
   }
 
   return final

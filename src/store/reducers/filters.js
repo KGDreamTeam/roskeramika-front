@@ -1,13 +1,9 @@
-import {RE_SET_FILTERS, SET_FILTERS_TO_STORE} from "../actionTypes";
+import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERS_TO_STORE} from "../actionTypes";
 
 let initialState = {
+  loading: false,
   show: false,
-  size: [
-    {
-      size: "20x20",
-      count: 3,
-    }
-  ],
+  size: [],
   usage: [],
   surface: [],
 }
@@ -22,6 +18,21 @@ const reducer = (state = initialState, action) => {
         surface: action.payload?.surface,
       }
     case RE_SET_FILTERS:
+      return{
+        ...state,
+        show: false,
+      }
+    case CHECK_SIZE_FILTER:
+      return{
+        ...state,
+        show: false,
+      }
+    case CHECK_USAGE_FILTER:
+      return{
+        ...state,
+        show: false,
+      }
+    case CHECK_SURFACE_FILTER:
       return{
         ...state,
         show: false,

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {getAllFiltersActionCreator} from "../store/actions/filters";
+import {checkOneCheckbox, getAllFiltersActionCreator} from "../store/actions/filters";
 
 import arrowDown from '../assets/img/arrow-down.svg'
 import FilterItem from "../components/reusable/FilterItem";
@@ -36,6 +36,11 @@ const Filter = (props) => {
     // setShowFiltered(false)
   }
 
+  const handleCheckboxChecked = (e) => {
+    dispatch(checkOneCheckbox({name: e.target.name, value: e.target.value}))
+    console.log(e.target.name)
+  }
+
   useEffect(() => {
     dispatch(getAllFiltersActionCreator(props.index))
   }, [])
@@ -52,8 +57,16 @@ const Filter = (props) => {
             </div>
             <div className={showSizes ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
-                sizeFilter && sizeFilter.map(item => (
-                  <FilterItem key={item.size} name={item.size} checkValue={item.size} count={item.count} />
+                sizeFilter && sizeFilter.map((item, index) => (
+                  <FilterItem 
+                    key={index} 
+                    change={handleCheckboxChecked} 
+                    checked={item.checked} 
+                    formName="size" 
+                    name={item.size} 
+                    value={index} 
+                    count={item.count} 
+                  />
                 ))
               }
             </div>
@@ -65,8 +78,16 @@ const Filter = (props) => {
             </div>
             <div className={showUsage ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
-                usageFilter ? usageFilter.map(item => (
-                  <FilterItem key={item.usage} name={item.usage} checkValue={item.usage} count={item.count} />
+                usageFilter ? usageFilter.map((item, index) => (
+                  <FilterItem 
+                    key={index} 
+                    change={handleCheckboxChecked} 
+                    checked={item.checked} 
+                    formName="usage" 
+                    name={item.usage} 
+                    value={index} 
+                    count={item.count} 
+                  />
                 )) : (
                   <div>no</div>
                 )
@@ -80,8 +101,16 @@ const Filter = (props) => {
             </div>
             <div className={showSurface ? 'dropdown-options-filter show' : 'dropdown-options-filter'}>
               {
-                surfaceFilter ? surfaceFilter.map(item => (
-                  <FilterItem key={item.surface} name={item.surface} checkValue={item.surface} count={item.count} />
+                surfaceFilter ? surfaceFilter.map((item, index) => (
+                  <FilterItem 
+                    key={index} 
+                    change={handleCheckboxChecked} 
+                    checked={item.checked} 
+                    formName="surface" 
+                    name={item.surface} 
+                    value={index} 
+                    count={item.count} 
+                  />
                 )) : (
                   <div>no</div>
                 )
