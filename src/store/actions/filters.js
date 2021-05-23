@@ -35,19 +35,19 @@ export const checkOneCheckbox = (payload) => {
     case "size":
       return {
         type: CHECK_SIZE_FILTER,
-        payload: payload.value
+        payload: parseInt(payload.value)
       }
   
     case "usage":
       return {
         type: CHECK_USAGE_FILTER,
-        payload: payload.value
+        payload: parseInt(payload.value)
       }
 
     case "surface":
       return {
         type: CHECK_SURFACE_FILTER,
-        payload: payload.value
+        payload: parseInt(payload.value)
       }
     default:
       return {

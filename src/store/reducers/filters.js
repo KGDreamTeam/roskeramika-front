@@ -25,17 +25,38 @@ const reducer = (state = initialState, action) => {
     case CHECK_SIZE_FILTER:
       return{
         ...state,
-        show: false,
+        show: true,
+        size: state.size.map((item, index) => {
+          if(index === action.payload){
+            item.checked = !item.checked
+          }
+          return item
+          
+        })
       }
     case CHECK_USAGE_FILTER:
       return{
         ...state,
-        show: false,
+        show: true,
+        usage: state.usage.map((item, index) => {
+          if(index === action.payload){
+            item.checked = !item.checked
+          }
+          return item
+          
+        })
       }
     case CHECK_SURFACE_FILTER:
       return{
         ...state,
-        show: false,
+        show: true,
+        surface: state.surface.map((item, index) => {
+          if(index === action.payload){
+            item.checked = !item.checked
+          }
+          return item
+          
+        })
       }
     default:
       return state;

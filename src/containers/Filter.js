@@ -39,6 +39,7 @@ const Filter = (props) => {
   const handleCheckboxChecked = (e) => {
     dispatch(checkOneCheckbox({name: e.target.name, value: e.target.value}))
     console.log(e.target.name)
+    console.log(e.target.value)
   }
 
   useEffect(() => {
