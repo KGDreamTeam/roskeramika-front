@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {
   checkOneCheckbox,
   getAllFiltersActionCreator,
+  resetFilter,
   setFiltered,
 } from "../store/actions/filters"
 import { filterCollections, isFiltersChecked } from "../helpers/filters"
@@ -11,7 +12,7 @@ import arrowDown from "../assets/img/arrow-down.svg"
 import FilterItem from "../components/reusable/FilterItem"
 import { setFilteredProducts } from "../store/actions/products"
 
-const Filter = (props) => {
+const Filter = () => {
   const [showSizes, setShowSizes] = useState(false)
   const [showUsage, setShowUsage] = useState(false)
   const [showSurface, setShowSurface] = useState(false)
@@ -46,7 +47,7 @@ const Filter = (props) => {
   }
 
   const handleResetFilter = () => {
-    // setShowFiltered(false)
+    dispatch(resetFilter())
   }
 
   const handleCheckboxChecked = (e) => {

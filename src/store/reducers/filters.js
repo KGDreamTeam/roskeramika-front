@@ -28,8 +28,29 @@ const reducer = (state = initialState, action) => {
         surface: action.payload?.surface,
       }
     case RE_SET_FILTERS:
+      const sizeReseted = []
+      const usageReseted = []
+      const surfaceReseted = []
+      const catalogReseted = []
+      for (let i of state.size) {
+        sizeReseted.push({ ...i, checked: false })
+      }
+      for (let i of state.usage) {
+        usageReseted.push({ ...i, checked: false })
+      }
+      for (let i of state.surface) {
+        surfaceReseted.push({ ...i, checked: false })
+      }
+      for (let i of state.catalog) {
+        catalogReseted.push({ ...i, checked: false })
+      }
       return {
         ...state,
+        show: false,
+        size: sizeReseted,
+        usage: usageReseted,
+        surface: surfaceReseted,
+        catalog: catalogReseted,
       }
     case CHECK_SIZE_FILTER:
       return {
