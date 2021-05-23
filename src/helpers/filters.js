@@ -89,5 +89,16 @@ export const filterCollections = (products, filters) => {
       }
     }
   }
-  return new Set(filteredItems)
+
+  const arrayOfColllectionName = []
+  const newSetCollections = []
+
+  for (let i of filteredItems) {
+    if (!arrayOfColllectionName.includes(i.collection.name)) {
+      arrayOfColllectionName.push(i.collection.name)
+      newSetCollections.push(i)
+    }
+  }
+
+  return newSetCollections
 }
