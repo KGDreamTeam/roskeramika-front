@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {checkOneCheckbox, getAllFiltersActionCreator} from "../store/actions/filters";
+import {checkOneCheckbox, getAllFiltersActionCreator, setFiltered} from "../store/actions/filters";
+import { isFiltersChecked } from '../helpers/filters';
 
 import arrowDown from '../assets/img/arrow-down.svg'
 import FilterItem from "../components/reusable/FilterItem";
@@ -12,10 +13,9 @@ const Filter = (props) => {
   const [showSurface, setShowSurface] = useState(false)
 
   const {sizeFilter, usageFilter, surfaceFilter} = useSelector(state => ({
-    allProducts: state.collections.allProducts,
     sizeFilter: state.filters.size,
     usageFilter: state.filters.usage,
-    surfaceFilter: state.filters.surface
+    surfaceFilter: state.filters.surface,
   }))
 
   const dispatch = useDispatch()
@@ -38,13 +38,23 @@ const Filter = (props) => {
 
   const handleCheckboxChecked = (e) => {
     dispatch(checkOneCheckbox({name: e.target.name, value: e.target.value}))
-    console.log(e.target.name)
-    console.log(e.target.value)
   }
 
   useEffect(() => {
     dispatch(getAllFiltersActionCreator(props.index))
   }, [])
+
+  useEffect(() => {
+    const isSizeChecked = isFiltersChecked(sizeFilter)
+    const isUsageChecked = isFiltersChecked(usageFilter)
+    const isSurfaceChecked = isFiltersChecked(surfaceFilter)
+
+    if(isSizeChecked || isUsageChecked || isSurfaceChecked){
+      dispatch(setFiltered(true))
+    } else {
+      dispatch(setFiltered(false))
+    }
+  }, [sizeFilter, usageFilter, surfaceFilter])
 
   return(
     <div className='filter'>

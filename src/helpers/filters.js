@@ -42,3 +42,12 @@ export const getAllFilter = (items) => {
 export const getIfMainTovar = (items) => {
   return items.filter(item => item?.main_tovar === true)
 }
+
+export const isFiltersChecked = (filters) => {
+  const filteredItems = filters.filter(item => item.checked)
+  if(filteredItems.length > 0){
+    return true
+  } else {
+    return false
+  }
+}

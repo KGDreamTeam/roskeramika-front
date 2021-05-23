@@ -1,6 +1,6 @@
 import axios from "../../axios/axios";
 import {getIfMainTovar, getAllFilter} from '../../helpers/filters'
-import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERS_TO_STORE, SET_LOADING_FILTER} from "../actionTypes";
+import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERED, SET_FILTERS_TO_STORE, SET_LOADING_FILTER} from "../actionTypes";
 
 export const getAllFiltersActionCreator = (sub) => dispatch => {
   axios.get(`apiv1/products/?subcategorie=${sub}`)
@@ -54,6 +54,13 @@ export const checkOneCheckbox = (payload) => {
         type: null,
         payload: null
       }
+  }
+}
+
+export const setFiltered = (payload) => {
+  return{
+    type: SET_FILTERED,
+    payload
   }
 }
 

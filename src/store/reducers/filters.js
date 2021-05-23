@@ -1,4 +1,4 @@
-import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERS_TO_STORE} from "../actionTypes";
+import {CHECK_SIZE_FILTER, CHECK_SURFACE_FILTER, CHECK_USAGE_FILTER, RE_SET_FILTERS, SET_FILTERED, SET_FILTERS_TO_STORE} from "../actionTypes";
 
 let initialState = {
   loading: false,
@@ -20,12 +20,10 @@ const reducer = (state = initialState, action) => {
     case RE_SET_FILTERS:
       return{
         ...state,
-        show: false,
       }
     case CHECK_SIZE_FILTER:
       return{
         ...state,
-        show: true,
         size: state.size.map((item, index) => {
           if(index === action.payload){
             item.checked = !item.checked
@@ -37,7 +35,6 @@ const reducer = (state = initialState, action) => {
     case CHECK_USAGE_FILTER:
       return{
         ...state,
-        show: true,
         usage: state.usage.map((item, index) => {
           if(index === action.payload){
             item.checked = !item.checked
@@ -49,7 +46,6 @@ const reducer = (state = initialState, action) => {
     case CHECK_SURFACE_FILTER:
       return{
         ...state,
-        show: true,
         surface: state.surface.map((item, index) => {
           if(index === action.payload){
             item.checked = !item.checked
@@ -57,6 +53,11 @@ const reducer = (state = initialState, action) => {
           return item
           
         })
+      }
+    case SET_FILTERED:
+      return{
+        ...state,
+        show: action.payload
       }
     default:
       return state;
