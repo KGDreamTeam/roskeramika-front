@@ -75,8 +75,6 @@ export const filterCollections = (products, filters) => {
 
   let filteredItems = []
 
-  console.log(checkedFilters, "filters")
-
   filteredItems = []
 
   for (let i = 0; i < products.length; i++) {
@@ -85,12 +83,11 @@ export const filterCollections = (products, filters) => {
         products[i].surface === checkedFilters[j].name ||
         getWidth(products[i]) === checkedFilters[j].name ||
         products[i].usage === checkedFilters[j].name ||
-        products[i].subcategorie === checkedFilters[j].name
+        products[i].subcategorie.name === checkedFilters[j].name
       ) {
         filteredItems.push(products[i])
       }
     }
   }
-
-  console.log(filteredItems)
+  return new Set(filteredItems)
 }

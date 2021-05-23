@@ -7,6 +7,7 @@ import Collection from "../templates/Collection"
 
 import banner from "../../assets/img/banner-header.svg"
 import Filter from "../../containers/Filter"
+import { filterCollections } from "../../helpers/filters"
 
 const SubCategory = (props) => {
   const {
@@ -15,12 +16,14 @@ const SubCategory = (props) => {
     hitCollections,
     otherCollections,
     showFiltered,
+    filteredProducts,
   } = useSelector((state) => ({
     sub: state.kategori.subCategories,
     newCollections: state.collections.newCollections,
     hitCollections: state.collections.hitCollections,
     otherCollections: state.collections.otherCollections,
     showFiltered: state.filters.show,
+    filteredProducts: state.products.filteredProducts,
   }))
   const dispatch = useDispatch()
 
@@ -114,7 +117,27 @@ const SubCategory = (props) => {
                 </div>
               </>
             ) : (
-              <div>filtered</div>
+              <div className='others-wrapper'>
+                <h4 className='coll-mini-title'>Фильтрованные:</h4>
+                <div className='others'>
+                  {filteredProducts ? (
+                    filteredProducts.map((item) => (
+                      <Collection
+                        img={item.collection.image1}
+                        labelnew={item.collection.labelnew}
+                        price={item.price}
+                        name={item.collection.name}
+                        key={item.collection.id}
+                        id={item.collection.id}
+                        sales={item.discount}
+                        products={[{ price: item.price }]}
+                      />
+                    ))
+                  ) : (
+                    <div className='no-items'>more</div>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </div>

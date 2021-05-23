@@ -9,6 +9,7 @@ import { filterCollections, isFiltersChecked } from "../helpers/filters"
 
 import arrowDown from "../assets/img/arrow-down.svg"
 import FilterItem from "../components/reusable/FilterItem"
+import { setFilteredProducts } from "../store/actions/products"
 
 const Filter = (props) => {
   const [showSizes, setShowSizes] = useState(false)
@@ -23,7 +24,7 @@ const Filter = (props) => {
       surfaceFilter: state.filters.surface,
       catalog: state.filters.catalog,
       filters: state.filters,
-      products: state.products,
+      products: state.products.products,
     }))
 
   const dispatch = useDispatch()
@@ -70,7 +71,8 @@ const Filter = (props) => {
     ) {
       dispatch(setFiltered(true))
       // dispatch(filterProductsToShow())
-      filterCollections(products, filters)
+      const filteredProducts = filterCollections(products, filters)
+      dispatch(setFilteredProducts(filteredProducts))
     } else {
       dispatch(setFiltered(false))
     }
