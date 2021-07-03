@@ -38,7 +38,17 @@ const PanelWithDelivery = () => {
         <div>Г.Кара-Балта</div>
         <div className="price">2000 c</div>
       </div>
-      <h2>Адрес магазина:</h2>
+      <h2>
+        Адрес магазина:{" "}
+        <span className="">
+          <a
+            style={{ textDecoration: "underline" }}
+            target="_blank"
+            href="https://2gis.kg/bishkek/branches/70000001019320874/firm/70000001022252420?m=74.682072%2C42.859206%2F16.02">
+            можете найти здесь
+          </a>
+        </span>
+      </h2>
     </div>
   );
 };

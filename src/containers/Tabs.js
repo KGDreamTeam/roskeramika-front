@@ -16,7 +16,7 @@ import PanelWithDelivery from "../components/reusable/PanelWithDelivery";
 const Tabs = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const handleSelect = index => {
+  const handleSelect = (index) => {
     setTabIndex(index);
   };
 
