@@ -34,7 +34,7 @@ const CollectionInfo = (props) => {
                 <img src={image} className="photo" alt={`${props.name}`} />
               </TransformComponent>
             </TransformWrapper>
-            <div className="img-text">Прокрутка для увеличение</div>
+            <div className="img-text">Прокрутка для увеличения</div>
           </div>
           <div className="small-images">
             {images &&

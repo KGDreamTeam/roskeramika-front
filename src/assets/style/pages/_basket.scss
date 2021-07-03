@@ -10,12 +10,22 @@
       padding-top: 73px;
       .tabs-wrapper {
         display: flex;
+        @include _870() {
+          flex-direction: column;
+        }
         .tab-item {
           @include alignCenter();
           justify-content: space-around;
           position: relative;
           width: 330px;
           box-sizing: border-box;
+          @include _1000() {
+            width: 220px;
+            margin: 0 auto;
+          }
+          @include _870() {
+            margin: 15px auto;
+          }
           &:hover {
             cursor: pointer;
           }
@@ -27,6 +37,12 @@
           .text {
             z-index: 2;
             margin-right: 80px;
+            @include _1000() {
+              margin-right: 40px;
+            }
+            @include _870() {
+              margin-right: 20px;
+            }
           }
           .bg-img {
             position: absolute;

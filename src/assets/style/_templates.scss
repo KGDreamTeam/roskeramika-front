@@ -69,7 +69,7 @@
     &:active {
       filter: brightness(120%);
     }
-    &:hover{
+    &:hover {
       filter: brightness(110%);
       cursor: pointer;
     }
@@ -114,6 +114,12 @@
 
 @mixin _1045() {
   @media (max-width: 1045px) {
+    @content;
+  }
+}
+
+@mixin _1000() {
+  @media (max-width: 1000px) {
     @content;
   }
 }

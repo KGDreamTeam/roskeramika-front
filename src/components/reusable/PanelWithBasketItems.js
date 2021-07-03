@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { pushItemToSale, setTotalPrice } from "../../store/actions/basket";
 import BasketItem from "./BasketItem";
 
-const PanelWithBasketItems = props => {
-  const items = useSelector(state => state.basket.items);
-  const prices = useSelector(state => state.basket.itemsPrices);
-  const totalPrice = useSelector(state => state.basket.totalPriceToBuy);
+const PanelWithBasketItems = (props) => {
+  const items = useSelector((state) => state.basket.items);
+  const prices = useSelector((state) => state.basket.itemsPrices);
+  const totalPrice = useSelector((state) => state.basket.totalPriceToBuy);
   const dispatch = useDispatch();
 
   const handleClick = () => {
     props.handleSelect(props.index);
-    const newItems = items.map(item => {
+    const newItems = items.map((item) => {
       return {
         ...item,
-        itemPrice: prices.find(x => x.id === item.id).price
+        itemPrice: prices.find((x) => x.id === item.id).price,
       };
     });
     dispatch(pushItemToSale(newItems));
@@ -32,11 +32,11 @@ const PanelWithBasketItems = props => {
     <div className="panel-with-basket-items">
       <div className="items">
         {items.length !== 0 ? (
-          items.map(item => (
+          items.map((item) => (
             <BasketItem
               id={item.id}
               key={item.id}
-              count={item.count}
+              count={(item.count = 0)}
               sum={item.sum}
               subname={item.subcategory}
               name={item.name}
@@ -60,8 +60,7 @@ const PanelWithBasketItems = props => {
         <button
           className="make-order"
           onClick={handleClick}
-          disabled={totalPrice < 0}
-        >
+          disabled={totalPrice < 0}>
           Оформить
         </button>
       </div>

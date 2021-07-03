@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   roundCalculationMinus,
-  roundCalculationPlus
+  roundCalculationPlus,
 } from "../../helpers/roundCalculation";
 import { getTotalPriceProduct } from "../../helpers/sizeManipulation";
 import { useDispatch } from "react-redux";
@@ -9,17 +9,17 @@ import { useDispatch } from "react-redux";
 import closeIcon from "../../assets/img/closeIcon.svg";
 import { priceForItem, deleteItemBasket } from "../../store/actions/basket";
 
-const BasketItem = props => {
+const BasketItem = (props) => {
   const [count, setCount] = useState(props.count);
   const [price, setPrice] = useState(props.sum);
   const dispatch = useDispatch();
 
   const minusHandler = () => {
-    setCount(prev => roundCalculationMinus(prev));
+    setCount((prev) => roundCalculationMinus(prev));
   };
 
   const plusHandler = () => {
-    setCount(prev => roundCalculationPlus(prev));
+    setCount((prev) => roundCalculationPlus(prev));
   };
 
   const handleDelete = () => {
@@ -47,7 +47,7 @@ const BasketItem = props => {
         <div className="infos-wrapper">
           <div className="manufac-wrapper">
             <div className="manufac-text">Производитель:</div>
-            <div className="manufac">{props.manufac}</div>
+            <div className="manufac">{props.manufac.country_name}</div>
           </div>
           <div className="size-wrapper">
             <div className="size-text">Размер:</div>
@@ -64,13 +64,12 @@ const BasketItem = props => {
               <button
                 disabled={count <= 0}
                 className="minus"
-                onClick={minusHandler}
-              >
+                onClick={minusHandler}>
                 -
               </button>
               <input
                 value={count}
-                onChange={e => setCount(e.target.value)}
+                onChange={(e) => setCount(e.target.value)}
                 type="number"
                 className="input-count"
                 type="number"

@@ -31,7 +31,9 @@
       &-infos {
         display: flex;
         justify-content: space-between;
-
+        @include _768() {
+          flex-direction: column;
+        }
         .image-wrapper {
           width: 160px;
           max-height: 240px;
@@ -42,10 +44,11 @@
             object-fit: cover;
           }
         }
-
         .infos-wrapper {
           width: 70%;
-
+          @include _768() {
+            width: 100%;
+          }
           .manufac-wrapper {
             @include spaceBetween();
             margin-bottom: 16px;
@@ -121,6 +124,7 @@
               }
               .input-count {
                 width: 100px;
+                margin: 0 10px;
                 -moz-appearance: textfield;
               }
             }

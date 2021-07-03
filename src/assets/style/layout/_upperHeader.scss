@@ -82,7 +82,7 @@
   .basket-dropdown {
     position: absolute;
     top: 40px;
-    left: -10px;
+    right: 0;
     padding: 8px;
     width: max-content;
     background-color: white;
@@ -103,9 +103,11 @@
       }
     }
     @include _768() {
+      box-sizing: border-box;
       position: fixed;
       bottom: 0;
       left: 0;
+      right: 0;
       top: auto;
       width: 100%;
       z-index: 20;
@@ -118,6 +120,7 @@
       text-decoration: none;
       padding: 11px 35px;
       box-sizing: border-box;
+      justify-content: center;
       &:hover {
         cursor: pointer;
         filter: brightness(120%);
