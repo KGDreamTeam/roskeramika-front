@@ -60,7 +60,7 @@ const PanelWithBasketItems = (props) => {
         <button
           className="make-order"
           onClick={handleClick}
-          disabled={totalPrice < 0}>
+          disabled={totalPrice <= 0}>
           Оформить
         </button>
       </div>
