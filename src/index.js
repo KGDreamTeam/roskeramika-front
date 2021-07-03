@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, compose, createStore } from "redux";
@@ -10,8 +10,6 @@ import "./assets/style/style.scss";
 
 import rootReducer from "./store/reducers/index";
 
-import Loading from "./containers/Loading";
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
@@ -21,11 +19,9 @@ const store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<Loading />}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Suspense>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
