@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import upArr from "../../assets/img/upArr.svg";
 
-const SmallLink = props => {
-  const subCategories = useSelector(state => state.kategori.subCategories);
+const SmallLink = (props) => {
+  const subCategories = useSelector((state) => state.kategori.subCategories);
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
@@ -15,7 +15,10 @@ const SmallLink = props => {
   return (
     <div className="to-small">
       <div className="link-wrapper">
-        <Link to={`/category/${props.id}`} className="to-navlink-small">
+        <Link
+          to={`/category/${props.id}`}
+          className="to-navlink-small"
+          onClick={props.handleCloseModal}>
           {props.name}
         </Link>
         <img
@@ -27,14 +30,14 @@ const SmallLink = props => {
       </div>
       <div className={show ? "sub-to-small show" : "sub-to-small"}>
         {subCategories &&
-          subCategories.map(sub => {
+          subCategories.map((sub) => {
             if (sub.category === props.id) {
               return (
                 <Link
                   to={`/sub/${sub.id}`}
                   key={sub.id}
-                  className="sub-item-small"
-                >
+                  onClick={props.handleCloseModal}
+                  className="sub-item-small">
                   {sub.name}
                 </Link>
               );

@@ -10,16 +10,16 @@ import SmallLink from "../reusable/SmallLink";
 import clearInput from "../../assets/img/clear-input.svg";
 import searchIcon from "../../assets/img/search-icon.svg";
 
-const HeaderSmall = props => {
-  const { categories } = useSelector(state => ({
-    categories: state.kategori.categories
+const HeaderSmall = (props) => {
+  const { categories } = useSelector((state) => ({
+    categories: state.kategori.categories,
   }));
 
   const [items, setItems] = useState("");
   const [input, setInput] = useState("");
   const [show, setShow] = useState(false);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput(e.target.value);
   };
 
@@ -32,11 +32,11 @@ const HeaderSmall = props => {
   const handleClickSearch = () => {
     axios
       .get(`/apiv1/collection/?search=${input}`)
-      .then(res => {
+      .then((res) => {
         const data = res.data.sort((a, b) => a.name - b.name);
         setItems([...data]);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
     setShow(true);
@@ -65,10 +65,10 @@ const HeaderSmall = props => {
     isOpen: props.open,
     onOpen: handleOpenBurger,
     onClose: handleCloseBurger,
-    width: "80%"
+    width: "80%",
   };
 
-  const Item = props => {
+  const Item = (props) => {
     return (
       <NavLink
         to={`/collection/${props.id}`}
@@ -76,8 +76,7 @@ const HeaderSmall = props => {
         onClick={() => {
           handleClearInput();
           handleCloseBurger();
-        }}
-      >
+        }}>
         <div className="item-small">
           <span className="bold-small">{props.name}</span> {props.sub}
         </div>
@@ -97,7 +96,7 @@ const HeaderSmall = props => {
                 className="search-input"
                 placeholder="Я ищу..."
                 value={input}
-                onChange={e => handleChangeInput(e)}
+                onChange={(e) => handleChangeInput(e)}
               />
               {input.length !== 0 ? (
                 <img
@@ -120,7 +119,7 @@ const HeaderSmall = props => {
         {show ? (
           <div className="searched-items-small">
             {items.length !== 0 ? (
-              items.map(item => (
+              items.map((item) => (
                 <Item
                   id={item.id}
                   key={item.id}
@@ -135,10 +134,20 @@ const HeaderSmall = props => {
         ) : null}
         <div className="navigation-small">
           {categories &&
-            categories.map(item => {
-              return <SmallLink name={item.name} id={item.id} key={item.id} />;
+            categories.map((item) => {
+              return (
+                <SmallLink
+                  handleCloseModal={handleCloseBurger}
+                  name={item.name}
+                  id={item.id}
+                  key={item.id}
+                />
+              );
             })}
-          <NavLink to="/about" className="item-link-small">
+          <NavLink
+            to="/about"
+            onClick={handleCloseBurger}
+            className="item-link-small">
             О нас
           </NavLink>
         </div>
@@ -151,17 +160,17 @@ export default HeaderSmall;
 
 var styles = {
   bmBurgerBars: {
-    background: "#fff"
+    background: "#fff",
   },
   bmMenuWrap: {
     position: "fixed",
-    height: "100%"
+    height: "100%",
   },
   bmMenu: {
     background: "white",
-    fontSize: "1.15em"
+    fontSize: "1.15em",
   },
   bmMorphShape: {
-    fill: "#393939"
-  }
+    fill: "#393939",
+  },
 };
