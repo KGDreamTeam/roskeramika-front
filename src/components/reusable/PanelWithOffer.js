@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleMakeOrderActionCreator } from "../../store/actions/basket";
 import { getCurrentDate } from "../../helpers/date";
 
-const PanelWithOffer = props => {
-  const { basketItems, totalPriceToBuy } = useSelector(state => ({
+const PanelWithOffer = (props) => {
+  const { basketItems, totalPriceToBuy } = useSelector((state) => ({
     basketItems: state.basket.itemsToSale,
-    totalPriceToBuy: state.basket.totalPriceToBuy
+    totalPriceToBuy: state.basket.totalPriceToBuy,
   }));
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const PanelWithOffer = props => {
           state: "bishkek",
           oplata: "nal",
           address: "",
-          comment: ""
+          comment: "",
         }}
         validationSchema={Yup.object().shape({
           phone: Yup.string().required("Необходимое поле"),
@@ -33,9 +33,9 @@ const PanelWithOffer = props => {
           state: Yup.string().required("Необходимое поле"),
           oplata: Yup.string().required("Необходимое поле"),
           address: Yup.string().required("Необходимое поле"),
-          comment: Yup.string()
+          comment: Yup.string(),
         })}
-        onSubmit={fields => {
+        onSubmit={(fields) => {
           props.handleSelect(props.index);
           dispatch(
             handleMakeOrderActionCreator(
@@ -49,13 +49,12 @@ const PanelWithOffer = props => {
                 address: fields.address,
                 comment: fields.comment,
                 order_date: getCurrentDate(),
-                price: `${totalPriceToBuy}som`
+                price: `${totalPriceToBuy}som`,
               },
               basketItems
             )
           );
-        }}
-      >
+        }}>
         {() => (
           <>
             <h2>Для оформления заказа заполните форму:</h2>
@@ -111,7 +110,7 @@ const PanelWithOffer = props => {
                 </div>
                 <div className="label">
                   {basketItems.length !== 0 ? (
-                    basketItems.map(item => (
+                    basketItems.map((item) => (
                       <Items
                         key={item.id}
                         name={item.name}
@@ -127,8 +126,7 @@ const PanelWithOffer = props => {
                 <button
                   disabled={basketItems.length === 0 ? true : false}
                   type="submit"
-                  className="submit-btn"
-                >
+                  className="submit-btn">
                   Оформить
                 </button>
               </div>
@@ -206,7 +204,7 @@ const PanelWithOffer = props => {
   );
 };
 
-const Items = props => {
+const Items = (props) => {
   return (
     <div className="item">
       <span>

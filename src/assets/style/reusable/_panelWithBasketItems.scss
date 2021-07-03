@@ -24,6 +24,9 @@
   .items {
     display: flex;
     flex-wrap: wrap;
+    @include _768() {
+      justify-content: center;
+    }
     .cart-item {
       width: 600px;
       margin: 36px 36px 36px 0;
@@ -33,11 +36,15 @@
         justify-content: space-between;
         @include _768() {
           flex-direction: column;
+          align-items: center;
         }
         .image-wrapper {
           width: 160px;
           max-height: 240px;
           overflow: hidden;
+          @include _768() {
+            width: 100%;
+          }
           .cart-item-img {
             width: 100%;
             height: 100%;
