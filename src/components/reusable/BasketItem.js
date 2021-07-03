@@ -7,7 +7,11 @@ import { getTotalPriceProduct } from "../../helpers/sizeManipulation";
 import { useDispatch } from "react-redux";
 
 import closeIcon from "../../assets/img/closeIcon.svg";
-import { priceForItem, deleteItemBasket } from "../../store/actions/basket";
+import {
+  priceForItem,
+  deleteItemBasket,
+  deleteItemsPrice,
+} from "../../store/actions/basket";
 
 const BasketItem = (props) => {
   const [count, setCount] = useState(props.count);
@@ -24,6 +28,7 @@ const BasketItem = (props) => {
 
   const handleDelete = () => {
     dispatch(deleteItemBasket(props.id));
+    dispatch(deleteItemsPrice(props.id));
   };
 
   useEffect(() => {
