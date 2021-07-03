@@ -6,6 +6,7 @@ import HeaderSmall from "./HeaderSmall";
 import UpperHeader from "./UpperHeader";
 import logoMain from "../../assets/img/logo.svg";
 import Basket from "../../containers/Basket";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +29,9 @@ const Header = () => {
               <div className="burger-line"> </div>
             </div>
             <div className="logo-wrapper">
-              <img src={logoMain} alt="ros keramika" className="logo-main" />
+              <NavLink to="/">
+                <img src={logoMain} alt="ros keramika" className="logo-main" />
+              </NavLink>
             </div>
             <Basket />
           </div>
