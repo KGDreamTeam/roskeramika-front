@@ -1,9 +1,9 @@
 import React from "react";
 
-const BannerHeader = props => {
+const BannerHeader = () => {
   return (
     <div className="banner-header">
-      <img alt="banner" className="banner-header-image" src={props.img} />
+      <img src={'/banner-header.svg'} className="banner-header-image" alt="banner" />
     </div>
   );
 };

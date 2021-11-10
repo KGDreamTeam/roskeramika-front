@@ -9,7 +9,7 @@ const NewSlider = () => {
   const { width } = useWindowDimension();
   const newsItems = useSelector(state => state.sliders.newsSliderArray);
 
-  var settings = {
+  const settings = {
     dots: false,
     arrows: true,
     infinite: false,

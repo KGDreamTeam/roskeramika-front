@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
-import wats from "../../assets/img/wats.svg";
+import {WatsIcon} from "../../assets/img/wats";
 import BigLink from "../reusable/BigLink";
 
 const Navigation = () => {
@@ -18,9 +18,11 @@ const Navigation = () => {
             categories.map(item => (
               <BigLink name={item.name} id={item.id} key={item.id} />
             ))}
-          <NavLink to="/about" className="item-link">
+          <Link href="/about" className="item-link">
+            <a>
             О нас
-          </NavLink>
+            </a>
+          </Link>
         </div>
         <div className="right">
           <div className="watsapp">
@@ -28,7 +30,7 @@ const Navigation = () => {
               href="https://api.whatsapp.com/send?phone=+996555939993"
               target="_blank"
             >
-              <img src={wats} alt="watsapp" className="wats-icon" />
+              <WatsIcon className="wats-icon" />
               <div className="text">Напишите нам</div>
             </a>
           </div>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
+import Link from "next/link";
 
-import upArr from "../../assets/img/upArr.svg";
+import {UppArrIcon} from "../../assets/img/upArr";
 
 const SmallLink = (props) => {
   const subCategories = useSelector((state) => state.kategori.subCategories);
@@ -16,33 +16,35 @@ const SmallLink = (props) => {
     <div className="to-small">
       <div className="link-wrapper">
         <Link
-          to={`/category/${props.id}`}
+          href={`/category/${props.id}`}
           className="to-navlink-small"
           onClick={props.handleCloseModal}>
-          {props.name}
+          <a className="to-navlink-small">
+            {props.name}
+          </a>
         </Link>
-        <img
-          src={upArr}
-          alt="arr-small"
+        <UppArrIcon
           className={show ? "arr down" : "arr"}
           onClick={handleClick}
         />
       </div>
       <div className={show ? "sub-to-small show" : "sub-to-small"}>
         {subCategories &&
-          subCategories.map((sub) => {
-            if (sub.category === props.id) {
-              return (
-                <Link
-                  to={`/sub/${sub.id}`}
-                  key={sub.id}
-                  onClick={props.handleCloseModal}
-                  className="sub-item-small">
+        subCategories.map((sub) => {
+          if (sub.category === props.id) {
+            return (
+              <Link
+                href={`/sub/${sub.id}`}
+                key={sub.id}
+                onClick={props.handleCloseModal}
+                className="sub-item-small">
+                <a className="sub-item-small">
                   {sub.name}
-                </Link>
-              );
-            }
-          })}
+                </a>
+              </Link>
+            );
+          }
+        })}
       </div>
     </div>
   );

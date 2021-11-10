@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Link from 'next/link'
 import LazyLoad from "react-lazyload";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { getMinPriceOfArr } from "../../helpers/persentCalc";
 import { handleGetProductsOfCollectionActionCreator } from "../../store/actions/collections";
 
-import basketMini from "../../assets/img/basket-mini.svg";
+import {BasketMiniIcon} from "../../assets/img/basket-mini";
 
 const Collection = props => {
   const dispatch = useDispatch();
@@ -22,24 +22,26 @@ const Collection = props => {
   return (
     <div className="collection-for-page-wrapper">
       <div className="image-wrapper">
-        <NavLink className="link-to-collection" to={`/collection/${props.id}`}>
-          <LazyLoad height={200} once offset={100}>
+        <Link className="link-to-collection" href={`/collection/${props.id}`}>
+          <a className="link-to-collection">
             <img
               src={props.img}
               alt="image of Collection"
               className="collection-image"
             />
-          </LazyLoad>
-        </NavLink>
+          </a>
+        </Link>
       </div>
       <div className="collection-information">
         <div className="collection-information-name-wrapper">
-          <NavLink to={`/collection/${props.id}`} className="name">
-            {props.name}
-          </NavLink>
+          <Link href={`/collection/${props.id}`} className="name">
+            <a className="name">
+              {props.name}
+            </a>
+          </Link>
           <div className="to-basket" onClick={handleToBasket}>
-            <img src={basketMini} alt="basket" className="basket-mini" />в
-            корзину
+            <BasketMiniIcon className="basket-mini" />
+            в корзину
           </div>
         </div>
         <div className="collection-information-price-wrapper">

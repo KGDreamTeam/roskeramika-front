@@ -6,7 +6,7 @@ import {
 import { getTotalPriceProduct } from "../../helpers/sizeManipulation";
 import { useDispatch } from "react-redux";
 
-import closeIcon from "../../assets/img/closeIcon.svg";
+import {CloseIcon} from "../../assets/img/closeIcon";
 import {
   priceForItem,
   deleteItemBasket,
@@ -96,7 +96,7 @@ const BasketItem = (props) => {
               {`${price}`}
               <span>Сом</span>
               <button className="delete-item-btn" onClick={handleDelete}>
-                <img src={closeIcon} alt="delete item" className="close-icon" />
+                <CloseIcon className="close-icon" />
               </button>
             </div>
           </div>

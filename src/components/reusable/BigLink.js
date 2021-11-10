@@ -1,29 +1,33 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import Link from 'next/link'
 
-import upArr from "../../assets/img/upArr.svg";
+import {UppArrIcon} from "../../assets/img/upArr";
 
 const BigLink = props => {
   const subCategories = useSelector(state => state.kategori.subCategories);
 
   return (
     <div className="item">
-      <NavLink to={`/category/${props.id}`} className="link-wrapper">
-        <div className="to-navlink">{props.name}</div>
-        <img src={upArr} alt="arr-small" className={"arr"} />
-      </NavLink>
+      <Link href={`/category/${props.id}`} className="link-wrapper">
+        <a className="link-wrapper">
+          <div className="to-navlink">{props.name}</div>
+          <UppArrIcon className="arr"/>
+        </a>
+      </Link>
       <div className={"sub-items"}>
         {subCategories &&
-          subCategories.map(sub => {
-            if (sub.category === props.id) {
-              return (
-                <Link to={`/sub/${sub.id}`} key={sub.id} className="sub-item">
+        subCategories.map(sub => {
+          if (sub.category === props.id) {
+            return (
+              <Link href={`/sub/${sub.id}`} key={sub.id} className="sub-item">
+                <a className="sub-item">
                   {sub.name}
-                </Link>
-              );
-            }
-          })}
+                </a>
+              </Link>
+            );
+          }
+        })}
       </div>
     </div>
   );

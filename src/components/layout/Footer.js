@@ -1,8 +1,8 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import Link from 'next/link'
 
-import whiteWhats from "../../assets/img/white-wats.svg";
-import whiteInst from "../../assets/img/white-inst.svg";
+import {WhiteWatsIcon} from "../../assets/img/white-wats";
+import {WhiteInstIcon} from "../../assets/img/white-inst";
 
 const Footer = () => {
   return (
@@ -19,13 +19,13 @@ const Footer = () => {
           </a>
           <div className="soc-icons">
             <a href="https://www.instagram.com/rosskeramika_official/" target="_blank">
-              <img src={whiteInst} alt="instagram" className="white-inst" />
+              <WhiteInstIcon className="white-inst" />
             </a>
             <a
               href="https://api.whatsapp.com/send?phone=+996555939993"
               target="_blank"
             >
-              <img src={whiteWhats} alt="whatsapp" className="white-whats" />
+              <WhiteWatsIcon className="white-whats" />
             </a>
           </div>
         </div>
@@ -39,30 +39,44 @@ const Footer = () => {
         </div>
         <div className="info">
           <h4>Каталог:</h4>
-          <Link to="/sub/4" className="info-item">
-            Плитка для ванной
+          <Link href="/sub/4" className="info-item">
+            <a className="info-item">
+              Плитка для ванной
+            </a>
           </Link>
-          <Link to="/sub/5" className="info-item">
+          <Link href="/sub/5" className="info-item">
+            <a className="info-item">
             Плитка для кухни
+            </a>
           </Link>
-          <Link to="/sub/6" className="info-item">
+          <Link href="/sub/6" className="info-item">
+            <a className="info-item">
             Фасад
+            </a>
           </Link>
-          <Link to="/category/1" className="info-item">
+          <Link href="/category/1" className="info-item">
+            <a className="info-item">
             Керамогранит
+            </a>
           </Link>
-          <Link to="/category/3" className="info-item">
+          <Link href="/category/3" className="info-item">
+            <a className="info-item">
             Теплый пол
+            </a>
           </Link>
         </div>
         <div className="info">
           <h4>Общая информация:</h4>
-          <NavLink to="/about" className="info-item">
+          <Link href="/about" className="info-item">
+            <a className="info-item">
             О нас
-          </NavLink>
-          <NavLink to="/delivery" className="info-item">
+            </a>
+          </Link>
+          <Link href="/delivery" className="info-item">
+            <a className="info-item">
             Оплата и доставка
-          </NavLink>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="last">

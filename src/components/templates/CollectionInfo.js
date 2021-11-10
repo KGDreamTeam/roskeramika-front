@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // import InnerImageZoom from "react-inner-image-zoom"
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
-import GreenCircle from "../../assets/img/iconfinder_circle.svg";
+import {IconFinderCircle} from "../../assets/img/iconfinder_circle";
 import CollectionSmallImg from "../reusable/CollectionSmallImg";
 
 const CollectionInfo = (props) => {
@@ -74,11 +74,7 @@ const CollectionInfo = (props) => {
           <div className="post-wrapper">
             <div className="post">Поделиться:</div>
             <div className="collection-is-true">
-              <img
-                src={GreenCircle}
-                alt="green-circle"
-                className="green-circle"
-              />
+              <IconFinderCircle className="green-circle" />
               <span className="dostupno">Коллекция доступна для заказа</span>
             </div>
           </div>

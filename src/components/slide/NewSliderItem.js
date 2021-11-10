@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import LazyLoad from "react-lazyload";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
-import basketMini from "../../assets/img/basket-mini.svg";
+import {BasketMiniIcon} from "../../assets/img/basket-mini";
 import { getMinPriceOfArr } from "../../helpers/persentCalc";
 import { handleGetProductsOfCollectionActionCreator } from "../../store/actions/collections";
 
@@ -23,19 +23,21 @@ const NewSliderItem = props => {
       {props.burn ? <div className="burn-price">Горящая цена</div> : null}
       <div className="content">
         <div className="image-wrapper">
-          <NavLink to={`/collection/${props.id}`}>
-            <LazyLoad height={200} once offset={100} placeholder="Image">
+          <Link href={`/collection/${props.id}`}>
+            <a>
               <img src={props.img} alt="imageFrom props" />
-            </LazyLoad>
-          </NavLink>
+            </a>
+          </Link>
         </div>
         <div className="name-wrapper">
-          <NavLink to={`/collection/${props.id}`} className="name">
-            {props.name}
-          </NavLink>
+          <Link href={`/collection/${props.id}`} className="name">
+            <a className="name">
+              {props.name}
+            </a>
+          </Link>
           <div className="to-basket" onClick={handleToBasket}>
-            <img src={basketMini} alt="basket" className="basket-mini" />в
-            корзину
+            <BasketMiniIcon className="basket-mini" />
+            в корзину
           </div>
         </div>
         <div className="price-wrapper">

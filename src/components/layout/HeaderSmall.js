@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { slide as Menu } from "react-burger-menu";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {slide as Menu} from "react-burger-menu";
+import {useSelector} from "react-redux";
+import Link from "next/link";
 import axios from "../../axios/axios";
-
-import logoMain from "../../assets/img/logo.svg";
-import logoSec from "../../assets/img/logo-2.svg";
 import SmallLink from "../reusable/SmallLink";
-import clearInput from "../../assets/img/clear-input.svg";
-import searchIcon from "../../assets/img/search-icon.svg";
+
+import {LogoIcon} from "../../assets/img/logo";
+import {Logo2Icon} from "../../assets/img/logo-2";
+import {ClearInputIcon} from "../../assets/img/clear-input";
+import {SearchIcon} from "../../assets/img/search-icon";
 
 const HeaderSmall = (props) => {
-  const { categories } = useSelector((state) => ({
+  const {categories} = useSelector((state) => ({
     categories: state.kategori.categories,
   }));
 
@@ -70,17 +70,19 @@ const HeaderSmall = (props) => {
 
   const Item = (props) => {
     return (
-      <NavLink
-        to={`/collection/${props.id}`}
+      <Link
+        href={`/collection/${props.id}`}
         className="nav-small"
         onClick={() => {
           handleClearInput();
           handleCloseBurger();
         }}>
-        <div className="item-small">
-          <span className="bold-small">{props.name}</span> {props.sub}
-        </div>
-      </NavLink>
+        <a className="nav-small">
+          <div className="item-small">
+            <span className="bold-small">{props.name}</span> {props.sub}
+          </div>
+        </a>
+      </Link>
     );
   };
 
@@ -90,7 +92,7 @@ const HeaderSmall = (props) => {
         <div className="searches">
           <div className="search">
             <div className="search-div">
-              <img src={searchIcon} className="search-icon" alt="search" />
+              <SearchIcon className="search-icon" />
               <input
                 type="text"
                 className="search-input"
@@ -99,11 +101,9 @@ const HeaderSmall = (props) => {
                 onChange={(e) => handleChangeInput(e)}
               />
               {input.length !== 0 ? (
-                <img
-                  src={clearInput}
-                  className="clear-input"
-                  alt="clear input"
+                <ClearInputIcon
                   onClick={handleClearInput}
+                  className="clear-input"
                 />
               ) : null}
             </div>
@@ -111,10 +111,12 @@ const HeaderSmall = (props) => {
               Найти
             </button>
           </div>
-          <NavLink onClick={handleCloseBurger} to="/" className="logos">
-            <img src={logoMain} className="logo-main" alt="main logo" />
-            <img src={logoSec} className="logo-sec" alt="second logo" />
-          </NavLink>
+          <Link onClick={handleCloseBurger} href="/" className="logos">
+            <a className="logos">
+              <LogoIcon className="logo-main"/>
+              <Logo2Icon className="logo-sec" />
+            </a>
+          </Link>
         </div>
         {show ? (
           <div className="searched-items-small">
@@ -134,22 +136,24 @@ const HeaderSmall = (props) => {
         ) : null}
         <div className="navigation-small">
           {categories &&
-            categories.map((item) => {
-              return (
-                <SmallLink
-                  handleCloseModal={handleCloseBurger}
-                  name={item.name}
-                  id={item.id}
-                  key={item.id}
-                />
-              );
-            })}
-          <NavLink
-            to="/about"
+          categories.map((item) => {
+            return (
+              <SmallLink
+                handleCloseModal={handleCloseBurger}
+                name={item.name}
+                id={item.id}
+                key={item.id}
+              />
+            );
+          })}
+          <Link
+            href="/about"
             onClick={handleCloseBurger}
             className="item-link-small">
-            О нас
-          </NavLink>
+            <a className="item-link-small">
+              О нас
+            </a>
+          </Link>
         </div>
       </div>
     </Menu>
@@ -158,7 +162,7 @@ const HeaderSmall = (props) => {
 
 export default HeaderSmall;
 
-var styles = {
+const styles = {
   bmBurgerBars: {
     background: "#fff",
   },

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import ShoppingCart from "../assets/img/shopping_basket1.svg";
-import Edit from "../assets/img/edit1.svg";
-import Car from "../assets/img/car.svg";
-import yellowTabFirst from "../assets/img/yellow-tab-first.svg";
-import yellowTabSecond from "../assets/img/yellow-tab-second.svg";
-import greyTabFirst from "../assets/img/grey-tab-first.svg";
-import greyTabSecond from "../assets/img/grey-tab-second.svg";
+import {ShoppingBasket1Icon} from "../assets/img/shopping_basket1";
+import {Edit1Icon} from "../assets/img/edit1";
+import {CarIcon} from "../assets/img/car";
+import {YellowTabFirstIcon} from "../assets/img/yellow-tab-first";
+import {YellowTabSecondIcon} from "../assets/img/yellow-tab-second";
+import {GreyTabFirst} from "../assets/img/grey-tab-first";
+import {GreyTabSecondIcon} from "../assets/img/grey-tab-second";
 
 import CustomTab from "../components/reusable/CustomTab";
 import PanelWithBasketItems from "../components/reusable/PanelWithBasketItems";
@@ -24,20 +24,22 @@ const Tabs = () => {
     <div className="tabs-all">
       <div className="tabs-wrapper">
         <CustomTab
-          bg={tabIndex === 0 ? yellowTabFirst : greyTabFirst}
-          img={ShoppingCart}
+          Bg={tabIndex === 0 ? YellowTabFirstIcon : GreyTabFirst }
+          Img={ShoppingBasket1Icon}
           text="Корзина"
           index={0}
         />
         <CustomTab
-          bg={tabIndex === 1 ? yellowTabSecond : greyTabSecond}
-          img={Edit}
+          Bg={tabIndex === 1 ? YellowTabSecondIcon  : GreyTabSecondIcon }
+          Img={Edit1Icon}
+          imgClass={"basket-page-icon-tab"}
           text="Оформление заказа"
           index={1}
         />
         <CustomTab
-          bg={tabIndex === 2 ? yellowTabSecond : greyTabSecond}
-          img={Car}
+          Bg={tabIndex === 2 ? YellowTabSecondIcon  : GreyTabSecondIcon }
+          Img={CarIcon}
+          imgClass={"basket-page-icon-tab"}
           text="Доставка товара"
           index={2}
         />

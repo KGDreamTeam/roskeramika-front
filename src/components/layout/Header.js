@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import Link from "next/link";
 import useWindowDimension from "../../helpers/useWindowDimension";
 
 import Navigation from "./Navigation";
 import HeaderSmall from "./HeaderSmall";
 import UpperHeader from "./UpperHeader";
-import logoMain from "../../assets/img/logo.svg";
+import {LogoIcon} from "../../assets/img/logo";
 import Basket from "../../containers/Basket";
-import { NavLink } from "react-router-dom";
+import {useRouter} from "next/router";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { width } = useWindowDimension();
+
+  const router = useRouter()
+
+  const {pathname} = router
+
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
     <div className="header">
@@ -29,9 +38,11 @@ const Header = () => {
               <div className="burger-line"> </div>
             </div>
             <div className="logo-wrapper">
-              <NavLink to="/">
-                <img src={logoMain} alt="ros keramika" className="logo-main" />
-              </NavLink>
+              <Link href="/">
+                <a>
+                <LogoIcon className="logo-main" />
+                </a>
+              </Link>
             </div>
             <Basket />
           </div>

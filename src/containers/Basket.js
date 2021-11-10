@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
-import icBasket from "../assets/img/ic_bascket.svg";
+import {IcBasketIcon} from "../assets/img/ic_bascket";
 import { setTotalPrice } from "../store/actions/basket";
 
 const Basket = () => {
@@ -22,7 +22,7 @@ const Basket = () => {
 
   return (
     <div className="basket" onClick={() => setShow(!show)}>
-      <img src={icBasket} className="ic-basket" alt="ic-basket" />
+      <IcBasketIcon className="ic-basket" />
       {basket.items.length !== 0 ? (
         <div className="ic-basket-count">{basket.items.length}</div>
       ) : null}
@@ -42,9 +42,11 @@ const Basket = () => {
             <div>ничего нету</div>
           )}
           {basket.items.length !== 0 ? (
-            <NavLink to="/basket" className="offer">
+            <Link href="/basket" className="offer">
+              <a className="offer">
               оформить заказ
-            </NavLink>
+              </a>
+            </Link>
           ) : null}
         </div>
       ) : null}

@@ -8,7 +8,7 @@ import {
 } from "../store/actions/filters"
 import { filterCollections, isFiltersChecked } from "../helpers/filters"
 
-import arrowDown from "../assets/img/arrow-down.svg"
+import {ArrowDownIcon} from "../assets/img/arrow-down"
 import FilterItem from "../components/reusable/FilterItem"
 import { setFilteredProducts } from "../store/actions/products"
 
@@ -87,9 +87,7 @@ const Filter = () => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowSizes}>
               <p>Размер</p>
-              <img
-                src={arrowDown}
-                alt='more'
+              <ArrowDownIcon
                 className={showSizes ? "filter-more act" : "filter-more"}
               />
             </div>
@@ -116,9 +114,7 @@ const Filter = () => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowUsage}>
               <p>Назначение</p>
-              <img
-                src={arrowDown}
-                alt='more'
+              <ArrowDownIcon
                 className={showUsage ? "filter-more act" : "filter-more"}
               />
             </div>
@@ -148,11 +144,9 @@ const Filter = () => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowSurface}>
               <p>Поверхность</p>
-              <img
-                src={arrowDown}
-                alt='more'
+              <ArrowDownIcon
                 className={showSurface ? "filter-more act" : "filter-more"}
-              />
+                />
             </div>
             <div
               className={
@@ -180,9 +174,7 @@ const Filter = () => {
           <div className='filter-item'>
             <div className='filter-text' onClick={handleShowCatalog}>
               <p>Каталог</p>
-              <img
-                src={arrowDown}
-                alt='more'
+              <ArrowDownIcon
                 className={showCatalog ? "filter-more act" : "filter-more"}
               />
             </div>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import axios from "../axios/axios";
 
-import clearInput from "../assets/img/clear-input.svg";
-import searchIcon from "../assets/img/search-icon.svg";
-import { NavLink } from "react-router-dom";
+import {ClearInputIcon} from "../assets/img/clear-input";
+import {SearchIcon} from "../assets/img/search-icon";
 
 const Search = () => {
   const [input, setInput] = useState("");
@@ -48,22 +48,24 @@ const Search = () => {
 
   const Item = props => {
     return (
-      <NavLink
-        to={`/collection/${props.id}`}
+      <Link
+        href={`/collection/${props.id}`}
         className="nav"
         onClick={handleClearInput}
       >
+        <a className="nav">
         <div className="item">
           <span className="bold">{props.name}</span> {props.sub}
         </div>
-      </NavLink>
+        </a>
+      </Link>
     );
   };
 
   return (
     <div className="search">
       <div className="search-div">
-        <img src={searchIcon} className="search-icon" alt="search" />
+        <SearchIcon className="search-icon" />
         <input
           type="text"
           className="search-input"
@@ -73,13 +75,11 @@ const Search = () => {
           onChange={e => handleChangeInput(e)}
         />
         {input.length !== 0 ? (
-          <img
-            src={clearInput}
-            className="clear-input"
-            alt="clear input"
+          <ClearInputIcon
             onClick={handleClearInput}
+            className="clear-input"
           />
-        ) : null}
+          ) : null}
       </div>
       <button className="btn-search" onClick={handleClickSearch}>
         Найти
