@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useRef, useState} from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
   checkOneCheckbox,
@@ -17,6 +17,10 @@ const Filter = () => {
   const [showUsage, setShowUsage] = useState(false)
   const [showSurface, setShowSurface] = useState(false)
   const [showCatalog, setShowCatalog] = useState(false)
+  const sizesRef = useRef(null)
+  const usageRef = useRef(null)
+  const surfaceRef = useRef(null)
+  const catalogRef = useRef(null)
 
   const { sizeFilter, usageFilter, surfaceFilter, catalog, filters, products } =
     useSelector((state) => ({
@@ -48,6 +52,10 @@ const Filter = () => {
 
   const handleResetFilter = () => {
     dispatch(resetFilter())
+    setShowCatalog(false)
+    setShowSurface(false)
+    setShowSizes(false)
+    setShowUsage(false)
   }
 
   const handleCheckboxChecked = (e) => {
@@ -57,6 +65,28 @@ const Filter = () => {
   useEffect(() => {
     dispatch(getAllFiltersActionCreator())
   }, [])
+
+  const documentEvent = (e) => {
+    if (sizesRef.current && !sizesRef.current.contains(e.target)) {
+      setShowSizes(false)
+    }
+    if (surfaceRef.current && !surfaceRef.current.contains(e.target)) {
+      setShowSurface(false)
+    }
+    if (catalogRef.current && !catalogRef.current.contains(e.target)) {
+      setShowCatalog(false)
+    }
+    if (usageRef.current && !usageRef.current.contains(e.target)) {
+      setShowUsage(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', documentEvent)
+    return () => {
+      document.removeEventListener('click', documentEvent)
+    }
+  }, [sizeFilter, usageFilter, surfaceFilter, catalog])
 
   useEffect(() => {
     const isSizeChecked = isFiltersChecked(sizeFilter)
@@ -77,6 +107,19 @@ const Filter = () => {
     } else {
       dispatch(setFiltered(false))
     }
+
+    if(showSizes){
+      setShowSizes(false)
+    }
+    if(showCatalog){
+      setShowCatalog(false)
+    }
+    if(showSurface){
+      setShowSurface(false)
+    }
+    if(showUsage){
+      setShowUsage(false)
+    }
   }, [sizeFilter, usageFilter, surfaceFilter, catalog])
 
   return (
@@ -84,7 +127,7 @@ const Filter = () => {
       <div className='filter-title'>Фильтр</div>
       <div className='wrapper'>
         <div className='filters'>
-          <div className='filter-item'>
+          <div ref={sizesRef} className='filter-item'>
             <div className='filter-text' onClick={handleShowSizes}>
               <p>Размер</p>
               <ArrowDownIcon
@@ -100,6 +143,7 @@ const Filter = () => {
               {sizeFilter &&
                 sizeFilter.map((item, index) => (
                   <FilterItem
+                    onClickClose={handleShowSizes}
                     key={index}
                     change={handleCheckboxChecked}
                     checked={item.checked}
@@ -111,7 +155,7 @@ const Filter = () => {
                 ))}
             </div>
           </div>
-          <div className='filter-item'>
+          <div ref={usageRef} className='filter-item'>
             <div className='filter-text' onClick={handleShowUsage}>
               <p>Назначение</p>
               <ArrowDownIcon
@@ -129,6 +173,7 @@ const Filter = () => {
                   <FilterItem
                     key={index}
                     change={handleCheckboxChecked}
+                    onClickClose={handleShowUsage}
                     checked={item.checked}
                     formName='usage'
                     name={item.name}
@@ -141,7 +186,7 @@ const Filter = () => {
               )}
             </div>
           </div>
-          <div className='filter-item'>
+          <div ref={surfaceRef} className='filter-item'>
             <div className='filter-text' onClick={handleShowSurface}>
               <p>Поверхность</p>
               <ArrowDownIcon
@@ -159,6 +204,7 @@ const Filter = () => {
                   <FilterItem
                     key={index}
                     change={handleCheckboxChecked}
+                    onClickClose={handleShowSurface}
                     checked={item.checked}
                     formName='surface'
                     name={item.name}
@@ -171,7 +217,7 @@ const Filter = () => {
               )}
             </div>
           </div>
-          <div className='filter-item'>
+          <div ref={catalogRef} className='filter-item'>
             <div className='filter-text' onClick={handleShowCatalog}>
               <p>Каталог</p>
               <ArrowDownIcon
@@ -188,12 +234,12 @@ const Filter = () => {
                 catalog.map((item, index) => (
                   <FilterItem
                     key={index}
+                    onClickClose={handleShowCatalog}
                     change={handleCheckboxChecked}
                     checked={item.checked}
                     formName='catalog'
                     name={item.name}
                     value={index}
-                    class={"catalog"}
                   />
                 ))
               ) : (

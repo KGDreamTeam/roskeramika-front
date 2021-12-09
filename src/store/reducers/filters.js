@@ -33,16 +33,16 @@ const reducer = (state = initialState, action) => {
       const surfaceReseted = []
       const catalogReseted = []
       for (let i of state.size) {
-        sizeReseted.push({ ...i, checked: false })
+        sizeReseted.push(Object.assign({}, i, {checked: false}))
       }
       for (let i of state.usage) {
-        usageReseted.push({ ...i, checked: false })
+        usageReseted.push(Object.assign({}, i, {checked: false}))
       }
       for (let i of state.surface) {
-        surfaceReseted.push({ ...i, checked: false })
+        surfaceReseted.push(Object.assign({}, i, {checked: false}))
       }
       for (let i of state.catalog) {
-        catalogReseted.push({ ...i, checked: false })
+        catalogReseted.push(Object.assign({}, i, {checked: false}))
       }
       return {
         ...state,

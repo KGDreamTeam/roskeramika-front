@@ -19,7 +19,7 @@ const Navigation = () => {
               <BigLink name={item.name} id={item.id} key={item.id} />
             ))}
           <Link href="/about" className="item-link">
-            <a>
+            <a className="item-link">
             О нас
             </a>
           </Link>

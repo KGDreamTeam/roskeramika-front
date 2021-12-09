@@ -1,9 +1,10 @@
 import React from "react"
 
 const FilterItem = (props) => {
+
   return (
     <div className={props.class ? "checkbox-item catalog" : "checkbox-item"}>
-      <label>
+      <label  className='checkbox-label-style'>
         <input
           type='checkbox'
           value={props.value}
