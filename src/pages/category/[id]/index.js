@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import Head from "next/head";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/router"
 
 import axios from '../../../axios/axios'
 
 import Collection from "../../../components/templates/Collection";
-import {Head} from "next/document";
 
 const Category = () => {
   const [collections, setCollections] = useState([])
