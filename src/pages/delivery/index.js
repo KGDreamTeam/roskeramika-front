@@ -1,13 +1,15 @@
-import {useEffect} from "react";
+import Head from "next/head";
 
 const Delivery = () => {
-
-  useEffect(() => {
-    document.title = "Доставка"
-  }, [])
   return (
     <div className="delivery">
-      <h2>Доставка</h2>
+      <Head>
+        <title>Доставка</title>
+        <meta
+          name="description"
+          content="Керамогранит и керамическая плитка  российских брендов в Бишкеке .Бесплатная доставка по Бишкеку при покупке более 30м/кв." />
+      </Head>
+        <h2>Доставка</h2>
       <p>Бесплатная доставка по Бишкеку при покупке более 30м/кв</p>
       <p>
         <strong>Доставка в другие города:</strong>

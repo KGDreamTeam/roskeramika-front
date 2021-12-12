@@ -5,6 +5,7 @@ import {useRouter} from "next/router"
 import axios from '../../../axios/axios'
 
 import Collection from "../../../components/templates/Collection";
+import {Head} from "next/document";
 
 const Category = () => {
   const [collections, setCollections] = useState([])
@@ -39,6 +40,14 @@ const Category = () => {
 
   return(
     <div className='category-page'>
+      <Head>
+        <meta
+          name="description"
+          content="Керамическая плитка для пола, кухни, ванной и фасада от Российских брендов в Бишкеке"/>
+        <meta
+          name="description"
+          content="Керамогранит, каталог с фото и ценами, купить керамогранит в Бишкеке" />
+      </Head>
       <div className='category-page-container'>
         {
           collections && collections.map(item => (
