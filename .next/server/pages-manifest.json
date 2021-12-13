@@ -1,6 +1,14 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/about": "pages/about.html",
+  "/basket": "pages/basket.html",
+  "/category/[id]": "pages/category/[id].html",
+  "/collection/[id]": "pages/collection/[id].html",
+  "/delivery": "pages/delivery.html",
+  "/": "pages/index.html",
+  "/product": "pages/product.html",
+  "/sub/[id]": "pages/sub/[id].html",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js"
+  "/404": "pages/404.html"
 }
