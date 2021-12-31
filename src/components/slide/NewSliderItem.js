@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LazyLoad from "react-lazyload";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 

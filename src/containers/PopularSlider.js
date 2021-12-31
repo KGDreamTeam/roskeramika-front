@@ -1,12 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
-import useWindowDimension from "../helpers/useWindowDimension";
 
 import NewSliderItem from "../components/slide/NewSliderItem";
 import { useSelector } from "react-redux";
 
 const PopularSlider = () => {
-  const { width } = useWindowDimension();
   const hitsItems = useSelector(state => state.sliders.hitsSliderArray);
 
   var settings = {
@@ -14,7 +12,7 @@ const PopularSlider = () => {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: width < 720 ? 1 : width < 1000 ? 2 : 3,
+    slidesToShow: typeof window !== 'undefined' && window.innerWidth < 720 ? 1 : typeof window !== 'undefined' && window.innerHeight < 1000 ? 2 : 3,
     slidesToScroll: 1,
     className: "new-slider"
   };
