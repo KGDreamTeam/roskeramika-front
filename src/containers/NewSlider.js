@@ -12,7 +12,7 @@ const NewSlider = () => {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: typeof window !== 'undefined' && window.innerWidth < 720 ? 1 : typeof window !== 'undefined' && window.innerHeight < 1000 ? 2 : 3,
+    slidesToShow: typeof window !== 'undefined' && window.innerWidth < 720 ? 1 : typeof window !== 'undefined' && window.innerWidth < 1000 ? 2 : 3,
     slidesToScroll: 1,
     className: "new-slider"
   };

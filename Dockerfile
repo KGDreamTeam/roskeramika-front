@@ -6,12 +6,14 @@ WORKDIR /ec_frontend
 
 COPY ./package.json /ec_frontend
 
+COPY . /ec_frontend
+
 RUN npm install
 
-COPY . /ec_frontend
+RUN npm rebuild node-sass
 
 RUN npm run build
 
-CMD ["npm", "start"]
+CMD [ "npm", "run", "start" ]
 
 
