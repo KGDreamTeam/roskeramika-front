@@ -25,7 +25,9 @@ const PanelWithBasketItems = (props) => {
     for (let i = 0; i < prices.length; i++) {
       total += parseInt(prices[i].price);
     }
-    dispatch(setTotalPrice(total));
+    if(total > 0){
+      dispatch(setTotalPrice(total));
+    }
   }, [prices]);
 
   return (
@@ -36,7 +38,7 @@ const PanelWithBasketItems = (props) => {
             <BasketItem
               id={item.id}
               key={item.id}
-              count={(item.count = 0)}
+              count={item.count}
               sum={item.sum}
               subname={item.subcategory}
               name={item.name}

@@ -14,8 +14,8 @@ import {
 } from "../../store/actions/basket";
 
 const BasketItem = (props) => {
-  const [count, setCount] = useState(props.count);
-  const [price, setPrice] = useState(props.sum);
+  const [count, setCount] = useState(0);
+  const [price, setPrice] = useState(0);
   const dispatch = useDispatch();
 
   const minusHandler = () => {
@@ -32,7 +32,9 @@ const BasketItem = (props) => {
   };
 
   useEffect(() => {
-    setPrice(getTotalPriceProduct(props.price, count));
+    setCount(props.count);
+    setPrice(props.price);
+    // setPrice(getTotalPriceProduct(props.price, count));
     dispatch(priceForItem({ id: props.id, price: price }));
   }, [count, price]);
 

@@ -23,11 +23,11 @@ const Basket = () => {
   return (
     <div className="basket" onClick={() => setShow(!show)}>
       <IcBasketIcon className="ic-basket" />
-      {basket.items.length !== 0 ? (
+      {basket.items.length !== 0 && (
         <div className="ic-basket-count">{basket.items.length}</div>
-      ) : null}
+      )}
       <div className="total-sum">{totalSum.toFixed(2)} сом</div>
-      {show ? (
+      {show && (
         <div className="basket-dropdown">
           {basket.items.length !== 0 ? (
             basket.items.map(item => (
@@ -39,17 +39,17 @@ const Basket = () => {
               />
             ))
           ) : (
-            <div>ничего нету</div>
+            <div>Ой, похоже здесь пусто</div>
           )}
-          {basket.items.length !== 0 ? (
+          {basket.items.length !== 0 && (
             <Link href="/basket" className="offer">
               <a className="offer">
               оформить заказ
               </a>
             </Link>
-          ) : null}
+          )}
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

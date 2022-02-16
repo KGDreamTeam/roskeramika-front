@@ -7,8 +7,8 @@ import {
 import {
   priceForItem,
   pushItemToBasket,
-  setTotalPrice
 } from "../../store/actions/basket";
+import ModalImage from "react-modal-image";
 
 const CollectionProduct = props => {
   const prices = useSelector(state => state.basket.itemsPrices);
@@ -60,7 +60,13 @@ const CollectionProduct = props => {
   return (
     <div className="collection-product">
       <div className="image-wrapper">
-        <img src={props.img} alt="product" className="image-product" />
+        <ModalImage
+          small={props.img}
+          large={props.img}
+          alt="product"
+          className="image-product"
+        />
+        {/*<img src={props.img} alt="product" className="image-product" />*/}
       </div>
       <div className="product-wrapper">
         <div className="type-wrapper">

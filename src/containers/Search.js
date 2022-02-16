@@ -46,18 +46,32 @@ const Search = () => {
     }
   }, [input]);
 
+  const MyLink = (myLinkProps) => {
+    const { onCustomClick, ...p} = myLinkProps
+
+    const handleClick = event => {
+      if (myLinkProps.onClick) {
+        myLinkProps.onClick(event)
+      }
+
+      if (myLinkProps.onCustomClick) {
+        myLinkProps.onCustomClick(event);
+      }
+    }
+    return <a {...myLinkProps} onClick={handleClick} />
+  }
+
   const Item = props => {
     return (
       <Link
         href={`/collection/${props.id}`}
         className="nav"
-        onClick={handleClearInput}
       >
-        <a className="nav">
-        <div className="item">
-          <span className="bold">{props.name}</span> {props.sub}
-        </div>
-        </a>
+        <MyLink className="nav" onClick={handleClearInput}>
+          <div className="item">
+            <span className="bold">{props.name}</span> {props.sub}
+          </div>
+        </MyLink>
       </Link>
     );
   };
@@ -84,7 +98,7 @@ const Search = () => {
       <button className="btn-search" onClick={handleClickSearch}>
         Найти
       </button>
-      {show ? (
+      {show && (
         <div className="searched-items">
           {items.length !== 0 ? (
             items.map(item => (
@@ -99,7 +113,7 @@ const Search = () => {
             <div className="nothing">Не удалось найти</div>
           )}
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

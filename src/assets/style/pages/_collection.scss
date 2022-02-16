@@ -32,7 +32,7 @@
           .photo {
             width: 100%;
             height: 460px;
-            object-fit: cover;
+            object-fit: contain;
           }
           .img-text {
             padding: 5px 10px;
@@ -177,15 +177,17 @@
         }
         .image-wrapper {
           width: 30%;
+          max-height: 420px;
           height: 420px;
           @include _870() {
             width: 100%;
             height: max-content;
+            max-height: 400px;
           }
           .image-product {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 420px;
+            object-fit: contain;
             @include _870() {
               height: 100px;
             }
@@ -247,6 +249,9 @@
                 background-color: $grey-color;
                 color: black;
               }
+              &:hover{
+                cursor: pointer;
+              }
             }
             .plus {
               background-color: $btn-yello;
@@ -259,6 +264,9 @@
               &:disabled {
                 background-color: $grey-color;
                 color: black;
+              }
+              &:hover{
+                cursor: pointer;
               }
             }
             .input-quantity {
@@ -297,7 +305,7 @@
               background-color: #eeeff0;
               color: #86879a;
             }
-            &:hover {
+            &:hover:enabled {
               cursor: pointer;
               filter: brightness(110%);
             }

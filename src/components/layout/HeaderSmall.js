@@ -68,20 +68,40 @@ const HeaderSmall = (props) => {
     width: "80%",
   };
 
+  class MyLink extends React.Component {
+    render () {
+      const { onCustomClick, ...props } = this.props
+      return <a {...props} onClick={this.handleClick} />
+    }
+
+    handleClick = event => {
+      if (this.props.onClick) {
+        this.props.onClick(event)
+      }
+
+      if (this.props.onCustomClick) {
+        this.props.onCustomClick(event)
+      }
+    }
+  }
+
   const Item = (props) => {
     return (
       <Link
         href={`/collection/${props.id}`}
         className="nav-small"
-        onClick={() => {
-          handleClearInput();
-          handleCloseBurger();
-        }}>
-        <a className="nav-small">
+      >
+        <MyLink
+          onClick={() => {
+            handleClearInput();
+            handleCloseBurger();
+          }}
+          className="nav-small"
+        >
           <div className="item-small">
             <span className="bold-small">{props.name}</span> {props.sub}
           </div>
-        </a>
+        </MyLink>
       </Link>
     );
   };
