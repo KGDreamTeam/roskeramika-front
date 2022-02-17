@@ -34,9 +34,15 @@ const BasketItem = (props) => {
   useEffect(() => {
     setCount(props.count);
     setPrice(props.price);
-    // setPrice(getTotalPriceProduct(props.price, count));
+  }, [props.count, props.price]);
+
+  useEffect(() => {
     dispatch(priceForItem({ id: props.id, price: price }));
-  }, [count, price]);
+  }, [count, price])
+
+  useEffect(() => {
+    setPrice(getTotalPriceProduct(props.price, count));
+  }, [props.count, props.price, count])
 
   return (
     <div className="cart-item">
@@ -81,7 +87,7 @@ const BasketItem = (props) => {
                 className="input-count"
                 type="number"
                 min={0}
-                step={0.01}
+                step={0.1}
               />
               <button className="minus" onClick={plusHandler}>
                 +
