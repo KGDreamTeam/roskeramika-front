@@ -12,6 +12,7 @@ import {
   deleteItemBasket,
   deleteItemsPrice,
 } from "../../store/actions/basket";
+import ModalImage from "react-modal-image";
 
 const BasketItem = (props) => {
   const [count, setCount] = useState(0);
@@ -51,10 +52,11 @@ const BasketItem = (props) => {
       </h2>
       <div className="cart-item-infos">
         <div className="image-wrapper">
-          <img
-            src={props.image}
-            className="cart-item-img"
-            alt="product of cart"
+          <ModalImage
+            small={props.image}
+            large={props.image}
+            alt="product"
+            className="image-product"
           />
         </div>
         <div className="infos-wrapper">
