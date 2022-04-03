@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "formik": "^2.2.6",
     "google-maps-react": "^2.0.6",
+    "lightgallery": "^2.4.0",
     "multiselect-react-dropdown": "^1.6.11",
     "next": "^11.1.2",
     "next-redux-wrapper": "^7.0.5",
